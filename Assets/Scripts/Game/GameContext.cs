@@ -1,4 +1,5 @@
-﻿using Core.Unity.Utils;
+﻿using Core;
+using Core.Unity.Utils;
 using Game.Input;
 using UnityEngine;
 
@@ -8,5 +9,10 @@ namespace Game
     {
         [SerializeField]
         private InputManager m_inputManager = null;
+
+        private void Start()
+        {
+            Log.RegisterSink<UnitySink>();
+        }
     }
 }

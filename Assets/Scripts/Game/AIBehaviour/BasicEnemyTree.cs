@@ -18,13 +18,19 @@ namespace Game.AIBehaviour
                 // Do Basic Attack
                 new SequenceNode(this, new List<Node>
                 {
-                    new FindTargetInRange(this, () => FindTargetInRange.InActionRange(LayerMask.GetMask(Layers.PLAYER), FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform)),
+                    new FindTargetInRange(this,
+                                          () => FindTargetInRange.InActionRange(LayerMask.GetMask(Layers.PLAYER), ControlledEntity,
+                                                                                    FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform),
+                                          () => FindTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack)),
                     new TaskDoAction(this, FrameInputData.ActionType.BasicAttack),
                 }),
                 // Try to find an enemy to attack
                 new SequenceNode(this, new List<Node>
                 {
-                    new FindTargetInRange(this, () => FindTargetInRange.InSphereRange(LayerMask.GetMask(Layers.PLAYER), FOVRange, ControlledEntity.Rigidbody.transform)),
+                    new FindTargetInRange(this,
+                                          () => FindTargetInRange.InSphereRange(LayerMask.GetMask(Layers.PLAYER),
+                                                                                    FOVRange, ControlledEntity.Rigidbody.transform),
+                                          () => FOVRange),
                     new TaskGoToTarget(this),
                 }),
                 // Else idle

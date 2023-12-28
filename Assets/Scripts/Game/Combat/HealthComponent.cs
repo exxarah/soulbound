@@ -10,7 +10,7 @@ namespace Game.Combat
     public class HealthComponent : MonoBehaviour, IDamageable
     {
         [SerializeField]
-        private int m_maxHealth;
+        private int m_maxHealth = 50;
 
         [SerializeField, ReadOnly]
         private int m_currentHealth;

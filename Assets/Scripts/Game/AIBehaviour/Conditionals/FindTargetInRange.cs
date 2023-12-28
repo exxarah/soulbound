@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Combat;
 using Game.Data;
 using Game.Input;
 using UnityEngine;
@@ -8,26 +9,29 @@ namespace Game.AIBehaviour.Conditionals
 {
     public class FindTargetInRange : Node
     {
-        private Func<Transform> m_inRangeFunc;
+        private Func<Transform> m_findTargetFunc;
+        private Func<float> m_getRangeFunc;
 
-        public FindTargetInRange(ABehaviourTree tree, Func<Transform> inRangeFunc) : base(tree)
+        public FindTargetInRange(ABehaviourTree tree, Func<Transform> findTargetFunc, Func<float> getRangeFunc) : base(tree)
         {
-            m_inRangeFunc = inRangeFunc;
+            m_findTargetFunc = findTargetFunc;
+            m_getRangeFunc = getRangeFunc;
         }
 
-        public FindTargetInRange(ABehaviourTree tree, List<Node> children, Func<Transform> inRangeFunc) :
+        public FindTargetInRange(ABehaviourTree tree, List<Node> children, Func<Transform> findTargetFunc, Func<float> getRangeFunc) :
             base(tree, children)
         {
-            m_inRangeFunc = inRangeFunc;
+            m_findTargetFunc = findTargetFunc;
+            m_getRangeFunc = getRangeFunc;
         }
 
         public override NodeState Evaluate()
         {
-            object target = GetData("target");
+            Transform target = (Transform)GetData("target");
             if (target == null)
             {
                 // Check if we can find a new target
-                Transform newTarget = m_inRangeFunc?.Invoke();
+                Transform newTarget = m_findTargetFunc?.Invoke();
                 if (newTarget != null)
                 {
                     Tree.Root.SetData("target", newTarget);
@@ -35,6 +39,13 @@ namespace Game.AIBehaviour.Conditionals
                     return State;
                 }
 
+                State = NodeState.Failure;
+                return State;
+            }
+            
+            // Make sure the target is still in range
+            if (Vector3.Distance(Tree.ControlledEntity.Rigidbody.transform.position, target.position) > m_getRangeFunc.Invoke())
+            {
                 State = NodeState.Failure;
                 return State;
             }
@@ -52,13 +63,27 @@ namespace Game.AIBehaviour.Conditionals
         public static Transform InAbilityRange(int layerMask, string abilityID, Transform source)
         {
             AbilityDatabase.AbilityDefinition ability = Database.Instance.AbilityDatabase.GetAbility(abilityID);
+            if (ability == null) { return null; }
+
             return InSphereRange(layerMask, ability.AttackRange, source);
         }
 
-        public static Transform InActionRange(int layerMask, FrameInputData.ActionType action, Transform source)
+        public static Transform InActionRange(int layerMask, Entity.Entity entity, FrameInputData.ActionType action, Transform source)
         {
-            // TODO: Get currently equipped ability in given action slot, and pass through to InAbilityRange
-            return null;
+            return InAbilityRange(layerMask, entity.AbilitiesComponent.GetAbility(action), source);
+        }
+
+        public static float GetAbilityRange(string abilityID)
+        {
+            AbilityDatabase.AbilityDefinition ability = Database.Instance.AbilityDatabase.GetAbility(abilityID);
+            if (ability == null) { return 0.0f; }
+
+            return ability.AttackRange;
+        }
+
+        public static float GetActionRange(Entity.Entity entity, FrameInputData.ActionType action)
+        {
+            return GetAbilityRange(entity.AbilitiesComponent.GetAbility(action));
         }
     }
 }

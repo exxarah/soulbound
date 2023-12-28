@@ -17,7 +17,11 @@ namespace Game.AIBehaviour.Tasks
 
         public override NodeState Evaluate()
         {
-            return base.Evaluate();
+            Tree.ControlledEntity.ApplyInput(m_inputData);
+            // TODO: Lock them into this
+
+            State = NodeState.Running;
+            return State;
         }
     }
 }

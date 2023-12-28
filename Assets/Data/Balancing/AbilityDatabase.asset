@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a1e1f8ad4a4a629dbbda6477c73df1, type: 3}
   m_Name: AbilityDatabase
   m_EditorClassIdentifier: 
-  m_definitions: []
+  m_definitions:
+  - m_abilityID: shield_basic
+    m_animationName: 
+    m_targetType: 0
+    m_attackRange: 0
+    m_coneDegrees: 0
+    m_maxTargets: 0
+  - m_abilityID: attack_basic
+    m_animationName: 
+    m_targetType: 1
+    m_attackRange: 2
+    m_coneDegrees: 45
+    m_maxTargets: 1
+  - m_abilityID: charm_default
+    m_animationName: 
+    m_targetType: 1
+    m_attackRange: 2
+    m_coneDegrees: 45
+    m_maxTargets: 1

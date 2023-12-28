@@ -15,14 +15,19 @@ namespace Game.Input
         public bool AbilityThree;
         public bool AbilityFour;
 
+        public bool CharmAbility;
+
         public enum ActionType
         {
             Shield,
             BasicAttack,
+
             AbilityOne,
             AbilityTwo,
             AbilityThree,
             AbilityFour,
+
+            CharmAbility,
         }
 
         public void SetAction(ActionType action, bool enabled)
@@ -46,6 +51,9 @@ namespace Game.Input
                     break;
                 case ActionType.AbilityFour:
                     AbilityFour = enabled;
+                    break;
+                case ActionType.CharmAbility:
+                    CharmAbility = enabled;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(action), action, null);

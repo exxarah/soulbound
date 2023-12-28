@@ -1,4 +1,5 @@
-﻿using Game.Input;
+﻿using Game.Data;
+using Game.Input;
 using UnityEngine;
 
 namespace Game.Entity
@@ -17,6 +18,11 @@ namespace Game.Entity
                 return;
             }
 
+            if (input.BasicAttack && Database.Instance.AbilityDatabase.TryGetAbility(Entity.AbilitiesComponent.GetAbility(FrameInputData.ActionType.BasicAttack), out AbilityDatabase.AbilityDefinition ability))
+            {
+                StateMachine.ChangeState(new EntityAttackState(Entity, ability));
+            }
+
             m_movementInput = input.MovementDirection;
         }
         
@@ -26,6 +32,11 @@ namespace Game.Entity
             
             Vector3 direction = new Vector3(m_movementInput.x, 0.0f, m_movementInput.y).normalized;
             Entity.Rigidbody.velocity = direction * Entity.Speed * Time.deltaTime;
+
+            if (Entity.FacesMovementDirection)
+            {
+                Entity.Rigidbody.rotation = Quaternion.LookRotation(direction, Entity.Rigidbody.transform.up);
+            }
         }
 
         public override void Enter()

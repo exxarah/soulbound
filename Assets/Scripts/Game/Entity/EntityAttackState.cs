@@ -20,6 +20,11 @@ namespace Game.Entity
             m_ability = Database.Instance.AbilityDatabase.GetAbility(ability);
         }
 
+        public EntityAttackState(Entity stateMachine, AbilityDatabase.AbilityDefinition ability) : base(stateMachine)
+        {
+            m_ability = ability;
+        }
+
         public override void Enter()
         {
             base.Enter();
@@ -53,11 +58,14 @@ namespace Game.Entity
                 AttackRange = m_ability.AttackRange,
                 ConeAngleDegrees = m_ability.ConeDegrees,
                 TargetMaximumCount = m_ability.MaxTargets,
-                Layers = LayerMask.GetMask(Layers.ENEMIES),
+                Layers = Entity.EntitiesToAttack,
             });
             
             // Play and wait for animation
-            await Entity.Animator.PlayAndWait(m_ability.AnimationName);
+            if (!string.IsNullOrEmpty(m_ability.AnimationName))
+            {
+                await Entity.Animator.PlayAndWait(m_ability.AnimationName);   
+            }
 
             // Do attack
             foreach (IDamageable target in targets)

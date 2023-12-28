@@ -44,5 +44,11 @@ namespace Game.Data
         {
             return m_definitions.Find((definition => definition.AbilityID == abilityID));
         }
+
+        public bool TryGetAbility(string abilityID, out AbilityDefinition ability)
+        {
+            ability = GetAbility(abilityID);
+            return ability != null;
+        }
     }
 }

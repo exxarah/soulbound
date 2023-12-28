@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.DataStructure;
+using Game.Combat;
 using Game.Input;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -17,10 +18,22 @@ namespace Game.Entity
         private Animator m_animator = null;
         public Animator Animator => m_animator;
 
-        [Header("Entity Stats")]
+        [Header("Entity Information")]
         [SerializeField]
         private float m_speed = 30.0f;
         public float Speed => m_speed;
+
+        [SerializeField]
+        private bool m_facesMovement = true;
+        public bool FacesMovementDirection => m_facesMovement;
+
+        [SerializeField]
+        private EquippedAbilitiesComponent m_abilitiesComponent = null;
+        public EquippedAbilitiesComponent AbilitiesComponent => m_abilitiesComponent;
+
+        [SerializeField]
+        private LayerMask m_entitiesToAttack;
+        public LayerMask EntitiesToAttack => m_entitiesToAttack;
 
         private void Start()
         {

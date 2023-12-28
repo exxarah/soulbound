@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4604987726606122925}
   - component: {fileID: 7436424670463285084}
   - component: {fileID: 8734582489155299967}
+  - component: {fileID: 2749350516011610173}
   - component: {fileID: 7118849532618546412}
   - component: {fileID: 3039128149016360921}
   - component: {fileID: 5650690420751454219}
@@ -53,6 +54,10 @@ MonoBehaviour:
   m_rigidbody: {fileID: 3039128149016360921}
   m_animator: {fileID: 4668318047993282305}
   m_speed: 20
+  m_abilitiesComponent: {fileID: 2749350516011610173}
+  m_entitiesToAttack:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &8734582489155299967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +71,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_controlledEntity: {fileID: 7436424670463285084}
+--- !u!114 &2749350516011610173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976138224753339175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff6028435f6472388a659ef86277830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_shieldAbility: shield_basic
+  m_basicAbility: attack_basic
+  m_abilityOne: 
+  m_abilityTwo: 
+  m_abilityThree: 
+  m_abilityFour: 
+  m_charmAbility: charm_default
 --- !u!114 &7118849532618546412
 MonoBehaviour:
   m_ObjectHideFlags: 0

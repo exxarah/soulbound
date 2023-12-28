@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: efe05ad700d6c0f4b8d796fb2eaf6f6e
   m_SerializeEntries:
   - m_GUID: 6946425500ced72478a9e2653af07ad3
-    m_Address: Assets/Data/Database.asset
+    m_Address: Database
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

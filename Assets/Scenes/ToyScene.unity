@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 336260470}
   - component: {fileID: 336260473}
   - component: {fileID: 336260472}
+  - component: {fileID: 336260476}
+  - component: {fileID: 336260477}
   - component: {fileID: 336260475}
   - component: {fileID: 336260474}
   m_Layer: 7
@@ -174,6 +176,10 @@ MonoBehaviour:
   m_rigidbody: {fileID: 336260475}
   m_animator: {fileID: 2010472275}
   m_speed: 20
+  m_abilitiesComponent: {fileID: 336260476}
+  m_entitiesToAttack:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &336260473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +242,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &336260476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336260469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff6028435f6472388a659ef86277830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_shieldAbility: shield_basic
+  m_basicAbility: attack_basic
+  m_abilityOne: 
+  m_abilityTwo: 
+  m_abilityThree: 
+  m_abilityFour: 
+  m_charmAbility: 
+--- !u!114 &336260477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336260469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e4b99475394e8cabb68ff006ca955d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxHealth: 50
+  m_currentHealth: 0
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRestored:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &902440883
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,11 +689,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039128149016360921, guid: 08eeb48ea97588b40ae6282bc8230da1,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4604987726606122925, guid: 08eeb48ea97588b40ae6282bc8230da1,
         type: 3}
