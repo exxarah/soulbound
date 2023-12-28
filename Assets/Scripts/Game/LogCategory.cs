@@ -1,4 +1,4 @@
-﻿namespace Game.Toy
+﻿namespace Game
 {
     public static class LogCategory
     {

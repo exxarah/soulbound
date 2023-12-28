@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4604987726606122925}
   - component: {fileID: 7436424670463285084}
   - component: {fileID: 8734582489155299967}
+  - component: {fileID: 7118849532618546412}
   - component: {fileID: 7578231911803067295}
   m_Layer: 0
   m_Name: Player
@@ -50,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_characterController: {fileID: 7578231911803067295}
   m_animator: {fileID: 4668318047993282305}
+  m_speed: 30
 --- !u!114 &8734582489155299967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +65,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_controlledEntity: {fileID: 7436424670463285084}
+--- !u!114 &7118849532618546412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976138224753339175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e4b99475394e8cabb68ff006ca955d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxHealth: 50
+  m_currentHealth: 0
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRestored:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!143 &7578231911803067295
 CharacterController:
   m_ObjectHideFlags: 0
