@@ -440,6 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1215615955}
   - component: {fileID: 1215615956}
+  - component: {fileID: 1215615957}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -477,6 +478,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_inputManager: {fileID: 0}
+  MinionManager: {fileID: 0}
+  GameState: {fileID: 1215615957}
+--- !u!114 &1215615957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215615954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff720358165640959da66ca2ecebdcd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameSeconds: 300
 --- !u!1 &1385293882
 GameObject:
   m_ObjectHideFlags: 0

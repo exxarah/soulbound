@@ -2,6 +2,7 @@
 using Core.Unity.Utils;
 using Game.Input;
 using Game.Minions;
+using Game.Toy;
 using UnityEngine;
 
 namespace Game
@@ -14,6 +15,7 @@ namespace Game
 
         [Header("Toy Managers")]
         public MinionManager MinionManager = null;
+        public GameState GameState = new GameState();
 
         private void Start()
         {
