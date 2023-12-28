@@ -3,7 +3,37 @@ guid: 5c37563aff207cb448cd263fa6f9472a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: f5dd445c3e999464690c04d7cf651267, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HatBelt
+    second: {fileID: 2100000, guid: b2d6d16520339a448b662366be4c1a79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HatBuckle
+    second: {fileID: 2100000, guid: b7e8b7d1b34aed54a9e82a2f85d4af18, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OutfitBase
+    second: {fileID: 2100000, guid: ef9b6dc3440406345ae1c3c81fc1aaa7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: ec04fe3dbb5073c47a8eb227569aef25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Socks
+    second: {fileID: 2100000, guid: 6905a7e2b22a7764fb86d40187db6396, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

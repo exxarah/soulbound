@@ -1,6 +1,7 @@
 ﻿using Core;
 using Core.Unity.Utils;
 using Game.Input;
+using Game.Minions;
 using UnityEngine;
 
 namespace Game

@@ -1,14 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 using Core.Unity.Utils;
 using Game.Combat;
 using UnityEngine;
+using UnityEngine.Pool;
 
-namespace Game
+namespace Game.Minions
 {
-    public class MinionManager : AObjectPool<Entity.Entity>
+    public class MinionManager : AObjectPool<Minion>
     {
         [SerializeField]
-        private Entity.Entity m_minionPrefab = null;
+        private Minion m_minionPrefab = null;
+
+        [SerializeField]
+        private Transform m_minionRoot = null;
+
+        private Dictionary<Enums.CharmType, List<Minion>> m_activeMinions =
+            new Dictionary<Enums.CharmType, List<Minion>>();
         
         private void Start()
         {
@@ -22,24 +30,24 @@ namespace Game
 
 #region Pool Management
 
-        protected override void OnDestroyPoolObject(Entity.Entity obj)
+        protected override void OnDestroyPoolObject(Minion obj)
         {
             Destroy(obj.gameObject);
         }
 
-        protected override void OnReturnedToPool(Entity.Entity obj)
+        protected override void OnReturnedToPool(Minion obj)
         {
             obj.gameObject.SetActiveSafe(false);
         }
 
-        protected override void OnTakeFromPool(Entity.Entity obj)
+        protected override void OnTakeFromPool(Minion obj)
         {
             obj.gameObject.SetActiveSafe(true);
         }
 
-        protected override Entity.Entity CreatePooledItem()
+        protected override Minion CreatePooledItem()
         {
-            Entity.Entity minion = Instantiate(m_minionPrefab);
+            Minion minion = Instantiate(m_minionPrefab, m_minionRoot);
             return minion;
         }
 
@@ -47,7 +55,22 @@ namespace Game
 
         public void CreateMinion(Enums.CharmType charmType, int amountOfCharms)
         {
-            
+            for (int i = 0; i < amountOfCharms; i++)
+            {
+                Pool.Get(out Minion minion);
+                minion.Initialise(charmType);
+
+                if (!m_activeMinions.ContainsKey(charmType))
+                {
+                    m_activeMinions.Add(charmType, new List<Minion>());
+                }
+                m_activeMinions[charmType].Add(minion);
+            }
+        }
+
+        public void ConsumeMinions(params Tuple<Enums.CharmType, int>[] minionsToConsume)
+        {
+            throw new NotImplementedException();
         }
     }
 }

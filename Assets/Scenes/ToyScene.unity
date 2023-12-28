@@ -301,6 +301,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_charmType: 0
   m_charmCount: 1
+--- !u!1 &721960956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721960957}
+  - component: {fileID: 721960958}
+  m_Layer: 0
+  m_Name: MinionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &721960957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721960956}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 976778932}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &721960958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721960956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fb131f43fc4ffabb29741a5a434235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_minionPrefab: {fileID: 3736825542458149405, guid: 6d0ad0b6db9228d40b6314f9496ec8b5,
+    type: 3}
+  m_minionRoot: {fileID: 721960957}
 --- !u!1 &902440883
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +413,7 @@ Transform:
   - {fileID: 1112440615}
   - {fileID: 1867993559}
   - {fileID: 336260470}
+  - {fileID: 721960957}
   m_Father: {fileID: 1320916942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1112440614
@@ -450,7 +498,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1320916942}
   - component: {fileID: 1320916943}
-  - component: {fileID: 1320916944}
   m_Layer: 0
   m_Name: ToyScreen
   m_TagString: Untagged
@@ -488,19 +535,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_overrideText: 0
---- !u!114 &1320916944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320916941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0fb131f43fc4ffabb29741a5a434235, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_minionPrefab: {fileID: 0}
 --- !u!4 &1681262299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4604987726606122925, guid: 08eeb48ea97588b40ae6282bc8230da1,
