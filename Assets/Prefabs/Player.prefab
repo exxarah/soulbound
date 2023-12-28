@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8734582489155299967}
   - component: {fileID: 7118849532618546412}
   - component: {fileID: 7578231911803067295}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4726721894849866485}
   - component: {fileID: 5236291083402368270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Virtual Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 1128428604372744174}
   - component: {fileID: 9159121102798546543}
   - component: {fileID: 7181357461509602444}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 3854318483985357050}
   - component: {fileID: 4151303505480274884}
   - component: {fileID: 4668318047993282305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
