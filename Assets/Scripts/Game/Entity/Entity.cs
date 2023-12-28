@@ -32,12 +32,26 @@ namespace Game.Entity
         public EquippedAbilitiesComponent AbilitiesComponent => m_abilitiesComponent;
 
         [SerializeField]
+        private HealthComponent m_healthComponent = null;
+        public HealthComponent HealthComponent => m_healthComponent;
+
+        [SerializeField]
         private LayerMask m_entitiesToAttack;
         public LayerMask EntitiesToAttack => m_entitiesToAttack;
 
         private void Start()
         {
             ChangeState(new EntityIdleState(this));
+        }
+
+        public override void Update()
+        {
+            if (m_healthComponent != null && m_healthComponent.IsDead)
+            {
+                ChangeState(new EntityDeadState(this));
+            }
+
+            base.Update();
         }
 
         public void ApplyInput(FrameInputData frameInput)

@@ -56,6 +56,7 @@ MonoBehaviour:
   m_speed: 250
   m_facesMovement: 0
   m_abilitiesComponent: {fileID: 2749350516011610173}
+  m_healthComponent: {fileID: 7118849532618546412}
   m_entitiesToAttack:
     serializedVersion: 2
     m_Bits: 128
@@ -128,15 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxHealth: 50
   m_currentHealth: 0
-  OnDamaged:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRestored:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
+  m_gameLostOnDeath: 1
+  m_animator: {fileID: 659604807391150059}
+  m_deathAnimState: 
 --- !u!54 &3039128149016360921
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -154,14 +154,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336260469}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.92585045, z: -0, w: 0.37789017}
   m_LocalPosition: {x: -4.59, y: 0, z: -4.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 739190349}
   m_Father: {fileID: 976778932}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -135.594, z: 0}
 --- !u!114 &336260472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,9 +176,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigidbody: {fileID: 336260475}
   m_animator: {fileID: 739190351}
-  m_speed: 80
+  m_speed: 200
   m_facesMovement: 1
   m_abilitiesComponent: {fileID: 336260476}
+  m_healthComponent: {fileID: 336260477}
   m_entitiesToAttack:
     serializedVersion: 2
     m_Bits: 64
@@ -277,15 +278,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxHealth: 50
   m_currentHealth: 0
-  OnDamaged:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRestored:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
+  m_gameLostOnDeath: 0
+  m_animator: {fileID: 739190351}
+  m_deathAnimState: 
 --- !u!114 &336260478
 MonoBehaviour:
   m_ObjectHideFlags: 0

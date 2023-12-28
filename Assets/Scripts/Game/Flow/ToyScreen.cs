@@ -1,5 +1,5 @@
 ﻿using Core.Unity.Flow;
-using Game.Toy;
+using Screen = Core.Unity.Flow.Screen;
 
 namespace Game.Flow
 {
