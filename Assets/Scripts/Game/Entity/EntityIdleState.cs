@@ -13,11 +13,19 @@ namespace Game.Entity
             if (input.MovementDirection != Vector2.zero)
             {
                 StateMachine.ChangeState(new EntityMovingState(Entity));
+                return;
             }
             
             if (input.BasicAttack && Database.Instance.AbilityDatabase.TryGetAbility(Entity.AbilitiesComponent.GetAbility(FrameInputData.ActionType.BasicAttack), out AbilityDatabase.AbilityDefinition ability))
             {
                 StateMachine.ChangeState(new EntityAttackState(Entity, ability));
+                return;
+            }
+            
+            if (input.CharmAbility && Database.Instance.AbilityDatabase.TryGetAbility(Entity.AbilitiesComponent.GetAbility(FrameInputData.ActionType.CharmAbility), out ability))
+            {
+                StateMachine.ChangeState(new EntityAttackState(Entity, ability));
+                return;
             }
         }
     }

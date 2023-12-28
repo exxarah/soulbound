@@ -40,6 +40,14 @@ namespace Game.Data
 
             [Header("Result Information")]
             [SerializeField]
+            private int m_healthDecrement = 0;
+            public int HealthDecrement => m_healthDecrement;
+
+            [SerializeField]
+            private bool m_instaKill = false;
+            public bool InstaKill => m_instaKill;
+            
+            [SerializeField]
             private List<AAbilityEffect> m_effects = new List<AAbilityEffect>();
             public IReadOnlyList<AAbilityEffect> Effects => m_effects;
 

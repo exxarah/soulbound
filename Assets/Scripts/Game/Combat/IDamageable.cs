@@ -13,5 +13,6 @@ namespace PracticeJam.Game.Combat
     public struct DamageParams
     {
         public int DamageAmount;
+        public bool ForceKill;
     }
 }

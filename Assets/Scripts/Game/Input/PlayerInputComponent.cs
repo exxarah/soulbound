@@ -37,8 +37,10 @@ namespace Game.Input
             movementInput = m_isometricSkew.MultiplyPoint3x4(movementInput);
             m_inputData.MovementDirection = new Vector2(movementInput.x, movementInput.z);
 
-            m_inputData.BasicAttack = UnityEngine.Input.GetMouseButton(0);
-            m_inputData.Shield = UnityEngine.Input.GetMouseButton(1);
+            m_inputData.BasicAttack = UnityEngine.Input.GetMouseButtonDown(0);
+            m_inputData.Shield = UnityEngine.Input.GetMouseButtonDown(1);
+
+            m_inputData.CharmAbility = UnityEngine.Input.GetKeyDown(KeyCode.Space);
             
             m_controlledEntity.ApplyInput(m_inputData);
 

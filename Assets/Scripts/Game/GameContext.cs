@@ -7,8 +7,12 @@ namespace Game
 {
     public class GameContext : SceneSingleton<GameContext>
     {
+        [Header("Global Managers")]
         [SerializeField]
         private InputManager m_inputManager = null;
+
+        [Header("Toy Managers")]
+        public MinionManager MinionManager = null;
 
         private void Start()
         {

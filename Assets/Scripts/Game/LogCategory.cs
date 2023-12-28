@@ -2,6 +2,7 @@
 {
     public static class LogCategory
     {
-        public static string COMBAT = "Combat";
+        public const string COMBAT = "Combat";
+        public const string ABILITIES = "Abilities";
     }
 }

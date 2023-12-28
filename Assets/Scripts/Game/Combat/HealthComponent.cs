@@ -39,6 +39,11 @@ namespace Game.Combat
 
         public void DoDamage(DamageParams @params)
         {
+            if (@params.ForceKill)
+            {
+                ChangeHealth(-CurrentHealth);
+                return;
+            }
             ChangeHealth(-@params.DamageAmount);
         }
 

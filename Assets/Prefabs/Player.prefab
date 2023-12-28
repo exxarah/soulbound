@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4604987726606122925}
   - component: {fileID: 7436424670463285084}
   - component: {fileID: 8734582489155299967}
+  - component: {fileID: 2195948319487253422}
   - component: {fileID: 2749350516011610173}
   - component: {fileID: 7118849532618546412}
   - component: {fileID: 3039128149016360921}
@@ -52,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigidbody: {fileID: 3039128149016360921}
   m_animator: {fileID: 659604807391150059}
-  m_speed: 20
+  m_speed: 100
   m_facesMovement: 0
   m_abilitiesComponent: {fileID: 2749350516011610173}
   m_entitiesToAttack:
@@ -73,6 +74,27 @@ MonoBehaviour:
   m_controlledEntity: {fileID: 7436424670463285084}
   m_viewCamera: {fileID: 0}
   m_isometricSkewPreference: 0
+--- !u!114 &2195948319487253422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976138224753339175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edfa1b405d5479d8900f973205b2e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_charmsOwned:
+    list:
+    - Key: 0
+      Value: 0
+    - Key: 1
+      Value: 0
+    - Key: 2
+      Value: 0
+    keyCollision: 0
 --- !u!114 &2749350516011610173
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -299,6 +299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243b433517864541b9646a768f783dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_charmType: 0
+  m_charmCount: 1
 --- !u!1 &902440883
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1320916942}
   - component: {fileID: 1320916943}
+  - component: {fileID: 1320916944}
   m_Layer: 0
   m_Name: ToyScreen
   m_TagString: Untagged
@@ -485,6 +488,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_overrideText: 0
+--- !u!114 &1320916944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320916941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fb131f43fc4ffabb29741a5a434235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_minionPrefab: {fileID: 0}
 --- !u!4 &1681262299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4604987726606122925, guid: 08eeb48ea97588b40ae6282bc8230da1,
@@ -1008,11 +1024,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -5.79228
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436424670463285084, guid: 08eeb48ea97588b40ae6282bc8230da1,
-        type: 3}
-      propertyPath: m_speed
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8734582489155299967, guid: 08eeb48ea97588b40ae6282bc8230da1,
         type: 3}

@@ -69,12 +69,12 @@ namespace Game.Entity
                 switch (effect.Target)
                 {
                     case Enums.EffectTarget.Caster:
-                        effect.ApplyToTarget(Entity.Rigidbody.transform);
+                        effect.ApplyToTarget(Entity.Rigidbody.transform, Entity.gameObject);
                         break;
                     case Enums.EffectTarget.Target:
                         foreach (IDamageable target in targets)
                         {
-                            effect.ApplyToTarget(target.Transform);
+                            effect.ApplyToTarget(target.Transform, Entity.gameObject);
                         }
                         break;
                     default:
@@ -87,31 +87,31 @@ namespace Game.Entity
             {
                 await Entity.Animator.PlayAndWait(m_ability.AnimationName);   
             }
-
-            // Do attack
-            foreach (IDamageable target in targets)
-            {
-                // TODO:
-                target.DoDamage(new DamageParams{DamageAmount = 10});
-            }
             
-            // Apply OnHit effects
+            // Apply OnHit effects (before damage, incase the target dies and can't be referenced anymore)
             foreach (AAbilityEffect effect in m_ability.GetEffects((effect) => effect.Timing == Enums.EffectTiming.OnHit))
             {
                 switch (effect.Target)
                 {
                     case Enums.EffectTarget.Caster:
-                        effect.ApplyToTarget(Entity.Rigidbody.transform);
+                        effect.ApplyToTarget(Entity.Rigidbody.transform, Entity.gameObject);
                         break;
                     case Enums.EffectTarget.Target:
                         foreach (IDamageable target in targets)
                         {
-                            effect.ApplyToTarget(target.Transform);
+                            effect.ApplyToTarget(target.Transform, Entity.gameObject);
                         }
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
+            }
+
+            // Do attack
+            foreach (IDamageable target in targets)
+            {
+                // TODO:
+                target.DoDamage(new DamageParams{DamageAmount = m_ability.HealthDecrement, ForceKill = m_ability.InstaKill});
             }
             
             // Return to idle
