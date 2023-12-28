@@ -33,7 +33,7 @@ namespace Game.Entity
             Vector3 direction = new Vector3(m_movementInput.x, 0.0f, m_movementInput.y).normalized;
             Entity.Rigidbody.velocity = direction * Entity.Speed * Time.deltaTime;
 
-            if (Entity.FacesMovementDirection)
+            if (Entity.FacesMovementDirection && direction != Vector3.zero)
             {
                 Entity.Rigidbody.rotation = Quaternion.LookRotation(direction, Entity.Rigidbody.transform.up);
             }

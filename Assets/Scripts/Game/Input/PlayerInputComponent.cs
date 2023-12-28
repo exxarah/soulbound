@@ -12,6 +12,9 @@ namespace Game.Input
         private void Update()
         {
             m_inputData.MovementDirection = new Vector2(UnityEngine.Input.GetAxis("Horizontal"), UnityEngine.Input.GetAxis("Vertical"));
+
+            m_inputData.BasicAttack = UnityEngine.Input.GetMouseButton(0);
+            m_inputData.Shield = UnityEngine.Input.GetMouseButton(1);
             
             m_controlledEntity.ApplyInput(m_inputData);
         }
