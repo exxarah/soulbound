@@ -475,6 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121f6b3db0ba4fa5908c38c836a492c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_inputManager: {fileID: 0}
 --- !u!1 &1385293882
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_escapePopup: 
   m_currentView: {fileID: 0}
-  m_initialView: {fileID: 0}
+  m_initialView: {fileID: 1385293884}
   m_graph: {fileID: 11400000, guid: 1ab2dc10f8c7b5046a29b43fa6808497, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
