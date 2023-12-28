@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb38db652cd244e69ca8a9d64e80f367, type: 3}
+  m_Name: FlowGraph
+  m_EditorClassIdentifier: 
+  m_globalTriggers: []
+  m_screens:
+  - m_stateName: BootScene
+    m_scene:
+      sceneGuid: 7a243d15b26ac1941a6f52609b56cc7a
+    m_unloadOnExit: 0
+    m_triggers: []
+  - m_stateName: MainMenuScene
+    m_scene:
+      sceneGuid: ddd652ad71b6eb74b8a83e42eb2de5b5
+    m_unloadOnExit: 0
+    m_triggers: []
+  - m_stateName: ToyScene
+    m_scene:
+      sceneGuid: 01b747dfb470bce43ac3496b545f58df
+    m_unloadOnExit: 0
+    m_triggers: []
+  m_loadingScreens:
+  - m_name: Default
+    m_scene:
+      sceneGuid: 17e82bd633acbf6448186b4bc4e6459d
