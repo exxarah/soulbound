@@ -44,7 +44,10 @@ namespace Game.AIBehaviour.Conditionals
             }
             
             // Make sure the target is still in range
-            if (Vector3.Distance(Tree.ControlledEntity.Rigidbody.transform.position, target.position) > m_getRangeFunc.Invoke())
+            float targetDistance =
+                Vector3.Distance(Tree.ControlledEntity.Rigidbody.transform.position, target.position);
+            float maxDistance = m_getRangeFunc.Invoke();
+            if (targetDistance > maxDistance)
             {
                 State = NodeState.Failure;
                 return State;
