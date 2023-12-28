@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Core;
 using Cysharp.Threading.Tasks;
 using Dev.ComradeVanti.WaitForAnim;
+using Game.Combat;
+using Game.Combat.Effects;
 using Game.Data;
 using Game.Input;
 using Game.Toy;
@@ -60,6 +62,25 @@ namespace Game.Entity
                 TargetMaximumCount = m_ability.MaxTargets,
                 Layers = Entity.EntitiesToAttack,
             });
+
+            // Apply OnCast effects
+            foreach (AAbilityEffect effect in m_ability.GetEffects((effect) => effect.Timing == Enums.EffectTiming.OnCast))
+            {
+                switch (effect.Target)
+                {
+                    case Enums.EffectTarget.Caster:
+                        effect.ApplyToTarget(Entity.Rigidbody.transform);
+                        break;
+                    case Enums.EffectTarget.Target:
+                        foreach (IDamageable target in targets)
+                        {
+                            effect.ApplyToTarget(target.Transform);
+                        }
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
             
             // Play and wait for animation
             if (!string.IsNullOrEmpty(m_ability.AnimationName))
@@ -72,6 +93,25 @@ namespace Game.Entity
             {
                 // TODO:
                 target.DoDamage(new DamageParams{DamageAmount = 10});
+            }
+            
+            // Apply OnHit effects
+            foreach (AAbilityEffect effect in m_ability.GetEffects((effect) => effect.Timing == Enums.EffectTiming.OnHit))
+            {
+                switch (effect.Target)
+                {
+                    case Enums.EffectTarget.Caster:
+                        effect.ApplyToTarget(Entity.Rigidbody.transform);
+                        break;
+                    case Enums.EffectTarget.Target:
+                        foreach (IDamageable target in targets)
+                        {
+                            effect.ApplyToTarget(target.Transform);
+                        }
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
             
             // Return to idle

@@ -20,6 +20,7 @@ namespace Game.Combat
         public int MaxHealth => m_maxHealth;
         public int CurrentHealth => m_currentHealth;
         public float HealthPercentage => m_currentHealth / (float)m_maxHealth;
+        public Transform Transform => transform;
 
         public UnityEvent OnDamaged;
         public UnityEvent OnRestored;

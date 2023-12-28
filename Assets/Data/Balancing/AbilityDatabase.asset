@@ -19,15 +19,19 @@ MonoBehaviour:
     m_attackRange: 0
     m_coneDegrees: 0
     m_maxTargets: 0
+    m_effects: []
   - m_abilityID: attack_basic
     m_animationName: 
     m_targetType: 1
     m_attackRange: 2
     m_coneDegrees: 45
     m_maxTargets: 1
+    m_effects: []
   - m_abilityID: charm_default
     m_animationName: 
     m_targetType: 1
     m_attackRange: 2
     m_coneDegrees: 45
     m_maxTargets: 1
+    m_effects:
+    - {fileID: 11400000, guid: 6a85d21cda721fe4faaa66507a4964d0, type: 2}

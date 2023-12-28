@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PracticeJam.Game.Combat
+namespace Game.Combat
 {
     public static class Enums
     {
@@ -10,6 +10,28 @@ namespace PracticeJam.Game.Combat
             Raycast,
             Cone,
             Sphere,
+        }
+        
+        [Serializable]
+        public enum EffectTarget
+        {
+            Caster,
+            Target,
+        }
+        
+        [Serializable]
+        public enum EffectTiming
+        {
+            OnCast,
+            OnHit,
+        }
+
+        [Serializable]
+        public enum CharmType
+        {
+            OmniCharm,
+            HealthCharm,
+            AttackCharm,
         }
     }
 }

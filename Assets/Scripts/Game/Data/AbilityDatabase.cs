@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Combat;
+using Game.Combat.Effects;
 using PracticeJam.Game.Combat;
 using UnityEngine;
 
@@ -19,6 +21,7 @@ namespace Game.Data
             private string m_animationName;
             public string AnimationName => m_animationName;
 
+            [Header("Targeting Information")]
             [SerializeField]
             private Enums.TargetType m_targetType;
             public Enums.TargetType TargetType => m_targetType;
@@ -34,6 +37,16 @@ namespace Game.Data
             [SerializeField]
             private int m_maxTargets = 1;
             public int MaxTargets => m_maxTargets;
+
+            [Header("Result Information")]
+            [SerializeField]
+            private List<AAbilityEffect> m_effects = new List<AAbilityEffect>();
+            public IReadOnlyList<AAbilityEffect> Effects => m_effects;
+
+            public List<AAbilityEffect> GetEffects(Func<AAbilityEffect, bool> matchesFunc)
+            {
+                return m_effects.FindAll((effect => matchesFunc.Invoke(effect)));
+            }
         }
         
         [SerializeField]
