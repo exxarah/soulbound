@@ -176,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigidbody: {fileID: 336260475}
   m_animator: {fileID: 2010472275}
-  m_speed: 20
+  m_speed: 50
   m_facesMovement: 1
   m_abilitiesComponent: {fileID: 336260476}
   m_entitiesToAttack:
@@ -995,6 +995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -5.79228
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436424670463285084, guid: 08eeb48ea97588b40ae6282bc8230da1,
+        type: 3}
+      propertyPath: m_speed
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8734582489155299967, guid: 08eeb48ea97588b40ae6282bc8230da1,
         type: 3}
