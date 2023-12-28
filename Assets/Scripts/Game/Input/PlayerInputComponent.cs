@@ -30,7 +30,7 @@ namespace Game.Input
             SetIsometricSkew();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             // Transform the movement input to accommodate isometric perspective
             Vector3 movementInput = new Vector3(UnityEngine.Input.GetAxis("Horizontal"), 0.0f, UnityEngine.Input.GetAxis("Vertical"));

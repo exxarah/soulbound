@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigidbody: {fileID: 3039128149016360921}
   m_animator: {fileID: 659604807391150059}
-  m_speed: 100
+  m_speed: 250
   m_facesMovement: 0
   m_abilitiesComponent: {fileID: 2749350516011610173}
   m_entitiesToAttack:
@@ -161,7 +161,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!136 &5650690420751454219
