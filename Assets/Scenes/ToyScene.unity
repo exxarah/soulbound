@@ -134,7 +134,8 @@ GameObject:
   - component: {fileID: 336260470}
   - component: {fileID: 336260473}
   - component: {fileID: 336260472}
-  - component: {fileID: 336260471}
+  - component: {fileID: 336260475}
+  - component: {fileID: 336260474}
   m_Layer: 7
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -151,15 +152,44 @@ Transform:
   m_GameObject: {fileID: 336260469}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.94, y: 0, z: -2.25}
+  m_LocalPosition: {x: -4.59, y: 0, z: -4.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2010472271}
   m_Father: {fileID: 976778932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &336260471
-CharacterController:
+--- !u!114 &336260472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336260469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d5af5cff71417b8c321380b52bb787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rigidbody: {fileID: 336260475}
+  m_animator: {fileID: 2010472275}
+  m_speed: 20
+--- !u!114 &336260473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336260469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec3ed906966a435a9dc8d24264693f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_controlledEntity: {fileID: 336260472}
+  m_fovRange: 10
+--- !u!65 &336260474
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -177,41 +207,35 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &336260472
-MonoBehaviour:
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!54 &336260475
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336260469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d5af5cff71417b8c321380b52bb787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_characterController: {fileID: 336260471}
-  m_animator: {fileID: 2010472275}
-  m_speed: 30
---- !u!114 &336260473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336260469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec3ed906966a435a9dc8d24264693f11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_controlledEntity: {fileID: 336260472}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!1 &902440883
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +642,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3039128149016360921, guid: 08eeb48ea97588b40ae6282bc8230da1,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4604987726606122925, guid: 08eeb48ea97588b40ae6282bc8230da1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -667,11 +696,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436424670463285084, guid: 08eeb48ea97588b40ae6282bc8230da1,
-        type: 3}
-      propertyPath: m_speed
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

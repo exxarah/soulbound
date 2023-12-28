@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Game.AIBehaviour.Nodes
 {
@@ -6,6 +7,7 @@ namespace Game.AIBehaviour.Nodes
     public class SequenceNode : Node
     {
         public SequenceNode(ABehaviourTree tree) : base(tree) { }
+        public SequenceNode(ABehaviourTree tree, List<Node> children) : base(tree, children) { }
 
         public override NodeState Evaluate()
         {

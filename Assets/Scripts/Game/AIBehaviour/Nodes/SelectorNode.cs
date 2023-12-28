@@ -1,10 +1,13 @@
-﻿namespace Game.AIBehaviour.Nodes
+﻿using System.Collections.Generic;
+
+namespace Game.AIBehaviour.Nodes
 {
-    // Basically it's an OR node
+    // Basically it's an OR node, will prioritise based on children order
     public class SelectorNode : Node
     {
         public SelectorNode(ABehaviourTree tree) : base(tree) { }
-        
+        public SelectorNode(ABehaviourTree tree, List<Node> children) : base(tree, children) { }
+
         public override NodeState Evaluate()
         {
             foreach (Node node in Children)

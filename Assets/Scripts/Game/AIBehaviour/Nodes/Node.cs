@@ -24,6 +24,14 @@ namespace Game.AIBehaviour
             Tree = tree;
         }
 
+        public Node(ABehaviourTree tree, List<Node> children) : this(tree)
+        {
+            foreach (Node node in children)
+            {
+                AddChild(node);
+            }
+        }
+
         private void AddChild(Node child)
         {
             child.Parent = this;

@@ -48,8 +48,8 @@ namespace Game.Entity
             List<IDamageable> targets = CombatUtils.GetTargets(new CombatUtils.AttackParams
             {
                 TargetType = m_ability.TargetType,
-                AttackSource = Entity.CharacterController.transform,
-                AttackDirection = Entity.CharacterController.transform.forward,
+                AttackSource = Entity.Rigidbody.transform,
+                AttackDirection = Entity.Rigidbody.transform.forward,
                 AttackRange = m_ability.AttackRange,
                 ConeAngleDegrees = m_ability.ConeDegrees,
                 TargetMaximumCount = m_ability.MaxTargets,

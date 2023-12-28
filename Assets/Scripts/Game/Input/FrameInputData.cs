@@ -1,15 +1,55 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Game.Input
 {
     public struct FrameInputData
     {
         public Vector2 MovementDirection;
+
         public bool Shield;
         public bool BasicAttack;
+
         public bool AbilityOne;
         public bool AbilityTwo;
         public bool AbilityThree;
         public bool AbilityFour;
+
+        public enum ActionType
+        {
+            Shield,
+            BasicAttack,
+            AbilityOne,
+            AbilityTwo,
+            AbilityThree,
+            AbilityFour,
+        }
+
+        public void SetAction(ActionType action, bool enabled)
+        {
+            switch (action)
+            {
+                case ActionType.Shield:
+                    Shield = enabled;
+                    break;
+                case ActionType.BasicAttack:
+                    BasicAttack = enabled;
+                    break;
+                case ActionType.AbilityOne:
+                    AbilityOne = enabled;
+                    break;
+                case ActionType.AbilityTwo:
+                    AbilityTwo = enabled;
+                    break;
+                case ActionType.AbilityThree:
+                    AbilityThree = enabled;
+                    break;
+                case ActionType.AbilityFour:
+                    AbilityFour = enabled;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(action), action, null);
+            }
+        }
     }
 }

@@ -8,8 +8,13 @@ namespace Game.AIBehaviour
         [SerializeField]
         private Entity.Entity m_controlledEntity;
         public Entity.Entity ControlledEntity => m_controlledEntity;
+
+        [SerializeField]
+        private float m_fovRange = 10.0f;
+        public float FOVRange => m_fovRange;
         
         private Node m_root = null;
+        public Node Root => m_root;
 
         private void Start()
         {

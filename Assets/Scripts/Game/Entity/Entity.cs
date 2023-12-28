@@ -2,14 +2,16 @@
 using Core.DataStructure;
 using Game.Input;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Entity
 {
     public class Entity : StateMachine
     {
+        [FormerlySerializedAs("m_characterController")]
         [SerializeField]
-        private CharacterController m_characterController = null;
-        public CharacterController CharacterController => m_characterController;
+        private Rigidbody m_rigidbody = null;
+        public Rigidbody Rigidbody => m_rigidbody;
 
         [SerializeField]
         private Animator m_animator = null;

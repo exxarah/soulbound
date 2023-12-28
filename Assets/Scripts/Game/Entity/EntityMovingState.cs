@@ -25,7 +25,7 @@ namespace Game.Entity
             base.FixedUpdate();
             
             Vector3 direction = new Vector3(m_movementInput.x, 0.0f, m_movementInput.y).normalized;
-            Entity.CharacterController.SimpleMove(direction * Entity.Speed * Time.deltaTime);
+            Entity.Rigidbody.velocity = direction * Entity.Speed * Time.deltaTime;
         }
 
         public override void Enter()
@@ -40,6 +40,7 @@ namespace Game.Entity
             base.Exit();
 
             Entity.Animator.SetBool("isWalking", false);
+            Entity.Rigidbody.velocity = Vector3.zero;
         }
     }
 }
