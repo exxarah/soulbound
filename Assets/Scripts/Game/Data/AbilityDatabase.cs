@@ -23,6 +23,10 @@ namespace Game.Data
             private CharmCost m_charmCost;
             public CharmCost CharmCost => m_charmCost;
 
+            [SerializeField]
+            private int m_cooldownSeconds = 6;
+            public int CooldownSeconds => m_cooldownSeconds;
+
             [Header("Targeting Information")]
             [SerializeField]
             private Enums.TargetType m_targetType;

@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_controlledEntity: {fileID: 7274298049040603976}
-  m_fovRange: 10
+  m_fovRange: 70
 --- !u!114 &7274298049040603976
 MonoBehaviour:
   m_ObjectHideFlags: 0

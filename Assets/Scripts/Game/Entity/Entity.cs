@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Core.DataStructure;
 using Game.Combat;
+using Game.Data;
 using Game.Input;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -47,6 +49,9 @@ namespace Game.Entity
         private LayerMask m_alliesLayer;
         public LayerMask AlliesLayer => m_alliesLayer;
 
+        private List<AbilityDatabase.AbilityDefinition> m_cooldownIDs = new List<AbilityDatabase.AbilityDefinition>();
+        private List<float> m_cooldownValues = new List<float>();
+
         private void Start()
         {
             ChangeState(new EntityIdleState(this));
@@ -58,6 +63,17 @@ namespace Game.Entity
             {
                 ChangeState(new EntityDeadState(this));
             }
+            
+            // Tick the ability cooldowns
+            for (int i = m_cooldownIDs.Count - 1; i >= 0; i--)
+            {
+                m_cooldownValues[i] += Time.deltaTime;
+                if (m_cooldownValues[i] >= m_cooldownIDs[i].CooldownSeconds)
+                {
+                    m_cooldownValues.RemoveAt(i);
+                    m_cooldownIDs.RemoveAt(i);
+                }
+            }
 
             base.Update();
         }
@@ -68,6 +84,25 @@ namespace Game.Entity
             {
                 ((AEntityState)CurrentState).ApplyInput(frameInput);
             }
+        }
+
+        public bool IsOnCooldown(AbilityDatabase.AbilityDefinition ability)
+        {
+            for (int i = 0; i < m_cooldownIDs.Count; i++)
+            {
+                if (m_cooldownIDs[i].AbilityID == ability.AbilityID)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public void StartCooldown(AbilityDatabase.AbilityDefinition ability)
+        {
+            m_cooldownIDs.Add(ability);
+            m_cooldownValues.Add(0.0f);
         }
     }
 }

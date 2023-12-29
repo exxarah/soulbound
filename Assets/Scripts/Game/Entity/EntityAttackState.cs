@@ -54,7 +54,11 @@ namespace Game.Entity
             {
                 return false;
             }
-            // TODO: Cooldown
+
+            if (Entity.IsOnCooldown(m_ability))
+            {
+                return false;
+            }
 
             return true;
         }
@@ -69,6 +73,9 @@ namespace Game.Entity
         {
             // Spend charms
             Entity.InventoryComponent.Spend(m_ability.CharmCost);
+            
+            // Start new cooldown
+            Entity.StartCooldown(m_ability);
             
             // Snapshot the people to attack
             List<IDamageable> targets = CombatUtils.GetTargets(new CombatUtils.AttackParams
