@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Database
   m_EditorClassIdentifier: 
   m_abilityDatabase: {fileID: 11400000, guid: 3e09efda3a055674489eef89d6e246ab, type: 2}
+  m_enemyDatabase: {fileID: 11400000, guid: 7a732de0bf1d61e4695e96dbd6be7934, type: 2}

@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace Game.Data
 {
-    [CreateAssetMenu]
     public class AbilityDatabase : ScriptableObject
     {
         [Serializable]
