@@ -4,14 +4,18 @@ using Game.Data;
 using Game.Input;
 using Game.UI.Toy;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game.UI.Player
 {
-    public class PlayerAbilityDisplayComponent : APlayerInformationComponent
+    public class PlayerAbilityDisplayComponent : APlayerInformationComponent, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField]
         private FrameInputData.ActionType m_actionToDisplay;
+
+        [SerializeField]
+        private Animator m_animator = null;
 
         [SerializeField]
         private Image m_abilityImage = null;
@@ -46,6 +50,23 @@ namespace Game.UI.Player
             }
 
             m_cooldownCover.fillAmount = m_playerEntity.GetCooldown(m_abilityDefinition);
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            m_animator.SetBool("pointerOver", true);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            m_animator.SetBool("pointerOver", false);
+        }
+
+        public void _SimulateInput()
+        {
+            FrameInputData input = new();
+            input.SetAction(m_actionToDisplay, true);
+            m_playerEntity.ApplyInput(input);
         }
     }
 }
