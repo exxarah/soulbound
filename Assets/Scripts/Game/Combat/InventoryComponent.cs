@@ -94,8 +94,8 @@ namespace Game.Combat
             int omnisUsed = 0;
             if (charmCost.AttackCost > 0 && CanAfford(Enums.CharmType.AttackCharm, charmCost.AttackCost, out omnisUsed))
             {
-                IncrementCharms(charmCost.AttackCost - omnisUsed, Enums.CharmType.AttackCharm);
-                IncrementCharms(omnisUsed, Enums.CharmType.OmniCharm);
+                IncrementCharms(-charmCost.AttackCost - omnisUsed, Enums.CharmType.AttackCharm);
+                IncrementCharms(-omnisUsed, Enums.CharmType.OmniCharm);
 
                 // Kill the minions
                 GameContext.Instance.MinionManager.ConsumeMinions(Enums.CharmType.AttackCharm, charmCost.AttackCost - omnisUsed);
@@ -103,8 +103,8 @@ namespace Game.Combat
             }
             if (charmCost.HealthCost > 0 && CanAfford(Enums.CharmType.HealthCharm, charmCost.HealthCost, out omnisUsed))
             {
-                IncrementCharms(charmCost.HealthCost - omnisUsed, Enums.CharmType.HealthCharm);
-                IncrementCharms(omnisUsed, Enums.CharmType.OmniCharm);
+                IncrementCharms(-charmCost.HealthCost - omnisUsed, Enums.CharmType.HealthCharm);
+                IncrementCharms(-omnisUsed, Enums.CharmType.OmniCharm);
                 
                 // Kill the minions
                 GameContext.Instance.MinionManager.ConsumeMinions(Enums.CharmType.HealthCharm, charmCost.HealthCost - omnisUsed);
@@ -112,7 +112,7 @@ namespace Game.Combat
             }
             if (charmCost.OmniCost > 0 && CanAfford(Enums.CharmType.OmniCharm, charmCost.OmniCost, out omnisUsed))
             {
-                IncrementCharms(charmCost.OmniCost, Enums.CharmType.OmniCharm);
+                IncrementCharms(-charmCost.OmniCost, Enums.CharmType.OmniCharm);
                 
                 // Kill the minions
                 GameContext.Instance.MinionManager.ConsumeMinions(Enums.CharmType.OmniCharm, charmCost.OmniCost);

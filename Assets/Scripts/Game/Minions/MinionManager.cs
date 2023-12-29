@@ -75,7 +75,16 @@ namespace Game.Minions
 
         public void ConsumeMinions(Enums.CharmType type, int amount)
         {
-            throw new NotImplementedException();
+            if (!m_activeMinions.ContainsKey(type)) { return; }
+
+            int minionCount = m_activeMinions[type].Count;
+            amount = Math.Min(amount, minionCount);
+            for (int i = minionCount - 1; i >= minionCount - amount; i--)
+            {
+                Minion minion = m_activeMinions[type][i];
+                m_activeMinions[type].RemoveAt(i);
+                Pool.Release(minion);
+            }
         }
     }
 }
