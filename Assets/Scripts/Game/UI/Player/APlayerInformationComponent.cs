@@ -5,12 +5,12 @@ namespace Game.UI.Player
     public abstract class APlayerInformationComponent : MonoBehaviour
     {
         private int m_componentID;
-        private void OnEnable()
+        private void Start()
         {
             m_componentID = PlayerProviderComponent.Instance.RegisterComponent(this);
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             PlayerProviderComponent.Instance.Unregister(m_componentID);
         }

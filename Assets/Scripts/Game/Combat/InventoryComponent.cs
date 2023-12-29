@@ -118,5 +118,15 @@ namespace Game.Combat
                 GameContext.Instance.MinionManager.ConsumeMinions(Enums.CharmType.OmniCharm, charmCost.OmniCost);
             }
         }
+
+        public int GetCount(Enums.CharmType charmToDisplay)
+        {
+            if (m_charmsOwned.TryGetValue(charmToDisplay, out int amount))
+            {
+                return amount;
+            }
+
+            return 0;
+        }
     }
 }

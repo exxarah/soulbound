@@ -337,6 +337,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharmSlot - ???
       objectReference: {fileID: 0}
+    - target: {fileID: 7415201040908217044, guid: 5b2b19c42e6c1e145b42a5e3e5a8126e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9160985246176467902, guid: 5b2b19c42e6c1e145b42a5e3e5a8126e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -420,7 +425,7 @@ PrefabInstance:
     - target: {fileID: 9160985246176467902, guid: 5b2b19c42e6c1e145b42a5e3e5a8126e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -350
       objectReference: {fileID: 0}
     - target: {fileID: 9160985246176467902, guid: 5b2b19c42e6c1e145b42a5e3e5a8126e,
         type: 3}
@@ -1085,6 +1090,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2078062734}
     m_Modifications:
+    - target: {fileID: 5863129152134278653, guid: 5b2b19c42e6c1e145b42a5e3e5a8126e,
+        type: 3}
+      propertyPath: m_charmToDisplay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6433826870992789741, guid: 5b2b19c42e6c1e145b42a5e3e5a8126e,
         type: 3}
       propertyPath: m_Material
@@ -2067,6 +2077,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2078062734}
     m_Modifications:
+    - target: {fileID: 5863129152134278653, guid: 5b2b19c42e6c1e145b42a5e3e5a8126e,
+        type: 3}
+      propertyPath: m_charmToDisplay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6433826870992789741, guid: 5b2b19c42e6c1e145b42a5e3e5a8126e,
         type: 3}
       propertyPath: m_Material
@@ -3085,7 +3100,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 3
   m_Spacing: 35
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1

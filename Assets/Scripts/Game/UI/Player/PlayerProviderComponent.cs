@@ -48,6 +48,8 @@ namespace Game.UI.Player
         
         public void Unregister(int spawnPointID)
         {
+            if (spawnPointID >= m_components.Count) { return; }
+
             m_components[spawnPointID] = null;
             
             // Clean up components
