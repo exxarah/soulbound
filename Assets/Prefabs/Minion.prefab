@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 5564998570335314159}
   - component: {fileID: 8884692815808442189}
   - component: {fileID: 7160353481281767633}
+  - component: {fileID: 8075603100598406582}
   m_Layer: 7
   m_Name: Minion
   m_TagString: Untagged
@@ -270,6 +271,7 @@ MonoBehaviour:
     - Key: 2
       Value: {fileID: 2100000, guid: f582ac863ce4d414198dac48f456c561, type: 2}
     keyCollision: 0
+  m_behaviourTree: {fileID: 8075603100598406582}
 --- !u!114 &7323359102857670702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +289,7 @@ MonoBehaviour:
   m_speed: 80
   m_facesMovement: 1
   m_abilitiesComponent: {fileID: 7160353481281767633}
+  m_healthComponent: {fileID: 0}
   m_entitiesToAttack:
     serializedVersion: 2
     m_Bits: 0
@@ -357,3 +360,19 @@ MonoBehaviour:
   m_abilityThree: 
   m_abilityFour: 
   m_charmAbility: 
+--- !u!114 &8075603100598406582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7914076748706522451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fd01754e934371a6e225aecb86b364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_controlledEntity: {fileID: 7323359102857670702}
+  m_fovRange: 2000
+  m_minDistanceToPlayer: 1.5
+  m_maxDistanceToPlayer: 3

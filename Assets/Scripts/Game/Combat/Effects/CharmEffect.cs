@@ -13,7 +13,7 @@ namespace Game.Combat.Effects
             if (!caster.TryGetComponent(out InventoryComponent inventory)) { return; }
 
             inventory.IncrementCharms(charmable.CharmCount, charmable.CharmType);
-            GameContext.Instance.MinionManager.CreateMinion(charmable.CharmType, charmable.CharmCount);
+            GameContext.Instance.MinionManager.CreateMinion(charmable.CharmType, charmable.CharmCount, caster.transform);
         }
     }
 }

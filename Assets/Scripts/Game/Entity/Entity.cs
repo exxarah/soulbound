@@ -58,7 +58,7 @@ namespace Game.Entity
         {
             if (CurrentState != null)
             {
-                ((AEntityState)CurrentState).ApplyInput(frameInput);   
+                ((AEntityState)CurrentState).ApplyInput(frameInput);
             }
         }
     }

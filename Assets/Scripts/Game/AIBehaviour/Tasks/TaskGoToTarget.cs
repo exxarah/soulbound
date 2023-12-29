@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Game.Input;
 using UnityEngine;
 
@@ -7,15 +8,28 @@ namespace Game.AIBehaviour.Tasks
     public class TaskGoToTarget : Node
     {
         private FrameInputData m_inputData;
+        private Func<Transform> m_targetFunc;
 
-        public TaskGoToTarget(ABehaviourTree tree) : base(tree)
+        public TaskGoToTarget(ABehaviourTree tree, Func<Transform> targetFunc = null) : base(tree)
         {
             m_inputData = new FrameInputData();
+
+            if (targetFunc == null)
+            {
+                targetFunc = GetTargetFromTree;
+            }
+
+            m_targetFunc = targetFunc;
+        }
+
+        private Transform GetTargetFromTree()
+        {
+            return (Transform)GetData("target");
         }
 
         public override NodeState Evaluate()
         {
-            Transform target = (Transform)GetData("target");
+            Transform target = m_targetFunc.Invoke();
             float distanceToTarget = Vector3.Distance(Tree.ControlledEntity.transform.position, target.position);
 
             if (distanceToTarget > Tree.FOVRange)
