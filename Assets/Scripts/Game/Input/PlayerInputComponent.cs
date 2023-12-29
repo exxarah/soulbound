@@ -32,6 +32,8 @@ namespace Game.Input
 
         private void FixedUpdate()
         {
+            if (m_controlledEntity.HealthComponent.IsDead) {return; }
+
             // Transform the movement input to accommodate isometric perspective
             Vector3 movementInput = new Vector3(UnityEngine.Input.GetAxis("Horizontal"), 0.0f, UnityEngine.Input.GetAxis("Vertical"));
             movementInput = m_isometricSkew.MultiplyPoint3x4(movementInput);

@@ -4,6 +4,7 @@ using Core.DataStructure;
 using Game.Combat;
 using Game.Data;
 using Game.Input;
+using Game.Toy;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -55,15 +56,28 @@ namespace Game.Entity
         private void Start()
         {
             ChangeState(new EntityIdleState(this));
+            if (m_healthComponent != null)
+            {
+                m_healthComponent.OnDead += OnEntityDied;   
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (m_healthComponent != null)
+            {
+                m_healthComponent.OnDead -= OnEntityDied;   
+            }
+        }
+
+        private void OnEntityDied()
+        {
+            gameObject.layer = LayerMask.NameToLayer(Layers.DEAD);
+            ChangeState(new EntityDeadState(this));
         }
 
         public override void Update()
         {
-            if (m_healthComponent != null && m_healthComponent.IsDead)
-            {
-                ChangeState(new EntityDeadState(this));
-            }
-            
             // Tick the ability cooldowns
             for (int i = m_cooldownIDs.Count - 1; i >= 0; i--)
             {

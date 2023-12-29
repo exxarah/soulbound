@@ -10,5 +10,7 @@
 
         public const string PLAYER = "Player";
         public const string ENEMIES = "Enemies";
+
+        public const string DEAD = "Dead";
     }
 }

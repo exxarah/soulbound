@@ -136,7 +136,9 @@ MonoBehaviour:
   m_currentHealth: 0
   m_gameLostOnDeath: 1
   m_animator: {fileID: 659604807391150059}
-  m_deathAnimState: 
+  m_deathAnimState: Dead
+  m_secondsWaitAfterDeath: 5
+  m_hurtAnimTrigger: onHurt
 --- !u!114 &6184637234452531164
 MonoBehaviour:
   m_ObjectHideFlags: 0

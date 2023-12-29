@@ -24,6 +24,12 @@ namespace Game.Combat
         [SerializeField]
         private string m_deathAnimState = "";
 
+        [SerializeField]
+        private float m_secondsWaitAfterDeath = 2.0f;
+
+        [SerializeField]
+        private string m_hurtAnimTrigger = "";
+
         private bool m_isDead = false;
         public bool IsDead => m_isDead;
         
@@ -81,7 +87,14 @@ namespace Game.Combat
 
         private void OnDamaged()
         {
-            
+            if (!IsDead)
+            {
+                m_animator.SetTrigger(m_hurtAnimTrigger);   
+            }
+            else
+            {
+                Log.Info("Dead. No one can hurt you anymore");
+            }
         }
 
         private void OnRestored()
@@ -101,6 +114,8 @@ namespace Game.Combat
             // Play and wait for animation
             if (m_animator != null && !string.IsNullOrEmpty(m_deathAnimState))
             {
+                // Don't let the hurt anim trigger, or it will squash the death anim
+                m_animator.ResetTrigger(m_hurtAnimTrigger);
                 await m_animator.PlayAndWait(m_deathAnimState);   
             }
 
@@ -110,7 +125,7 @@ namespace Game.Combat
                 return;
             }
 
-            await UniTask.Delay(50);
+            await UniTask.Delay((int)(m_secondsWaitAfterDeath * 1000));
             
             GameContext.Instance.GameState.EndGame(false);
         }

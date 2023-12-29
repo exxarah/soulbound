@@ -43,12 +43,21 @@ namespace Game.AIBehaviour.Conditionals
                 return State;
             }
             
+            // Check if the target is dead and clear them if so
+            if (target.TryGetComponent(out HealthComponent health) && health.IsDead)
+            {
+                ClearData("target");
+                State = NodeState.Failure;
+                return State;
+            }
+            
             // Make sure the target is still in range
             float targetDistance =
                 Vector3.Distance(Tree.ControlledEntity.Rigidbody.transform.position, target.position);
             float maxDistance = m_getRangeFunc.Invoke();
             if (targetDistance > maxDistance)
             {
+                ClearData("target");
                 State = NodeState.Failure;
                 return State;
             }
@@ -60,6 +69,10 @@ namespace Game.AIBehaviour.Conditionals
         public static Transform InSphereRange(int layerMask, float viewRange, Transform source)
         {
             Collider[] colliders = Physics.OverlapSphere(source.position, viewRange, layerMask);
+            if (colliders.Length <= 0)
+            {
+                return null;
+            }
             return colliders.Length > 0 ? colliders[0].transform : null;
         }
 

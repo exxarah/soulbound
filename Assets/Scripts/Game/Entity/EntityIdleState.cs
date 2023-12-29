@@ -8,6 +8,11 @@ namespace Game.Entity
     {
         public EntityIdleState(Entity stateMachine) : base(stateMachine) { }
 
+        public override void FixedUpdate()
+        {
+            Entity.Rigidbody.velocity = Vector3.zero;
+        }
+
         public override void ApplyInput(FrameInputData input)
         {
             AbilityDatabase.AbilityDefinition ability = null;

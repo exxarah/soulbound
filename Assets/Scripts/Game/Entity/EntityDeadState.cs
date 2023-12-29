@@ -1,4 +1,5 @@
 ﻿using Game.Input;
+using UnityEngine;
 
 namespace Game.Entity
 {
@@ -6,9 +7,11 @@ namespace Game.Entity
     {
         public EntityDeadState(Entity stateMachine) : base(stateMachine) { }
 
-        public override void ApplyInput(FrameInputData input)
+        public override void FixedUpdate()
         {
-            return;
+            Entity.Rigidbody.velocity = Vector3.zero;
         }
+
+        public override void ApplyInput(FrameInputData input) { }
     }
 }
