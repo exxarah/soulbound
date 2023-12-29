@@ -35,14 +35,14 @@ MonoBehaviour:
       m_omniCost: 0
       m_healthCost: 0
       m_attackCost: 0
-    m_cooldownSeconds: 1
+    m_cooldownSeconds: 2
     m_uiImage: {fileID: 21300000, guid: 0650fdf059f51be42a4ee746750ddfe6, type: 3}
     m_targetType: 1
     m_targetLayer: 0
     m_attackRange: 2
     m_coneDegrees: 45
     m_maxTargets: 1
-    m_healthDecrement: 10
+    m_healthDecrement: 20
     m_instaKill: 0
     m_effects: []
   - m_abilityID: charm_default
@@ -66,7 +66,7 @@ MonoBehaviour:
     m_animationName: 
     m_charmCost:
       m_omniCost: 0
-      m_healthCost: 3
+      m_healthCost: 2
       m_attackCost: 0
     m_cooldownSeconds: 6
     m_uiImage: {fileID: 21300000, guid: 1fb24ed9aa4f8a9449babda30bfb03cd, type: 3}
