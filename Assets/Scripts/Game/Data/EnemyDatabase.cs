@@ -40,7 +40,7 @@ namespace Game.Data
         public List<EnemyDefinition> GetEnemiesForWave(int waveCount, int enemyCount)
         {
             // Get our weighted list for this wave
-            if (m_weightedListForWave.TryGetValue(waveCount, out List<EnemyDefinition> weightedList))
+            if (!m_weightedListForWave.TryGetValue(waveCount, out List<EnemyDefinition> weightedList))
             {
                 // Make our own weighted list, and store it for future use
                 weightedList = new List<EnemyDefinition>();

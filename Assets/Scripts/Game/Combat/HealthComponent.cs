@@ -33,6 +33,8 @@ namespace Game.Combat
         public float HealthPercentage => m_currentHealth / (float)m_maxHealth;
         public Transform Transform => transform;
 
+        public event Action OnDead;
+
         private void Start()
         {
             m_currentHealth = m_maxHealth;
@@ -88,6 +90,7 @@ namespace Game.Combat
         {
             m_isDead = true;
             DeathSequence().Forget(OnException);
+            OnDead?.Invoke();
         }
 
         private async UniTask DeathSequence()
