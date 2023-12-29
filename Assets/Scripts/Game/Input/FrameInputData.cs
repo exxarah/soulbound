@@ -59,5 +59,20 @@ namespace Game.Input
                     throw new ArgumentOutOfRangeException(nameof(action), action, null);
             }
         }
+
+        public bool GetAction(ActionType actionType)
+        {
+            return actionType switch
+            {
+                ActionType.Shield => Shield,
+                ActionType.BasicAttack => BasicAttack,
+                ActionType.AbilityOne => AbilityOne,
+                ActionType.AbilityTwo => AbilityTwo,
+                ActionType.AbilityThree => AbilityThree,
+                ActionType.AbilityFour => AbilityFour,
+                ActionType.CharmAbility => CharmAbility,
+                _ => throw new ArgumentOutOfRangeException(nameof(actionType), actionType, null),
+            };
+        }
     }
 }

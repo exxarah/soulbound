@@ -13,6 +13,7 @@ namespace Game.Entity
 {
     public class EntityAttackState : AEntityState
     {
+        private bool m_attackInProgress = false;
         private FrameInputData.ActionType m_actionType;
         private AbilityDatabase.AbilityDefinition m_ability;
 
@@ -40,10 +41,26 @@ namespace Game.Entity
                 return;
             }
 
-            DoAttack().Forget(OnException);
+            if (!m_ability.HasTelegraph)
+            {
+                DoAttack().Forget(OnException);   
+            }
+            else
+            {
+                // TODO: Spawn telegraph
+            }
         }
 
-        public override void ApplyInput(FrameInputData input) { }
+        public override void ApplyInput(FrameInputData input)
+        {
+            if (m_attackInProgress) { return; }
+            
+            // Telegraphed attack, check if the input has been released, and if so start the attack
+            if (m_ability.HasTelegraph && !input.GetAction(m_actionType))
+            {
+                DoAttack().Forget(OnException); 
+            }
+        }
 
         private bool CanUseAbility()
         {
@@ -68,6 +85,8 @@ namespace Game.Entity
 
         public async UniTask DoAttack()
         {
+            m_attackInProgress = true;
+
             // Spend charms
             Entity.InventoryComponent.Spend(m_ability.CharmCost);
             
@@ -133,9 +152,10 @@ namespace Game.Entity
             // Do attack
             foreach (IDamageable target in targets)
             {
-                // TODO:
                 target.DoDamage(new DamageParams{DamageAmount = m_ability.HealthDecrement, ForceKill = m_ability.InstaKill});
             }
+            
+            // TODO: Clean up telegraph
             
             // Return to idle
             StateMachine.ChangeState(new EntityIdleState(Entity));

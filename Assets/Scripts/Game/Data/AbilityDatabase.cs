@@ -31,6 +31,10 @@ namespace Game.Data
             private Sprite m_uiImage = null;
             public Sprite UIImage => m_uiImage;
 
+            [SerializeField]
+            private bool m_hasTelegraph = false;
+            public bool HasTelegraph => m_hasTelegraph;
+
             [Header("Targeting Information")]
             [SerializeField]
             private Enums.TargetType m_targetType;
