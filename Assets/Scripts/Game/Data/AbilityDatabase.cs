@@ -21,6 +21,10 @@ namespace Game.Data
             private string m_animationName;
             public string AnimationName => m_animationName;
 
+            [SerializeField]
+            private CharmCost m_charmCost;
+            public CharmCost CharmCost => m_charmCost;
+
             [Header("Targeting Information")]
             [SerializeField]
             private Enums.TargetType m_targetType;

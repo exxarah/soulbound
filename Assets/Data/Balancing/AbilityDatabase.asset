@@ -15,6 +15,10 @@ MonoBehaviour:
   m_definitions:
   - m_abilityID: shield_basic
     m_animationName: 
+    m_charmCost:
+      m_omniCost: 0
+      m_healthCost: 0
+      m_attackCost: 0
     m_targetType: 0
     m_targetLayer: 0
     m_attackRange: 0
@@ -25,6 +29,10 @@ MonoBehaviour:
     m_effects: []
   - m_abilityID: attack_basic
     m_animationName: 
+    m_charmCost:
+      m_omniCost: 0
+      m_healthCost: 0
+      m_attackCost: 0
     m_targetType: 1
     m_targetLayer: 0
     m_attackRange: 2
@@ -35,6 +43,10 @@ MonoBehaviour:
     m_effects: []
   - m_abilityID: charm_default
     m_animationName: 
+    m_charmCost:
+      m_omniCost: 0
+      m_healthCost: 0
+      m_attackCost: 0
     m_targetType: 2
     m_targetLayer: 0
     m_attackRange: 4
@@ -46,6 +58,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 6a85d21cda721fe4faaa66507a4964d0, type: 2}
   - m_abilityID: heal_basic
     m_animationName: 
+    m_charmCost:
+      m_omniCost: 0
+      m_healthCost: 2
+      m_attackCost: 0
     m_targetType: 3
     m_targetLayer: 1
     m_attackRange: 1

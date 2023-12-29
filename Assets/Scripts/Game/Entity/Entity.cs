@@ -28,6 +28,10 @@ namespace Game.Entity
         public bool FacesMovementDirection => m_facesMovement;
 
         [SerializeField]
+        private InventoryComponent m_inventoryComponent = null;
+        public InventoryComponent InventoryComponent => m_inventoryComponent;
+        
+        [SerializeField]
         private EquippedAbilitiesComponent m_abilitiesComponent = null;
         public EquippedAbilitiesComponent AbilitiesComponent => m_abilitiesComponent;
 

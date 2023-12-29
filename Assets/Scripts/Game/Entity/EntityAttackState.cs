@@ -38,10 +38,28 @@ namespace Game.Entity
                 return;
             }
 
+            if (!CanUseAbility())
+            {
+                Log.Info("Ability is currently unable to be used. Quitting attack");
+                StateMachine.ChangeState(new EntityIdleState(Entity));
+                return;
+            }
+
             DoAttack().Forget(OnException);
         }
 
         public override void ApplyInput(FrameInputData input) { }
+
+        private bool CanUseAbility()
+        {
+            if (Entity.InventoryComponent == null || !Entity.InventoryComponent.CanAfford(m_ability.CharmCost))
+            {
+                return false;
+            }
+            // TODO: Cooldown
+
+            return true;
+        }
 
         private void OnException(Exception obj)
         {
@@ -51,6 +69,8 @@ namespace Game.Entity
 
         public async UniTask DoAttack()
         {
+            // TODO: Spend charms
+            
             // Snapshot the people to attack
             List<IDamageable> targets = CombatUtils.GetTargets(new CombatUtils.AttackParams
             {

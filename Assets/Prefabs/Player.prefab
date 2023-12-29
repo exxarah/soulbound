@@ -55,6 +55,7 @@ MonoBehaviour:
   m_animator: {fileID: 659604807391150059}
   m_speed: 250
   m_facesMovement: 0
+  m_inventoryComponent: {fileID: 2195948319487253422}
   m_abilitiesComponent: {fileID: 2749350516011610173}
   m_healthComponent: {fileID: 7118849532618546412}
   m_enemiesLayer:
