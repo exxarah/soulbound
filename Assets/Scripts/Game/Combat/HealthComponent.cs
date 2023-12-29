@@ -4,7 +4,6 @@ using Core.Unity.Utils;
 using Cysharp.Threading.Tasks;
 using Dev.ComradeVanti.WaitForAnim;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Combat
 {
@@ -34,10 +33,12 @@ namespace Game.Combat
         public Transform Transform => transform;
 
         public event Action OnDead;
+        public event Action OnHealthChanged;
 
         private void Start()
         {
             m_currentHealth = m_maxHealth;
+            OnHealthChanged?.Invoke();
         }
         
         public bool CanBeDamaged()
@@ -74,6 +75,8 @@ namespace Game.Combat
             {
                 OnDeath();
             }
+            
+            OnHealthChanged?.Invoke();
         }
 
         private void OnDamaged()

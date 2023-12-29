@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2195948319487253422}
   - component: {fileID: 2749350516011610173}
   - component: {fileID: 7118849532618546412}
+  - component: {fileID: 6184637234452531164}
   - component: {fileID: 3039128149016360921}
   - component: {fileID: 5650690420751454219}
   m_Layer: 6
@@ -136,6 +137,19 @@ MonoBehaviour:
   m_gameLostOnDeath: 1
   m_animator: {fileID: 659604807391150059}
   m_deathAnimState: 
+--- !u!114 &6184637234452531164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976138224753339175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09b6f2d7bb54a2f969afb258ce859f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerEntity: {fileID: 7436424670463285084}
 --- !u!54 &3039128149016360921
 Rigidbody:
   m_ObjectHideFlags: 0
