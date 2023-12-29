@@ -12,40 +12,39 @@ namespace Game.Entity
 
         public override void ApplyInput(FrameInputData input)
         {
-            AbilityDatabase.AbilityDefinition ability = null;
-            if (input.CharmAbility && Database.Instance.AbilityDatabase.TryGetAbility(Entity.AbilitiesComponent.GetAbility(FrameInputData.ActionType.CharmAbility), out ability))
+            if (input.CharmAbility)
             {
-                StateMachine.ChangeState(new EntityAttackState(Entity, ability));
+                StateMachine.ChangeState(new EntityAttackState(Entity, FrameInputData.ActionType.CharmAbility));
                 return;
             }
             
-            if (input.AbilityOne && Database.Instance.AbilityDatabase.TryGetAbility(Entity.AbilitiesComponent.GetAbility(FrameInputData.ActionType.AbilityOne), out ability))
+            if (input.AbilityOne)
             {
-                StateMachine.ChangeState(new EntityAttackState(Entity, ability));
+                StateMachine.ChangeState(new EntityAttackState(Entity, FrameInputData.ActionType.AbilityOne));
                 return;
             }
             
-            if (input.AbilityTwo && Database.Instance.AbilityDatabase.TryGetAbility(Entity.AbilitiesComponent.GetAbility(FrameInputData.ActionType.AbilityTwo), out ability))
+            if (input.AbilityTwo)
             {
-                StateMachine.ChangeState(new EntityAttackState(Entity, ability));
+                StateMachine.ChangeState(new EntityAttackState(Entity, FrameInputData.ActionType.AbilityTwo));
                 return;
             }
             
-            if (input.AbilityThree && Database.Instance.AbilityDatabase.TryGetAbility(Entity.AbilitiesComponent.GetAbility(FrameInputData.ActionType.AbilityThree), out ability))
+            if (input.AbilityThree)
             {
-                StateMachine.ChangeState(new EntityAttackState(Entity, ability));
+                StateMachine.ChangeState(new EntityAttackState(Entity, FrameInputData.ActionType.AbilityThree));
                 return;
             }
             
-            if (input.AbilityFour && Database.Instance.AbilityDatabase.TryGetAbility(Entity.AbilitiesComponent.GetAbility(FrameInputData.ActionType.AbilityFour), out ability))
+            if (input.AbilityFour)
             {
-                StateMachine.ChangeState(new EntityAttackState(Entity, ability));
+                StateMachine.ChangeState(new EntityAttackState(Entity, FrameInputData.ActionType.AbilityFour));
                 return;
             }
             
-            if (input.BasicAttack && Database.Instance.AbilityDatabase.TryGetAbility(Entity.AbilitiesComponent.GetAbility(FrameInputData.ActionType.BasicAttack), out ability))
+            if (input.BasicAttack)
             {
-                StateMachine.ChangeState(new EntityAttackState(Entity, ability));
+                StateMachine.ChangeState(new EntityAttackState(Entity, FrameInputData.ActionType.BasicAttack));
                 return;
             }
             

@@ -13,16 +13,13 @@ namespace Game.Entity
 {
     public class EntityAttackState : AEntityState
     {
+        private FrameInputData.ActionType m_actionType;
         private AbilityDatabase.AbilityDefinition m_ability;
 
-        public EntityAttackState(Entity stateMachine, string ability) : base(stateMachine)
+        public EntityAttackState(Entity stateMachine, FrameInputData.ActionType action) : base(stateMachine)
         {
-            m_ability = Database.Instance.AbilityDatabase.GetAbility(ability);
-        }
-
-        public EntityAttackState(Entity stateMachine, AbilityDatabase.AbilityDefinition ability) : base(stateMachine)
-        {
-            m_ability = ability;
+            m_actionType = action;
+            m_ability = Database.Instance.AbilityDatabase.GetAbility(stateMachine.AbilitiesComponent.GetAbility(action));
         }
 
         public override void Enter()
