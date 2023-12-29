@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shieldAbility: shield_basic
-  m_basicAbility: attack_basic
+  m_basicAbility: player_attack_basic
   m_abilityOne: heal_basic
   m_abilityTwo: 
   m_abilityThree: 

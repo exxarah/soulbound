@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shieldAbility: shield_basic
-  m_basicAbility: attack_basic
+  m_basicAbility: enemy_attack_basic
   m_abilityOne: 
   m_abilityTwo: 
   m_abilityThree: 

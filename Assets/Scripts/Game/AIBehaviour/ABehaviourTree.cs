@@ -24,7 +24,7 @@ namespace Game.AIBehaviour
         private void Update()
         {
             if (m_root == null) { return; }
-            if (m_controlledEntity.HealthComponent == null || m_controlledEntity.HealthComponent.IsDead) { return; }
+            if (m_controlledEntity.HealthComponent != null && m_controlledEntity.HealthComponent.IsDead) { return; }
 
             m_root.Evaluate();
         }

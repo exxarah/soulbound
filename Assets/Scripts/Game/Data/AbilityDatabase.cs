@@ -24,8 +24,8 @@ namespace Game.Data
             public CharmCost CharmCost => m_charmCost;
 
             [SerializeField]
-            private int m_cooldownSeconds = 6;
-            public int CooldownSeconds => m_cooldownSeconds;
+            private float m_cooldownSeconds = 6;
+            public float CooldownSeconds => m_cooldownSeconds;
 
             [SerializeField]
             private Sprite m_uiImage = null;
