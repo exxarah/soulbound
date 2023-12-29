@@ -3,7 +3,6 @@ using Core;
 using Core.Unity.Utils;
 using Cysharp.Threading.Tasks;
 using Dev.ComradeVanti.WaitForAnim;
-using PracticeJam.Game.Combat;
 using UnityEngine;
 using UnityEngine.Serialization;
 

@@ -60,7 +60,7 @@ MonoBehaviour:
     m_animationName: 
     m_charmCost:
       m_omniCost: 0
-      m_healthCost: 2
+      m_healthCost: 1
       m_attackCost: 0
     m_targetType: 3
     m_targetLayer: 1

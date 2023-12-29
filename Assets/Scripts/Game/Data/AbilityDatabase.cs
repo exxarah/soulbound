@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Game.Combat;
 using Game.Combat.Effects;
-using PracticeJam.Game.Combat;
 using UnityEngine;
 
 namespace Game.Data

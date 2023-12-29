@@ -74,6 +74,8 @@ namespace Game.Combat
 
         public void IncrementCharms(int amount, Enums.CharmType type)
         {
+            if (amount == 0) { return; }
+
             if (!m_charmsOwned.TryGetValue(type, out int currentAmount))
             {
                 currentAmount = 0;
@@ -84,6 +86,36 @@ namespace Game.Combat
             if (currentAmount >= 0)
             {
                 m_charmsOwned[type] = Math.Max(0, currentAmount + amount);
+            }
+        }
+
+        public void Spend(CharmCost charmCost)
+        {
+            int omnisUsed = 0;
+            if (charmCost.AttackCost > 0 && CanAfford(Enums.CharmType.AttackCharm, charmCost.AttackCost, out omnisUsed))
+            {
+                IncrementCharms(charmCost.AttackCost - omnisUsed, Enums.CharmType.AttackCharm);
+                IncrementCharms(omnisUsed, Enums.CharmType.OmniCharm);
+
+                // Kill the minions
+                GameContext.Instance.MinionManager.ConsumeMinions(Enums.CharmType.AttackCharm, charmCost.AttackCost - omnisUsed);
+                GameContext.Instance.MinionManager.ConsumeMinions(Enums.CharmType.OmniCharm, omnisUsed);
+            }
+            if (charmCost.HealthCost > 0 && CanAfford(Enums.CharmType.HealthCharm, charmCost.HealthCost, out omnisUsed))
+            {
+                IncrementCharms(charmCost.HealthCost - omnisUsed, Enums.CharmType.HealthCharm);
+                IncrementCharms(omnisUsed, Enums.CharmType.OmniCharm);
+                
+                // Kill the minions
+                GameContext.Instance.MinionManager.ConsumeMinions(Enums.CharmType.HealthCharm, charmCost.HealthCost - omnisUsed);
+                GameContext.Instance.MinionManager.ConsumeMinions(Enums.CharmType.OmniCharm, omnisUsed);
+            }
+            if (charmCost.OmniCost > 0 && CanAfford(Enums.CharmType.OmniCharm, charmCost.OmniCost, out omnisUsed))
+            {
+                IncrementCharms(charmCost.OmniCost, Enums.CharmType.OmniCharm);
+                
+                // Kill the minions
+                GameContext.Instance.MinionManager.ConsumeMinions(Enums.CharmType.OmniCharm, charmCost.OmniCost);
             }
         }
     }

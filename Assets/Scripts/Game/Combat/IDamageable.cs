@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PracticeJam.Game.Combat
+namespace Game.Combat
 {
     public interface IDamageable
     {

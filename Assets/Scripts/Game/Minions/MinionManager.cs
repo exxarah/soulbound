@@ -72,5 +72,10 @@ namespace Game.Minions
         {
             throw new NotImplementedException();
         }
+
+        public void ConsumeMinions(Enums.CharmType type, int amount)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

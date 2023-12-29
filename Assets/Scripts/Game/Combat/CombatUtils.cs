@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Unity.Utils;
-using Game.Combat;
 using UnityEngine;
 
-namespace PracticeJam.Game.Combat
+namespace Game.Combat
 {
     public static class CombatUtils
     {

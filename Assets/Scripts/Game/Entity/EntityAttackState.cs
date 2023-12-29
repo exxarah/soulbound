@@ -7,8 +7,6 @@ using Game.Combat;
 using Game.Combat.Effects;
 using Game.Data;
 using Game.Input;
-using Game.Toy;
-using PracticeJam.Game.Combat;
 using UnityEngine;
 
 namespace Game.Entity
@@ -69,7 +67,8 @@ namespace Game.Entity
 
         public async UniTask DoAttack()
         {
-            // TODO: Spend charms
+            // Spend charms
+            Entity.InventoryComponent.Spend(m_ability.CharmCost);
             
             // Snapshot the people to attack
             List<IDamageable> targets = CombatUtils.GetTargets(new CombatUtils.AttackParams
