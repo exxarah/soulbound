@@ -37,6 +37,8 @@ MonoBehaviour:
       m_targetState: GameWonScene
     - m_trigger: GameLost
       m_targetState: GameLostScene
+    - m_trigger: GoToMenu
+      m_targetState: MainMenuScene
   - m_stateName: GameWonScene
     m_scene:
       sceneGuid: ffa9d30d63566b548bc4d223c938f0f0

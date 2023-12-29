@@ -44,5 +44,10 @@ namespace Game.Flow
             Time.timeScale = 1.0f;
             m_pausePopup.SetActiveSafe(false);
         }
+
+        public void _GoToMenu()
+        {
+            FlowManager.Instance.Trigger("GoToMenu");
+        }
     }
 }
