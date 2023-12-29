@@ -91,10 +91,6 @@ namespace Game.Combat
             {
                 m_animator.SetTrigger(m_hurtAnimTrigger);   
             }
-            else
-            {
-                Log.Info("Dead. No one can hurt you anymore");
-            }
         }
 
         private void OnRestored()
@@ -116,7 +112,9 @@ namespace Game.Combat
             {
                 // Don't let the hurt anim trigger, or it will squash the death anim
                 m_animator.ResetTrigger(m_hurtAnimTrigger);
-                await m_animator.PlayAndWait(m_deathAnimState);   
+                m_animator.Play(m_deathAnimState);
+                await new WaitForAnimationToStart(m_animator, m_deathAnimState);
+                await new WaitForAnimationToFinish(m_animator, m_deathAnimState);
             }
 
             if (!m_gameLostOnDeath)

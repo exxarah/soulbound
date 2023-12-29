@@ -127,11 +127,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e4b99475394e8cabb68ff006ca955d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHealth: 50
+  m_maxHealth: 20
   m_currentHealth: 0
   m_gameLostOnDeath: 0
   m_animator: {fileID: 4854056448483654018}
-  m_deathAnimState: 
+  m_deathAnimState: Dead
+  m_secondsWaitAfterDeath: 2
+  m_hurtAnimTrigger: onHurt
 --- !u!114 &2391714330993873178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +299,7 @@ Animator:
   m_GameObject: {fileID: 5111398239174080116}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d81a49eaf22097f4ebf2c5647a73db43, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
