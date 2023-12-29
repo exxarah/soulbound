@@ -16,6 +16,7 @@ namespace Game.UI.Player
             base.Awake();
 
             m_playerEntity.HealthComponent.OnHealthChanged += Refresh;
+            m_playerEntity.InventoryComponent.OnInventoryChanged += Refresh;
             
             Refresh();
         }

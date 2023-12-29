@@ -10,6 +10,8 @@ namespace Game.Combat
         [SerializeField]
         private SerializableDictionary<Enums.CharmType, int> m_charmsOwned =
             new SerializableDictionary<Enums.CharmType, int>();
+
+        public event Action OnInventoryChanged;
         
         public bool CanAfford(CharmCost cost)
         {
@@ -87,6 +89,8 @@ namespace Game.Combat
             {
                 m_charmsOwned[type] = Math.Max(0, currentAmount + amount);
             }
+            
+            OnInventoryChanged?.Invoke();
         }
 
         public void Spend(CharmCost charmCost)

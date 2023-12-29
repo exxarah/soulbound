@@ -51,7 +51,7 @@ MonoBehaviour:
       m_omniCost: 0
       m_healthCost: 0
       m_attackCost: 0
-    m_cooldownSeconds: 15
+    m_cooldownSeconds: 10
     m_uiImage: {fileID: 21300000, guid: 0206d47f447c53344990a3a460d33ad9, type: 3}
     m_targetType: 2
     m_targetLayer: 0
