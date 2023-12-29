@@ -27,6 +27,10 @@ namespace Game.Data
             private int m_cooldownSeconds = 6;
             public int CooldownSeconds => m_cooldownSeconds;
 
+            [SerializeField]
+            private Sprite m_uiImage = null;
+            public Sprite UIImage => m_uiImage;
+
             [Header("Targeting Information")]
             [SerializeField]
             private Enums.TargetType m_targetType;
