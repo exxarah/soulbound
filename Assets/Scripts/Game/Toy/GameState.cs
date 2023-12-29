@@ -5,7 +5,7 @@ namespace Game.Toy
 {
     public class GameState : MonoBehaviour
     {
-        public int GameSeconds { get; private set; } = 20;
+        public int GameSeconds { get; private set; } = 300;
         public float SecondsPassed { get; private set; } = 0.0f;
         public bool GameInProgress { get; private set; } = false;
         public bool IsWon { get; private set; } = false;

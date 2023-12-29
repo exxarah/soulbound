@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8784565216088708981}
   - component: {fileID: 3084040389182304981}
   - component: {fileID: 8011833054112108249}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Forwards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1662083344223261774}
   - component: {fileID: 1793750539867046233}
   - component: {fileID: 5787092253119215837}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 8884692815808442189}
   - component: {fileID: 7160353481281767633}
   - component: {fileID: 8075603100598406582}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Minion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,9 +288,13 @@ MonoBehaviour:
   m_animator: {fileID: 5787092253119215837}
   m_speed: 80
   m_facesMovement: 1
+  m_inventoryComponent: {fileID: 0}
   m_abilitiesComponent: {fileID: 7160353481281767633}
   m_healthComponent: {fileID: 0}
-  m_entitiesToAttack:
+  m_enemiesLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  m_alliesLayer:
     serializedVersion: 2
     m_Bits: 0
 --- !u!54 &5564998570335314159

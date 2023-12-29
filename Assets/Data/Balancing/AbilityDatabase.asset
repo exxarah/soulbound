@@ -19,6 +19,8 @@ MonoBehaviour:
       m_omniCost: 0
       m_healthCost: 0
       m_attackCost: 0
+    m_cooldownSeconds: 6
+    m_uiImage: {fileID: 21300000, guid: cde0dd9d77737aa4191da5bb17656d31, type: 3}
     m_targetType: 0
     m_targetLayer: 0
     m_attackRange: 0
@@ -33,6 +35,8 @@ MonoBehaviour:
       m_omniCost: 0
       m_healthCost: 0
       m_attackCost: 0
+    m_cooldownSeconds: 1
+    m_uiImage: {fileID: 21300000, guid: 0650fdf059f51be42a4ee746750ddfe6, type: 3}
     m_targetType: 1
     m_targetLayer: 0
     m_attackRange: 2
@@ -47,6 +51,8 @@ MonoBehaviour:
       m_omniCost: 0
       m_healthCost: 0
       m_attackCost: 0
+    m_cooldownSeconds: 15
+    m_uiImage: {fileID: 21300000, guid: 0206d47f447c53344990a3a460d33ad9, type: 3}
     m_targetType: 2
     m_targetLayer: 0
     m_attackRange: 4
@@ -60,8 +66,10 @@ MonoBehaviour:
     m_animationName: 
     m_charmCost:
       m_omniCost: 0
-      m_healthCost: 1
+      m_healthCost: 3
       m_attackCost: 0
+    m_cooldownSeconds: 6
+    m_uiImage: {fileID: 21300000, guid: 1fb24ed9aa4f8a9449babda30bfb03cd, type: 3}
     m_targetType: 3
     m_targetLayer: 1
     m_attackRange: 1

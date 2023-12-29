@@ -104,5 +104,18 @@ namespace Game.Entity
             m_cooldownIDs.Add(ability);
             m_cooldownValues.Add(0.0f);
         }
+
+        public float GetCooldown(AbilityDatabase.AbilityDefinition abilityDef)
+        {
+            for (int i = 0; i < m_cooldownIDs.Count; i++)
+            {
+                if (m_cooldownIDs[i].AbilityID == abilityDef.AbilityID)
+                {
+                    return 1.0f - m_cooldownValues[i] / abilityDef.CooldownSeconds;
+                }
+            }
+
+            return 0.0f;
+        }
     }
 }

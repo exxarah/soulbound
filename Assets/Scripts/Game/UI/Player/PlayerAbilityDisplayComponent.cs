@@ -1,4 +1,6 @@
-﻿using Game.Data;
+﻿using System;
+using Core.Unity.Utils;
+using Game.Data;
 using Game.Input;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,15 +14,32 @@ namespace Game.UI.Player
 
         [SerializeField]
         private Image m_abilityImage = null;
+
+        [SerializeField]
+        private SlicedFilledImage m_cooldownCover = null;
+
+        private Entity.Entity m_playerEntity = null;
+        private AbilityDatabase.AbilityDefinition m_abilityDefinition = null;
         
         public override void Show(Entity.Entity playerEntity)
         {
-            if (!isActiveAndEnabled) { return; }
+            m_playerEntity = playerEntity;
+        }
 
-            string abilityID = playerEntity.AbilitiesComponent.GetAbility(m_actionToDisplay);
-            AbilityDatabase.AbilityDefinition abilityDef = Database.Instance.AbilityDatabase.GetAbility(abilityID);
+        private void Update()
+        {
+            if (!isActiveAndEnabled || m_playerEntity == null) { return; }
 
-            m_abilityImage.sprite = abilityDef.UIImage;
+            string abilityID = m_playerEntity.AbilitiesComponent.GetAbility(m_actionToDisplay);
+            if (m_abilityDefinition == null || abilityID != m_abilityDefinition.AbilityID)
+            {
+                m_abilityDefinition = Database.Instance.AbilityDatabase.GetAbility(abilityID);
+                if (m_abilityDefinition == null) { return; }
+
+                m_abilityImage.sprite = m_abilityDefinition.UIImage;   
+            }
+
+            m_cooldownCover.fillAmount = m_playerEntity.GetCooldown(m_abilityDefinition);
         }
     }
 }
