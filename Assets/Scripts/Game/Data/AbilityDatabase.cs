@@ -27,6 +27,10 @@ namespace Game.Data
             public Enums.TargetType TargetType => m_targetType;
 
             [SerializeField]
+            private Enums.TargetLayer m_targetLayer;
+            public Enums.TargetLayer TargetLayer => m_targetLayer;
+
+            [SerializeField]
             private float m_attackRange = 1.0f;
             public float AttackRange => m_attackRange;
 

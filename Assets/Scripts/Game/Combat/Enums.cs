@@ -10,6 +10,15 @@ namespace Game.Combat
             Raycast,
             Cone,
             Sphere,
+            Self,
+        }
+
+        [Serializable]
+        public enum TargetLayer
+        {
+            Enemies,
+            Allies,
+            Both,
         }
         
         [Serializable]

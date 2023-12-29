@@ -15,12 +15,26 @@ namespace PracticeJam.Game.Combat
                 Enums.TargetType.Raycast => GetTargets_Raycast(attackParams),
                 Enums.TargetType.Cone => GetTargets_Cone(attackParams),
                 Enums.TargetType.Sphere => GetTargets_Sphere(attackParams),
+                Enums.TargetType.Self => GetTargets_Self(attackParams),
                 _ => throw new ArgumentOutOfRangeException(),
             };
         }
         
+        private static List<IDamageable> GetTargets_Self(AttackParams attackParams)
+        {
+            List<IDamageable> targets = new List<IDamageable>();
+
+            if (attackParams.AttackSource.gameObject.TryGetComponent(out IDamageable target))
+            {
+                targets.Add(target);
+            }
+            
+            return targets;
+        }
+        
         private static List<IDamageable> GetTargets_Raycast(AttackParams attackParams)
         {
+            throw new NotImplementedException();
             List<IDamageable> targets = new List<IDamageable>();
             
             return targets;

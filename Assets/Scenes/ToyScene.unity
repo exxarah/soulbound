@@ -180,9 +180,12 @@ MonoBehaviour:
   m_facesMovement: 1
   m_abilitiesComponent: {fileID: 336260476}
   m_healthComponent: {fileID: 336260477}
-  m_entitiesToAttack:
+  m_enemiesLayer:
     serializedVersion: 2
     m_Bits: 64
+  m_alliesLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &336260473
 MonoBehaviour:
   m_ObjectHideFlags: 0

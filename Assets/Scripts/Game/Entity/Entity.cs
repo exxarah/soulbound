@@ -34,10 +34,14 @@ namespace Game.Entity
         [SerializeField]
         private HealthComponent m_healthComponent = null;
         public HealthComponent HealthComponent => m_healthComponent;
+   
+        [SerializeField]
+        private LayerMask m_enemiesLayer;
+        public LayerMask EnemiesLayer => m_enemiesLayer;
 
         [SerializeField]
-        private LayerMask m_entitiesToAttack;
-        public LayerMask EntitiesToAttack => m_entitiesToAttack;
+        private LayerMask m_alliesLayer;
+        public LayerMask AlliesLayer => m_alliesLayer;
 
         private void Start()
         {

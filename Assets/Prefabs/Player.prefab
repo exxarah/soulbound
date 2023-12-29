@@ -57,9 +57,12 @@ MonoBehaviour:
   m_facesMovement: 0
   m_abilitiesComponent: {fileID: 2749350516011610173}
   m_healthComponent: {fileID: 7118849532618546412}
-  m_entitiesToAttack:
+  m_enemiesLayer:
     serializedVersion: 2
     m_Bits: 128
+  m_alliesLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &8734582489155299967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_shieldAbility: shield_basic
   m_basicAbility: attack_basic
-  m_abilityOne: 
+  m_abilityOne: heal_basic
   m_abilityTwo: 
   m_abilityThree: 
   m_abilityFour: 

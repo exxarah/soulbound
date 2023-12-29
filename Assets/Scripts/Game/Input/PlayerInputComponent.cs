@@ -40,6 +40,11 @@ namespace Game.Input
             m_inputData.BasicAttack = UnityEngine.Input.GetMouseButtonDown(0);
             m_inputData.Shield = UnityEngine.Input.GetMouseButtonDown(1);
 
+            m_inputData.AbilityOne = UnityEngine.Input.GetKeyDown(KeyCode.Alpha1);
+            m_inputData.AbilityTwo = UnityEngine.Input.GetKeyDown(KeyCode.Alpha2);
+            m_inputData.AbilityThree = UnityEngine.Input.GetKeyDown(KeyCode.Alpha3);
+            m_inputData.AbilityFour = UnityEngine.Input.GetKeyDown(KeyCode.Alpha4);
+
             m_inputData.CharmAbility = UnityEngine.Input.GetKeyDown(KeyCode.Space);
             
             m_controlledEntity.ApplyInput(m_inputData);

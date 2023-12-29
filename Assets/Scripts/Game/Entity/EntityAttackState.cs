@@ -60,7 +60,7 @@ namespace Game.Entity
                 AttackRange = m_ability.AttackRange,
                 ConeAngleDegrees = m_ability.ConeDegrees,
                 TargetMaximumCount = m_ability.MaxTargets,
-                Layers = Entity.EntitiesToAttack,
+                Layers = GetLayer(m_ability),
             });
 
             // Apply OnCast effects
@@ -116,6 +116,17 @@ namespace Game.Entity
             
             // Return to idle
             StateMachine.ChangeState(new EntityIdleState(Entity));
+        }
+
+        private LayerMask GetLayer(AbilityDatabase.AbilityDefinition ability)
+        {
+            return ability.TargetLayer switch
+            {
+                Enums.TargetLayer.Enemies => Entity.EnemiesLayer,
+                Enums.TargetLayer.Allies => Entity.AlliesLayer,
+                Enums.TargetLayer.Both => Entity.AlliesLayer & Entity.EnemiesLayer,
+                _ => throw new ArgumentOutOfRangeException(),
+            };
         }
     }
 }
