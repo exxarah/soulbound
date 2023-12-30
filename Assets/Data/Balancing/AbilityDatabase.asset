@@ -53,7 +53,8 @@ MonoBehaviour:
     m_maxTargets: 1
     m_healthDecrement: 10
     m_instaKill: 0
-    m_effects: []
+    m_effects:
+    - {fileID: 11400000, guid: 5d69f742fbd0e3d41bbe7c779c209c17, type: 2}
   - m_abilityID: enemy_attack_basic
     m_animationName: Jab
     m_charmCost:
@@ -74,7 +75,8 @@ MonoBehaviour:
     m_maxTargets: 1
     m_healthDecrement: 15
     m_instaKill: 0
-    m_effects: []
+    m_effects:
+    - {fileID: 11400000, guid: 78fa9186e8ed04746b30ab8052cb4d0d, type: 2}
   - m_abilityID: charm_default
     m_animationName: RaiseHands
     m_charmCost:
