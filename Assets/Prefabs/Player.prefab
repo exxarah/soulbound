@@ -132,7 +132,7 @@ MonoBehaviour:
   m_abilityOne: heal_basic
   m_abilityTwo: aoe_basic
   m_abilityThree: ranged_basic
-  m_abilityFour: 
+  m_abilityFour: aoe_medium
   m_charmAbility: charm_default
 --- !u!114 &7118849532618546412
 MonoBehaviour:
