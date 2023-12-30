@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Core.Extensions;
 using UnityEngine;
 using Random = System.Random;
@@ -48,6 +49,7 @@ namespace Game.Data
 
         public List<EnemyDefinition> GetEnemiesForWave(int waveCount, int enemyCount)
         {
+            Dictionary<string, int> selectedEnemies = new Dictionary<string, int>();
             List<EnemyDefinition> enemySubset = new List<EnemyDefinition>();
             
             // Get our weighted list for this wave
@@ -64,6 +66,11 @@ namespace Game.Data
                         {
                             enemySubset.Add(Definitions[i]);
                         }
+
+                        if (Definitions[i].MaximumWaveToSpawn < 1.0f)
+                        {
+                            selectedEnemies.Add(Definitions[i].EnemyID, requiredAmount);
+                        }
                     }
                     
                     // Add to list, the same amount of times as weighting. Yes this is wildly inefficient. Yes I'm doing it anyway
@@ -78,10 +85,39 @@ namespace Game.Data
             int preseededEnemies = enemySubset.Count;
             for (int i = 0; i < enemyCount - preseededEnemies; i++)
             {
+                if (weightedList.Count <= 0) { break; }
+
                 // Random uses a time-based seed, so we need to use our own cached randomiser, or we'll just get the same enemy over and over
-                enemySubset.Add(weightedList.RandomItem(m_randomiser));
+                EnemyDefinition selected = weightedList.RandomItem(m_randomiser);
                 
-                // TODO: Check if this enemy has reached it's maximum percentage, and needs to be removed
+                // Check if this enemy has reached it's maximum percentage, and needs to be removed
+                if (selected.MaximumWaveToSpawn < 1.0f)
+                {
+                    int maximumAmount = Math.Min(enemyCount, Mathf.RoundToInt(enemyCount * selected.MaximumWaveToSpawn));
+                    selectedEnemies.TryGetValue(selected.EnemyID, out int currentAmount);
+
+                    if (maximumAmount <= currentAmount)
+                    {
+                        for (int j = weightedList.Count - 1; j >= 0; j--)
+                        {
+                            if (weightedList[j].EnemyID == selected.EnemyID)
+                            {
+                                weightedList.RemoveAt(j);
+                            }
+                        }
+
+                        // Go back one and try again, since this one wasn't added
+                        i--;
+                        continue;
+                    }
+                    else
+                    {
+                        currentAmount++;
+                        selectedEnemies[selected.EnemyID] = currentAmount;
+                    }
+                }
+                
+                enemySubset.Add(selected);
             }
 
             return enemySubset;
