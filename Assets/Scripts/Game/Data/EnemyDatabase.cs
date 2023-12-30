@@ -58,16 +58,16 @@ namespace Game.Data
             {
                 if (Definitions[i].MinimumWaveToSpawn <= waveCount && Definitions[i].MaximumWaveToSpawn >= waveCount)
                 {
-                    if (Definitions[i].MinimumWaveToSpawn > 0.0f)
+                    if (Definitions[i].MinimumPercentToSpawn > 0.0f)
                     {
                         // Add guaranteed / minimum percent enemies
-                        int requiredAmount = Math.Max(1, Mathf.RoundToInt(enemyCount * Definitions[i].MinimumWaveToSpawn));
+                        int requiredAmount = Math.Max(1, Mathf.RoundToInt(enemyCount * Definitions[i].MinimumPercentToSpawn));
                         for (int j = 0; j < requiredAmount; j++)
                         {
                             enemySubset.Add(Definitions[i]);
                         }
 
-                        if (Definitions[i].MaximumWaveToSpawn < 1.0f)
+                        if (Definitions[i].MaximumPercentToSpawn < 1.0f)
                         {
                             selectedEnemies.Add(Definitions[i].EnemyID, requiredAmount);
                         }
@@ -91,9 +91,9 @@ namespace Game.Data
                 EnemyDefinition selected = weightedList.RandomItem(m_randomiser);
                 
                 // Check if this enemy has reached it's maximum percentage, and needs to be removed
-                if (selected.MaximumWaveToSpawn < 1.0f)
+                if (selected.MaximumPercentToSpawn < 1.0f)
                 {
-                    int maximumAmount = Math.Min(enemyCount, Mathf.RoundToInt(enemyCount * selected.MaximumWaveToSpawn));
+                    int maximumAmount = Math.Max(1, Math.Min(enemyCount, Mathf.RoundToInt(enemyCount * selected.MaximumPercentToSpawn)));
                     selectedEnemies.TryGetValue(selected.EnemyID, out int currentAmount);
 
                     if (maximumAmount <= currentAmount)

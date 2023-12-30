@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4262076258903562}
   - component: {fileID: 198262247460734492}
   - component: {fileID: 199151916026886164}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Soul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4784,7 +4784,7 @@ GameObject:
   - component: {fileID: 4750739656812572}
   - component: {fileID: 198988730989860672}
   - component: {fileID: 199859227112210420}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CloudNova
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9592,7 +9592,7 @@ GameObject:
   - component: {fileID: 4379720453992370}
   - component: {fileID: 198440157108224030}
   - component: {fileID: 199429231492443314}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Droplets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14463,7 +14463,7 @@ GameObject:
   - component: {fileID: 4869263840847370}
   - component: {fileID: 198451450481698882}
   - component: {fileID: 199674684244570974}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SoulGenericDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}

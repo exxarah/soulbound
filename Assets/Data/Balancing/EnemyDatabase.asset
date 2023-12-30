@@ -18,7 +18,7 @@ MonoBehaviour:
       type: 3}
     m_minimumWaveToSpawn: 0
     m_maximumWaveToSpawn: 200
-    m_weightToSpawn: 1
+    m_weightToSpawn: 2
     m_minimumPercentToSpawn: 0
     m_maximumPercentToSpawn: 1
   - m_enemyID: heal_ghost
@@ -28,7 +28,7 @@ MonoBehaviour:
     m_maximumWaveToSpawn: 200
     m_weightToSpawn: 1
     m_minimumPercentToSpawn: 0
-    m_maximumPercentToSpawn: 0.5
+    m_maximumPercentToSpawn: 0.1
   - m_enemyID: attack_ghost
     m_enemyObject: {fileID: 7274298049040603976, guid: 2d8893a8ee444924987c9390f2229058,
       type: 3}

@@ -1,4 +1,5 @@
 ﻿using Core.Unity.Utils;
+using Game.Toy;
 using UnityEngine;
 
 namespace Game.Combat.Effects
@@ -15,9 +16,10 @@ namespace Game.Combat.Effects
         public override void ApplyToTarget(Transform target, GameObject caster)
         {
             GameObject effect = Instantiate(m_effectPrefab, target);
+            effect.layer = LayerMask.NameToLayer(Layers.EFFECTS);
             effect.transform.position = target.position;
             
-            // TODO: Add effect killer component
+            // Add effect killer component
             TimedDestroyComponent component = effect.AddComponent<TimedDestroyComponent>();
             component.Initialise(m_secondsTillDeath);
         }

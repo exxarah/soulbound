@@ -9,7 +9,7 @@ namespace Game.Combat
     {
         public static List<IDamageable> GetTargets(AttackParams attackParams)
         {
-            return attackParams.TargetType switch
+            List<IDamageable> allTargets =  attackParams.TargetType switch
             {
                 Enums.TargetType.Raycast => GetTargets_Raycast(attackParams),
                 Enums.TargetType.Cone => GetTargets_Cone(attackParams),
@@ -17,8 +17,19 @@ namespace Game.Combat
                 Enums.TargetType.Self => GetTargets_Self(attackParams),
                 _ => throw new ArgumentOutOfRangeException(),
             };
+            
+            allTargets.Sort(((a, b) => Proximity(a, b, attackParams.AttackSource)));
+            return allTargets.GetRange(0, Math.Min(allTargets.Count, attackParams.TargetMaximumCount));
         }
-        
+
+        private static int Proximity(IDamageable x, IDamageable y, Transform source)
+        {
+            float distanceX = Vector3.Distance(x.Transform.position, source.position);
+            float distanceY = Vector3.Distance(y.Transform.position, source.position);
+
+            return distanceX.CompareTo(distanceY);
+        }
+
         private static List<IDamageable> GetTargets_Self(AttackParams attackParams)
         {
             List<IDamageable> targets = new List<IDamageable>();
@@ -45,10 +56,6 @@ namespace Game.Combat
             List<IDamageable> targets = new(attackParams.TargetMaximumCount);
             for (int i = coneHits.Length - 1; i >= 0; i--)
             {
-                if (targets.Count >= attackParams.TargetMaximumCount)
-                {
-                    break;
-                }
                 if (coneHits[i].gameObject.TryGetComponent(out IDamageable damage) && damage.CanBeDamaged())
                 {
                     targets.Add(damage);
@@ -65,10 +72,6 @@ namespace Game.Combat
 
             for (int i = 0; i < hitColliders.Length; i++)
             {
-                if (targets.Count >= attackParams.TargetMaximumCount)
-                {
-                    break;
-                }
                 if (hitColliders[i].TryGetComponent(out IDamageable damage) && damage.CanBeDamaged())
                 {
                     targets.Add(damage);
