@@ -6,7 +6,6 @@ using UnityEngine.Serialization;
 
 namespace Game.Data
 {
-    [CreateAssetMenu]
     public class CreditsDatabase : ScriptableObject
     {
         [Serializable]

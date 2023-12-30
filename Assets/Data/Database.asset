@@ -15,3 +15,4 @@ MonoBehaviour:
   m_creditsDatabase: {fileID: 11400000, guid: f4c77d14623d60f4ba139cf9ae6bcfdd, type: 2}
   m_abilityDatabase: {fileID: 11400000, guid: 3e09efda3a055674489eef89d6e246ab, type: 2}
   m_enemyDatabase: {fileID: 11400000, guid: 7a732de0bf1d61e4695e96dbd6be7934, type: 2}
+  m_waveDatabase: {fileID: 11400000, guid: 72a9ca29f83582f44a6b3c174106a691, type: 2}

@@ -16,5 +16,9 @@ namespace Game.Data
         [SerializeField]
         private EnemyDatabase m_enemyDatabase;
         public EnemyDatabase EnemyDatabase => m_enemyDatabase;
+
+        [SerializeField]
+        private EnemyWaveDatabase m_waveDatabase;
+        public EnemyWaveDatabase WaveDatabase => m_waveDatabase;
     }
 }
