@@ -13,6 +13,7 @@ namespace Game
         [Header("Global Managers")]
         [SerializeField]
         private InputManager m_inputManager = null;
+        public InputManager InputManager => m_inputManager;
 
         [Header("Toy Managers")]
         public MinionManager MinionManager = null;

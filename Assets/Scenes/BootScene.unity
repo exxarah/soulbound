@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 562963297}
   - component: {fileID: 562963296}
   - component: {fileID: 562963295}
+  - component: {fileID: 562963298}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -328,6 +329,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1215615955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &562963298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562963294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c35cb60e76446c4985221e13b2bddb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_eventSystem: {fileID: 562963296}
 --- !u!1 &1016417273
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121f6b3db0ba4fa5908c38c836a492c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_inputManager: {fileID: 0}
+  m_inputManager: {fileID: 562963298}
   MinionManager: {fileID: 0}
   EnemyManager: {fileID: 0}
   GameState: {fileID: 1215615957}
