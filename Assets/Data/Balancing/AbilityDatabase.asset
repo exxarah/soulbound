@@ -73,7 +73,7 @@ MonoBehaviour:
     m_attackRange: 2
     m_coneDegrees: 90
     m_maxTargets: 1
-    m_healthDecrement: 15
+    m_healthDecrement: 10
     m_instaKill: 0
     m_effects:
     - {fileID: 11400000, guid: 78fa9186e8ed04746b30ab8052cb4d0d, type: 2}
@@ -88,17 +88,39 @@ MonoBehaviour:
     m_hasTelegraph: 1
     m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
       type: 3}
-    m_telegraphMaterial: {fileID: 2100000, guid: 7890ca99351e74a4a8b8ea32063947a9,
+    m_telegraphMaterial: {fileID: 2100000, guid: 34f8c522adea2194fb5c4cbbec26c122,
       type: 2}
     m_targetType: 2
     m_targetLayer: 1
-    m_attackRange: 5
+    m_attackRange: 3
     m_coneDegrees: 90
     m_maxTargets: 10
     m_healthDecrement: -15
     m_instaKill: 0
     m_effects:
     - {fileID: 11400000, guid: 8808b66e9b5287c46a67189e6c65bd8c, type: 2}
+  - m_abilityID: attack_ghost_ability
+    m_animationName: Jab
+    m_charmCost:
+      m_omniCost: 0
+      m_healthCost: 0
+      m_attackCost: 0
+    m_cooldownSeconds: 7
+    m_uiImage: {fileID: 21300000, guid: 06fbd96713a363f479359747ea419d04, type: 3}
+    m_hasTelegraph: 1
+    m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
+      type: 3}
+    m_telegraphMaterial: {fileID: 2100000, guid: 3ae36a0e38fd5ed4681a4436b06347d5,
+      type: 2}
+    m_targetType: 2
+    m_targetLayer: 0
+    m_attackRange: 7
+    m_coneDegrees: 45
+    m_maxTargets: 10
+    m_healthDecrement: 20
+    m_instaKill: 0
+    m_effects:
+    - {fileID: 11400000, guid: 4b9bc831f19e83e42a967b87397c4eb8, type: 2}
   - m_abilityID: charm_default
     m_animationName: RaiseHands
     m_charmCost:

@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243b433517864541b9646a768f783dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_charmType: 0
+  m_charmType: 2
   m_charmCount: 1
 --- !u!54 &1820516777215607240
 Rigidbody:
@@ -271,6 +271,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 514471462265150744, guid: c6654bd20ac7c2540b2e03c55561bf7b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8370fafc23f6e634b901951ffe0e5071, type: 2}
     - target: {fileID: 919132149155446097, guid: c6654bd20ac7c2540b2e03c55561bf7b,
         type: 3}
       propertyPath: m_Name
