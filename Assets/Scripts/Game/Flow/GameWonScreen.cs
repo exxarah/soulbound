@@ -6,12 +6,12 @@ namespace Game.Flow
     {
         public void _GoToMainMenu()
         {
-            FlowManager.Instance.Trigger("GoToMenu");
+            FlowManager.Instance.Trigger("GoToMenu", LoadingScreens.DEFAULT);
         }
 
         public void _PlayAgain()
         {
-            FlowManager.Instance.Trigger("BeginGame");
+            FlowManager.Instance.Trigger("BeginGame", LoadingScreens.CHARACTERS);
         }
     }
 }

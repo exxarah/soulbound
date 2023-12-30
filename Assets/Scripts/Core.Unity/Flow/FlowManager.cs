@@ -66,7 +66,7 @@ namespace Core.Unity.Flow
             }
 
             await EnableLoadingScreen(loadingScreenToUse);
-            await CloseAsync(m_currentState);
+            string previousState = m_currentState;
 
             // Check if this scene has already been loaded, and just re-load that if so
             if (m_loadedViews.TryGetValue(flowTrigger.TargetState, out View view))
@@ -79,6 +79,9 @@ namespace Core.Unity.Flow
             FlowGraph.FlowState flowState = m_graph.GetState(flowTrigger.TargetState);
             await SceneManager.LoadSceneAsync(flowState.Scene.sceneIndex, LoadSceneMode.Additive);
             await OnSceneLoaded(flowTrigger.TargetState, @params);
+            
+            // Now that the new screen is loaded, we can unload the previous one. Otherwise not having a loading screen causes a broken transition
+            await CloseAsync(previousState);
             await DisableLoadingScreen(loadingScreenToUse);
         }
 
@@ -100,7 +103,7 @@ namespace Core.Unity.Flow
                 if (m_loadedViews.ContainsKey(state))
                 {
                     m_loadedViews.Remove(state);
-                    SceneManager.UnloadSceneAsync(flowState.Scene.sceneIndex);
+                    await SceneManager.UnloadSceneAsync(flowState.Scene.sceneIndex);
                 }
             }
         }
@@ -171,7 +174,7 @@ namespace Core.Unity.Flow
                 await SceneManager.LoadSceneAsync(loadingScreen.Scene.sceneIndex, LoadSceneMode.Additive);
                 Scene scene = SceneManager.GetSceneByBuildIndex(loadingScreen.Scene.sceneIndex);
                 LoadingScreen screen = scene.GetRootGameObjects()[0].GetComponent<LoadingScreen>();
-                screen.OnLoadBegin();
+                await screen.OnLoadBegin();
             }
         }
 
@@ -181,9 +184,11 @@ namespace Core.Unity.Flow
             if (loadingScreen != null)
             {
                 Scene scene = SceneManager.GetSceneByBuildIndex(loadingScreen.Scene.sceneIndex);
+                LoadingScreen screen = scene.GetRootGameObjects()[0].GetComponent<LoadingScreen>();
+                await screen.OnLoadEnd();
                 if (scene.isLoaded)
                 {
-                    SceneManager.UnloadSceneAsync(loadingScreen.Scene.sceneIndex);
+                    await SceneManager.UnloadSceneAsync(loadingScreen.Scene.sceneIndex);
                 }
             }
         }

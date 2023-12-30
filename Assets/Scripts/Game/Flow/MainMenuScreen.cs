@@ -50,7 +50,7 @@ namespace Game.Flow
                 yield return new WaitForAnimationToStart(m_panelAnimator, HIDE_ANIM);
                 yield return new WaitForAnimationToFinish(m_panelAnimator, HIDE_ANIM);
                 
-                FlowManager.Instance.Trigger("BeginGame");
+                FlowManager.Instance.Trigger("BeginGame", LoadingScreens.CHARACTERS);
             }
         }
 

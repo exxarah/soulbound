@@ -1,5 +1,6 @@
 ﻿using Core.Unity.Flow;
 using Core.Unity.Utils;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Screen = Core.Unity.Flow.Screen;
 
@@ -9,6 +10,11 @@ namespace Game.Flow
     {
         [SerializeField]
         private GameObject m_pausePopup = null;
+
+        public override async UniTask OnViewPreEnter(ViewEnterParams viewEnterParams = null)
+        {
+            await base.OnViewPreEnter(viewEnterParams);
+        }
 
         public override void OnViewEnter(ViewEnterParams viewEnterParams = null)
         {
@@ -25,11 +31,11 @@ namespace Game.Flow
         {
             if (GameContext.Instance.GameState.IsWon)
             {
-                FlowManager.Instance.Trigger("GameWon");
+                FlowManager.Instance.Trigger("GameWon", LoadingScreens.DEFAULT);
             }
             else
             {
-                FlowManager.Instance.Trigger("GameLost");
+                FlowManager.Instance.Trigger("GameLost", LoadingScreens.DEFAULT);
             }
         }
 
@@ -47,7 +53,7 @@ namespace Game.Flow
 
         public void _GoToMenu()
         {
-            FlowManager.Instance.Trigger("GoToMenu");
+            FlowManager.Instance.Trigger("GoToMenu", LoadingScreens.DEFAULT);
             Time.timeScale = 1.0f;
         }
     }

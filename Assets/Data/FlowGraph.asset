@@ -58,6 +58,6 @@ MonoBehaviour:
     - m_trigger: BeginGame
       m_targetState: ToyScene
   m_loadingScreens:
-  - m_name: Default
+  - m_name: Characters
     m_scene:
       sceneGuid: 17e82bd633acbf6448186b4bc4e6459d
