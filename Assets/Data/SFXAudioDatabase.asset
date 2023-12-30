@@ -22,4 +22,20 @@ MonoBehaviour:
       - m_audioClip: {fileID: 8300000, guid: f9d57ad72ebab74458c242548940922d, type: 3}
       - m_audioClip: {fileID: 8300000, guid: 10af0f2de0682e7439fa4a2ecba0c66d, type: 3}
       - m_audioClip: {fileID: 8300000, guid: 6fd2d3924cf9c58469b367a515038e22, type: 3}
+    - Key: 3
+      Value:
+      - m_audioClip: {fileID: 8300000, guid: 0f8371c1d778b6748930b21b830fb184, type: 3}
+      - m_audioClip: {fileID: 8300000, guid: 2fba668b6a3b24c4c90ce94f0ad74aa2, type: 3}
+      - m_audioClip: {fileID: 8300000, guid: 047163e027377d94a8f3d0a66138cfec, type: 3}
+      - m_audioClip: {fileID: 8300000, guid: a6df6b1dad795e044817b77333d166bc, type: 3}
+    - Key: 2
+      Value:
+      - m_audioClip: {fileID: 8300000, guid: 8174def6e23ae0c419a4af9a927be0df, type: 3}
+      - m_audioClip: {fileID: 8300000, guid: b49e801259b024a479e9136c802bd34f, type: 3}
+      - m_audioClip: {fileID: 8300000, guid: e3dcb7de4c5e8f64f88ea3a9b4d09e74, type: 3}
+    - Key: 1
+      Value:
+      - m_audioClip: {fileID: 8300000, guid: 8174def6e23ae0c419a4af9a927be0df, type: 3}
+      - m_audioClip: {fileID: 8300000, guid: b49e801259b024a479e9136c802bd34f, type: 3}
+      - m_audioClip: {fileID: 8300000, guid: e3dcb7de4c5e8f64f88ea3a9b4d09e74, type: 3}
     keyCollision: 0

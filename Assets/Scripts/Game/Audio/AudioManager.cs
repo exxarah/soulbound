@@ -61,6 +61,14 @@ namespace Game.Audio
             }
         }
 
+        public void PlayAsSFX(AudioClip audioClip)
+        {
+            AudioSource source = m_audioPool.Get();
+            source.outputAudioMixerGroup = m_sfxGroup;
+            source.PlayOneShot(audioClip);
+            m_activeEffects.Add(source);
+        }
+
         private void Play(SFXAudioDatabase.SFX effect)
         {
             AudioSource source = m_audioPool.Get();

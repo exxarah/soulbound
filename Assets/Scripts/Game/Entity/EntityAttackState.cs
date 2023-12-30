@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Core;
 using Cysharp.Threading.Tasks;
 using Dev.ComradeVanti.WaitForAnim;
+using Game.Audio;
 using Game.Combat;
 using Game.Combat.Effects;
 using Game.Data;
@@ -98,6 +99,7 @@ namespace Game.Entity
         public async UniTask DoAttack()
         {
             m_attackInProgress = true;
+            AudioManager.Instance.Play(SFXAudioDatabase.SFXKey.Attack);
 
             // Spend charms
             Entity.InventoryComponent.Spend(m_ability.CharmCost);

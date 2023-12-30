@@ -106,6 +106,7 @@ namespace Game.Combat
         private void OnDeath()
         {
             m_isDead = true;
+            AudioManager.Instance.Play(SFXAudioDatabase.SFXKey.Death);
             DeathSequence().Forget(OnException);
             OnDead?.Invoke();
         }

@@ -15,6 +15,8 @@ namespace Game.Audio
             
             // Game FX 1 - 50
             Hurt = 1,
+            Death = 2,
+            Attack = 3,
             
             // UI FX 51 - 70
             ButtonClick = 51,
