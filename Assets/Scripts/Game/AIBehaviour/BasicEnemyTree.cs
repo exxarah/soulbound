@@ -18,10 +18,14 @@ namespace Game.AIBehaviour
                 // Do Basic Attack
                 new SequenceNode(this, new List<Node>
                 {
-                    new FindTargetInRange(this,
-                                          () => FindTargetInRange.InActionRange(LayerMask.GetMask(Layers.PLAYER), ControlledEntity,
-                                                                                    FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform),
-                                          () => FindTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack)),
+                    new SelectorNode(this, new List<Node>()
+                    {
+                        new IsTrue(this, () => IsDataSet("basic_attack_in_progress")),
+                        new FindTargetInRange(this,
+                                              () => FindTargetInRange.InActionRange(LayerMask.GetMask(Layers.PLAYER), ControlledEntity,
+                                                  FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform),
+                                              () => FindTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack)),
+                    }),
                     new TaskDoAction(this, FrameInputData.ActionType.BasicAttack),
                 }),
                 // Try to find an enemy to attack
@@ -39,6 +43,12 @@ namespace Game.AIBehaviour
 
 
             return root;
+        }
+
+        private bool IsDataSet(string attackKey)
+        {
+            object data = Root.GetData(attackKey);
+            return data != null && (bool)Root.GetData(attackKey);
         }
     }
 }

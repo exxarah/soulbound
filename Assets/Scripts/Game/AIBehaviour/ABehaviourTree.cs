@@ -12,6 +12,14 @@ namespace Game.AIBehaviour
         [SerializeField]
         private float m_fovRange = 10.0f;
         public float FOVRange => m_fovRange;
+
+        [SerializeField]
+        private float m_telegraphMinSeconds = 0.5f;
+        public float TelegraphMinSeconds => m_telegraphMinSeconds;
+
+        [SerializeField]
+        private float m_telegraphMaxSeconds = 1.5f;
+        public float TelegraphMaxSeconds => m_telegraphMaxSeconds;
         
         private Node m_root = null;
         public Node Root => m_root;

@@ -48,7 +48,7 @@ MonoBehaviour:
       type: 2}
     m_targetType: 1
     m_targetLayer: 0
-    m_attackRange: 2
+    m_attackRange: 3
     m_coneDegrees: 90
     m_maxTargets: 1
     m_healthDecrement: 10
@@ -62,16 +62,17 @@ MonoBehaviour:
       m_attackCost: 0
     m_cooldownSeconds: 1
     m_uiImage: {fileID: 21300000, guid: 0650fdf059f51be42a4ee746750ddfe6, type: 3}
-    m_hasTelegraph: 0
+    m_hasTelegraph: 1
     m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
       type: 3}
-    m_telegraphMaterial: {fileID: 0}
+    m_telegraphMaterial: {fileID: 2100000, guid: a9fabcc99ab58de459c105729a6ab4e9,
+      type: 2}
     m_targetType: 1
     m_targetLayer: 0
-    m_attackRange: 1
+    m_attackRange: 2
     m_coneDegrees: 90
     m_maxTargets: 1
-    m_healthDecrement: 20
+    m_healthDecrement: 15
     m_instaKill: 0
     m_effects: []
   - m_abilityID: charm_default

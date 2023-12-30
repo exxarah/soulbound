@@ -100,6 +100,19 @@ namespace Game.Entity
             }
         }
 
+        public bool IsOnCooldown(string abilityID)
+        {
+            for (int i = 0; i < m_cooldownIDs.Count; i++)
+            {
+                if (m_cooldownIDs[i].AbilityID == abilityID)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public bool IsOnCooldown(AbilityDatabase.AbilityDefinition ability)
         {
             for (int i = 0; i < m_cooldownIDs.Count; i++)
