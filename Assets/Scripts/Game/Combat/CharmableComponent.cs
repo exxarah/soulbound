@@ -6,7 +6,7 @@ namespace Game.Combat
     {
         [SerializeField]
         private Enums.CharmType m_charmType;
-        public Enums.CharmType CharmType => Enums.CharmType.OmniCharm;
+        public Enums.CharmType CharmType => m_charmType;
 
         [SerializeField]
         private int m_charmCount = 1;
