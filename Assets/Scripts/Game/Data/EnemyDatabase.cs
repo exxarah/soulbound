@@ -75,7 +75,8 @@ namespace Game.Data
             }
             
             // Randomly select a subset of enemies to use for this wave
-            for (int i = 0; i < enemyCount - enemySubset.Count; i++)
+            int preseededEnemies = enemySubset.Count;
+            for (int i = 0; i < enemyCount - preseededEnemies; i++)
             {
                 // Random uses a time-based seed, so we need to use our own cached randomiser, or we'll just get the same enemy over and over
                 enemySubset.Add(weightedList.RandomItem(m_randomiser));
