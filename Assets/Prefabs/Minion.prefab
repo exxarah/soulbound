@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8784565216088708981}
   - component: {fileID: 3084040389182304981}
   - component: {fileID: 8011833054112108249}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Forwards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1662083344223261774}
   - component: {fileID: 1793750539867046233}
   - component: {fileID: 5787092253119215837}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,8 @@ GameObject:
   - component: {fileID: 8884692815808442189}
   - component: {fileID: 7160353481281767633}
   - component: {fileID: 8075603100598406582}
-  m_Layer: 11
+  - component: {fileID: 5678864679281723339}
+  m_Layer: 12
   m_Name: Minion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,3 +383,22 @@ MonoBehaviour:
   m_telegraphMaxSeconds: 1.5
   m_minDistanceToPlayer: 1.5
   m_maxDistanceToPlayer: 3
+--- !u!114 &5678864679281723339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7914076748706522451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e4b99475394e8cabb68ff006ca955d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxHealth: 1
+  m_currentHealth: 0
+  m_gameLostOnDeath: 0
+  m_animator: {fileID: 5787092253119215837}
+  m_deathAnimState: 
+  m_secondsWaitAfterDeath: 0
+  m_hurtAnimTrigger: 

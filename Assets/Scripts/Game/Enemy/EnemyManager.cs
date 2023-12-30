@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Core.Extensions;
 using Game.Data;
 using UnityEngine;
@@ -28,7 +27,7 @@ namespace Game.Enemy
         {
             if (!GameContext.Instance.GameState.GameInProgress) { return; }
 
-            if (m_activeEnemyCount <= 0)
+            if (m_activeEnemyCount <= 1)
             {
                 SpawnWave();
             }

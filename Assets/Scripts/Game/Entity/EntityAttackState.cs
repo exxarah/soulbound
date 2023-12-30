@@ -68,6 +68,11 @@ namespace Game.Entity
                 DoAttack().Forget(OnException); 
             }
         }
+        
+        public override void FixedUpdate()
+        {
+            Entity.Rigidbody.velocity = Vector3.zero;
+        }
 
         private bool CanUseAbility()
         {

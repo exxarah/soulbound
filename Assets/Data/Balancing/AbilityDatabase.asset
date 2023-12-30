@@ -92,7 +92,7 @@ MonoBehaviour:
       type: 2}
     m_targetType: 2
     m_targetLayer: 0
-    m_attackRange: 6
+    m_attackRange: 4
     m_coneDegrees: 0
     m_maxTargets: 10
     m_healthDecrement: 0

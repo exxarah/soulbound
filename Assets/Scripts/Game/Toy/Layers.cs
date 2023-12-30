@@ -12,5 +12,7 @@
         public const string ENEMIES = "Enemies";
 
         public const string DEAD = "Dead";
+        public const string EFFECTS = "Effects";
+        public const string MINIONS = "Minions";
     }
 }
