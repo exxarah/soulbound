@@ -1,5 +1,7 @@
 ﻿using Core.Unity.Flow;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
+using Screen = Core.Unity.Flow.Screen;
 
 namespace Game.Flow
 {

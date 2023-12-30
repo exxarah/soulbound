@@ -142,10 +142,6 @@ namespace Core.Unity.Flow
                     break;
                 }
             }
-            if (view == null)
-            {
-                Debug.Log("view");
-            }
             switch (view)
             {
                 case Popup _:
@@ -159,18 +155,9 @@ namespace Core.Unity.Flow
 
             m_loadedViews.TryAdd(state, view);
             m_currentState = state;
-            Debug.Log("here_03");
-            if (view == null)
-            {
-                Debug.Log("view");
-            }
 
             await view.OnViewPreEnter(@params);
-            
-            Debug.Log("here_04");
-
             view.OnViewEnter(@params);
-            Debug.Log("here_05");
             OnViewLoaded?.Invoke(view);
         }
 

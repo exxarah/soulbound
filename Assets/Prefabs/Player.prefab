@@ -55,6 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigidbody: {fileID: 3039128149016360921}
   m_animator: {fileID: 659604807391150059}
+  m_isPlayer: 1
   m_entityStatsComponent: {fileID: 4937914405388844803}
   m_facesMovement: 0
   m_inventoryComponent: {fileID: 2195948319487253422}
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxHealth: 50
   m_currentHealth: 0
-  m_gameLostOnDeath: 1
+  m_isPlayer: 1
   m_animator: {fileID: 659604807391150059}
   m_deathAnimState: Dead
   m_secondsWaitAfterDeath: 2

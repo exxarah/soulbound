@@ -14,7 +14,7 @@ namespace Game.Minions
 
         [SerializeField]
         private Transform m_minionRoot = null;
-
+        
         private Dictionary<Enums.CharmType, List<Minion>> m_activeMinions =
             new Dictionary<Enums.CharmType, List<Minion>>();
         
@@ -55,6 +55,7 @@ namespace Game.Minions
 
         public void CreateMinion(Enums.CharmType charmType, int amountOfCharms, Transform creator)
         {
+            GameContext.Instance.GameState.MinionsEarned += amountOfCharms;
             for (int i = 0; i < amountOfCharms; i++)
             {
                 Pool.Get(out Minion minion);
@@ -79,6 +80,7 @@ namespace Game.Minions
 
             int minionCount = m_activeMinions[type].Count;
             amount = Math.Min(amount, minionCount);
+            GameContext.Instance.GameState.MinionsSpent += amount;
             for (int i = minionCount - 1; i >= minionCount - amount; i--)
             {
                 Minion minion = m_activeMinions[type][i];

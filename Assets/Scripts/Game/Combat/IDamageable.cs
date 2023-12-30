@@ -6,7 +6,7 @@ namespace Game.Combat
     {
         public Transform Transform { get; }
         
-        public void DoDamage(DamageParams @params);
+        public int DoDamage(DamageParams @params);
         public bool CanBeDamaged();
     }
 

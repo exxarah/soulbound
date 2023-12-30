@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using Dev.ComradeVanti.WaitForAnim;
 using Game.Audio;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Combat
 {
@@ -16,8 +17,9 @@ namespace Game.Combat
         [SerializeField, ReadOnly]
         private int m_currentHealth;
 
+        [FormerlySerializedAs("m_gameLostOnDeath")]
         [SerializeField]
-        private bool m_gameLostOnDeath = false;
+        private bool m_isPlayer = false;
 
         [SerializeField]
         private Animator m_animator = null;
@@ -44,35 +46,40 @@ namespace Game.Combat
 
         public event Action OnDead;
         public event Action OnHealthChanged;
-
+        
         private void Start()
         {
             m_currentHealth = m_maxHealth;
             OnHealthChanged?.Invoke();
         }
-        
+
         public bool CanBeDamaged()
         {
             // No damage if dead
             return !m_isDead;
         }
 
-        public void DoDamage(DamageParams @params)
+        public int DoDamage(DamageParams @params)
         {
             if (@params.ForceKill)
             {
-                ChangeHealth(-CurrentHealth);
-                return;
+                return ChangeHealth(-CurrentHealth);
             }
-            ChangeHealth(-@params.DamageAmount);
+            return ChangeHealth(-@params.DamageAmount);
         }
 
-        private void ChangeHealth(int amount)
+        private int ChangeHealth(int amount)
         {
+            int damage = 0;
             int newHealth = Math.Max(Math.Min(m_currentHealth + amount, MaxHealth), 0);
             Log.Info(LogCategory.COMBAT, $"{gameObject.name} health from {m_currentHealth} to {newHealth}");
             if (newHealth < m_currentHealth)
             {
+                if (m_isPlayer)
+                {
+                    GameContext.Instance.GameState.PlayerDamageTaken += m_currentHealth - newHealth;
+                }
+                damage = m_currentHealth - newHealth;
                 OnDamaged();
             } else if (newHealth > m_currentHealth)
             {
@@ -87,6 +94,7 @@ namespace Game.Combat
             }
             
             OnHealthChanged?.Invoke();
+            return damage;
         }
 
         private void OnDamaged()
@@ -123,7 +131,7 @@ namespace Game.Combat
                 await new WaitForAnimationToFinish(m_animator, m_deathAnimState);
             }
 
-            if (!m_gameLostOnDeath)
+            if (!m_isPlayer)
             {
                 Destroy(this.gameObject);
                 return;

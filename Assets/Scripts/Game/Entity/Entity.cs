@@ -21,6 +21,10 @@ namespace Game.Entity
         private Animator m_animator = null;
         public Animator Animator => m_animator;
 
+        [SerializeField]
+        private bool m_isPlayer = false;
+        public bool IsPlayer => m_isPlayer;
+
         [Header("Entity Information")]
         [SerializeField]
         private EntityStatsComponent m_entityStatsComponent = null;

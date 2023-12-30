@@ -166,7 +166,11 @@ namespace Game.Entity
             // Do attack
             foreach (IDamageable target in targets)
             {
-                target.DoDamage(new DamageParams{DamageAmount = m_ability.HealthDecrement, ForceKill = m_ability.InstaKill});
+                int damage = target.DoDamage(new DamageParams{DamageAmount = m_ability.HealthDecrement, ForceKill = m_ability.InstaKill});
+                if (Entity.IsPlayer)
+                {
+                    GameContext.Instance.GameState.PlayerDamageGiven += damage;
+                }
             }
             
             // Clean up telegraph
