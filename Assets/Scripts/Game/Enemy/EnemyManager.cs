@@ -11,7 +11,6 @@ namespace Game.Enemy
         private Transform m_enemyParent = null;
 
         private List<EnemySpawnPoint> m_availableSpawnPoints = new List<EnemySpawnPoint>();
-        private int m_activeEnemyCount = 0;
 
         private void Awake()
         {
@@ -27,7 +26,7 @@ namespace Game.Enemy
         {
             if (!GameContext.Instance.GameState.GameInProgress) { return; }
 
-            if (m_activeEnemyCount <= 1)
+            if (m_enemyParent.GetComponentsInChildren<Entity.Entity>().Length <= 1)
             {
                 SpawnWave();
             }
@@ -44,10 +43,7 @@ namespace Game.Enemy
             {
                 Entity.Entity enemy = Instantiate(enemies[i].EnemyObject, m_enemyParent);
                 enemy.Rigidbody.transform.position = waveSpawnPoint.GetPoint();
-                enemy.HealthComponent.OnDead += (() => m_activeEnemyCount--);
             }
-
-            m_activeEnemyCount += waveDef.EnemyCount;
         }
 
         public int Register(EnemySpawnPoint spawnPoint)

@@ -103,8 +103,8 @@ namespace Core.Unity.Flow
                 if (m_loadedViews.ContainsKey(state))
                 {
                     m_loadedViews.Remove(state);
-                    await SceneManager.UnloadSceneAsync(flowState.Scene.sceneIndex);
                 }
+                await SceneManager.UnloadSceneAsync(flowState.Scene.sceneIndex);
             }
         }
 

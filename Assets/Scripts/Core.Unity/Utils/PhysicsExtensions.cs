@@ -17,7 +17,7 @@ namespace Core.Unity.Utils
                 Vector3 directionToHit = (hitPoint - origin).normalized;
                 float angleToHit = Vector3.Angle(direction, directionToHit);
 
-                if (angleToHit >= coneAngle)
+                if (angleToHit >= coneAngle / 2.0f) // coneAngle is the angle of the full cone, where cone direction is facing forward. We want to check a half cone here
                 {
                     hits.RemoveAt(i);
                 }

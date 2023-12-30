@@ -179,7 +179,7 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: 3ae36a0e38fd5ed4681a4436b06347d5,
       type: 2}
-    m_targetType: 2
+    m_targetType: 1
     m_targetLayer: 0
     m_attackRange: 7
     m_coneDegrees: 45
