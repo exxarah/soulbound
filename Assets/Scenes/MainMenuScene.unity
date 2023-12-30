@@ -3016,7 +3016,7 @@ GameObject:
   - component: {fileID: 7100701370882299619}
   - component: {fileID: 7100701370882299620}
   m_Layer: 0
-  m_Name: MenuSelector
+  m_Name: MenuSelector - Controls Preference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
