@@ -31,7 +31,7 @@ namespace Game.AIBehaviour.Tasks
                 return State;
             }
 
-            object inProgress = Tree.Root.GetData("basic_attack_in_progress");
+            object inProgress = Tree.Root.GetData("basic_ability_in_progress");
             if (inProgress == null || !(bool)inProgress)
             {
                 AbilityDatabase.AbilityDefinition abilityDef =
@@ -44,12 +44,12 @@ namespace Game.AIBehaviour.Tasks
                 if (abilityDef.HasTelegraph)
                 {
                     // Lock them into this
-                    Tree.Root.SetData("basic_attack_in_progress", true);
+                    Tree.Root.SetData("basic_ability_in_progress", true);
                     State = NodeState.Running;   
                 }
                 else
                 {
-                    Tree.Root.ClearData("basic_attack_in_progress");
+                    Tree.Root.ClearData("basic_ability_in_progress");
                     State = NodeState.Success;
                 }
             }
@@ -62,7 +62,7 @@ namespace Game.AIBehaviour.Tasks
                     // Finished telegraphing. Execute!
                     m_inputData.SetAction(m_action, false);
                     Tree.ControlledEntity.ApplyInput(m_inputData);
-                    Tree.Root.ClearData("basic_attack_in_progress");
+                    Tree.Root.ClearData("basic_ability_in_progress");
                 }
             }
             return State;

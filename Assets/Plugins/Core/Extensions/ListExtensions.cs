@@ -16,7 +16,7 @@ namespace Core.Extensions
             if (rnd == null) { rnd = new Random(); }
             
             // Choose a random integer
-            int idx = rnd.Next(0, list.Count - 1);
+            int idx = rnd.Next(0, list.Count); // exclusive max
             return list[idx];
         }
         

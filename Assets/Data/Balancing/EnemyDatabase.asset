@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: EnemyDatabase
   m_EditorClassIdentifier: 
   m_definitions:
-  - m_enemyID: basic_enemy
+  - m_enemyID: omni_ghost
     m_enemyObject: {fileID: 7274298049040603976, guid: a546f42da25b0a04184a9451cb0161de,
+      type: 3}
+    m_minimumWaveToSpawn: 0
+    m_maximumWaveToSpawn: 200
+    m_weightToSpawn: 1
+  - m_enemyID: heal_ghost
+    m_enemyObject: {fileID: 7274298049040603976, guid: 926bb1fc2eb80d748bd756e7db4189f9,
       type: 3}
     m_minimumWaveToSpawn: 0
     m_maximumWaveToSpawn: 200

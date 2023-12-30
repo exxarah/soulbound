@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Game.AIBehaviour
 {
-    public class AttackerEnemyTree : ABehaviourTree
+    public class HealerEnemyTree : ABehaviourTree
     {
         protected override Node SetupTree()
         {
@@ -19,19 +19,19 @@ namespace Game.AIBehaviour
                 {
                     new SelectorNode(this, new List<Node>()
                     {
-                        new IsTrue(this, () => IsDataSet("basic_attack_in_progress")),
+                        new IsTrue(this, () => IsDataSet("basic_ability_in_progress")),
                         new FindTargetInRange(this,
-                                              () => FindTargetInRange.InActionRange(ControlledEntity.EnemiesLayer, ControlledEntity,
+                                              () => FindTargetInRange.InActionRange(ControlledEntity.AlliesLayer, ControlledEntity,
                                                   FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform),
                                               () => FindTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack)),
                     }),
                     new TaskDoAction(this, FrameInputData.ActionType.BasicAttack),
                 }),
-                // Try to find an enemy to attack
+                // Try to find an ally to heal
                 new SequenceNode(this, new List<Node>
                 {
                     new FindTargetInRange(this,
-                                          () => FindTargetInRange.InSphereRange(ControlledEntity.EnemiesLayer,
+                                          () => FindTargetInRange.InSphereRange(ControlledEntity.AlliesLayer,
                                                                                     FOVRange, ControlledEntity.Rigidbody.transform),
                                           () => FOVRange),
                     new TaskGoToTarget(this),

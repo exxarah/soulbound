@@ -55,7 +55,7 @@ MonoBehaviour:
     m_instaKill: 0
     m_effects:
     - {fileID: 11400000, guid: 5d69f742fbd0e3d41bbe7c779c209c17, type: 2}
-  - m_abilityID: enemy_attack_basic
+  - m_abilityID: omni_ghost_ability
     m_animationName: Jab
     m_charmCost:
       m_omniCost: 0
@@ -77,6 +77,28 @@ MonoBehaviour:
     m_instaKill: 0
     m_effects:
     - {fileID: 11400000, guid: 78fa9186e8ed04746b30ab8052cb4d0d, type: 2}
+  - m_abilityID: health_ghost_ability
+    m_animationName: Jab
+    m_charmCost:
+      m_omniCost: 0
+      m_healthCost: 0
+      m_attackCost: 0
+    m_cooldownSeconds: 5
+    m_uiImage: {fileID: 21300000, guid: 0650fdf059f51be42a4ee746750ddfe6, type: 3}
+    m_hasTelegraph: 1
+    m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
+      type: 3}
+    m_telegraphMaterial: {fileID: 2100000, guid: 7890ca99351e74a4a8b8ea32063947a9,
+      type: 2}
+    m_targetType: 2
+    m_targetLayer: 1
+    m_attackRange: 5
+    m_coneDegrees: 90
+    m_maxTargets: 10
+    m_healthDecrement: -15
+    m_instaKill: 0
+    m_effects:
+    - {fileID: 11400000, guid: 8808b66e9b5287c46a67189e6c65bd8c, type: 2}
   - m_abilityID: charm_default
     m_animationName: RaiseHands
     m_charmCost:

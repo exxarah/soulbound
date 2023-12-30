@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Core.Extensions;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Game.Data
 {
@@ -36,6 +37,7 @@ namespace Game.Data
         public IReadOnlyList<EnemyDefinition> Definitions => m_definitions;
 
         private Dictionary<int, List<EnemyDefinition>> m_weightedListForWave = new();
+        private Random m_randomiser = new Random();
 
         public List<EnemyDefinition> GetEnemiesForWave(int waveCount, int enemyCount)
         {
@@ -63,7 +65,8 @@ namespace Game.Data
             List<EnemyDefinition> enemySubset = new List<EnemyDefinition>();
             for (int i = 0; i < enemyCount; i++)
             {
-                enemySubset.Add(weightedList.RandomItem());
+                // Random uses a time-based seed, so we need to use our own cached randomiser, or we'll just get the same enemy over and over
+                enemySubset.Add(weightedList.RandomItem(m_randomiser));
             }
 
             return enemySubset;

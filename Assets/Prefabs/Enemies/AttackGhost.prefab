@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1820516777215607240}
   - component: {fileID: 3177263092951642731}
   m_Layer: 7
-  m_Name: OmniGhost
+  m_Name: AttackGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shieldAbility: 
-  m_basicAbility: omni_ghost_ability
+  m_basicAbility: attack_ghost_ability
   m_abilityOne: 
   m_abilityTwo: 
   m_abilityThree: 
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e4b99475394e8cabb68ff006ca955d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHealth: 30
+  m_maxHealth: 20
   m_currentHealth: 0
   m_gameLostOnDeath: 0
   m_animator: {fileID: 4854056448483654018}
