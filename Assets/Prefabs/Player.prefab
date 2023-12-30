@@ -113,10 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff6028435f6472388a659ef86277830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_shieldAbility: shield_basic
+  m_shieldAbility: player_dash_basic
   m_basicAbility: player_attack_basic
   m_abilityOne: heal_basic
-  m_abilityTwo: 
+  m_abilityTwo: aoe_basic
   m_abilityThree: 
   m_abilityFour: 
   m_charmAbility: charm_default

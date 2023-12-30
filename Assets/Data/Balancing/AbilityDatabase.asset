@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: AbilityDatabase
   m_EditorClassIdentifier: 
   m_definitions:
-  - m_abilityID: shield_basic
+  - m_abilityID: player_dash_basic
     m_animationName: 
     m_charmCost:
       m_omniCost: 0
       m_healthCost: 0
       m_attackCost: 0
     m_cooldownSeconds: 6
-    m_uiImage: {fileID: 21300000, guid: cde0dd9d77737aa4191da5bb17656d31, type: 3}
+    m_uiImage: {fileID: 21300000, guid: 17f273df9a9a17740a44ce49fdd382a6, type: 3}
     m_hasTelegraph: 0
     m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
       type: 3}
     m_telegraphMaterial: {fileID: 0}
-    m_targetType: 0
-    m_targetLayer: 0
+    m_targetType: 3
+    m_targetLayer: 1
     m_attackRange: 0
     m_coneDegrees: 0
-    m_maxTargets: 0
+    m_maxTargets: 1
     m_healthDecrement: 0
     m_instaKill: 0
     m_effects: []
@@ -55,6 +55,71 @@ MonoBehaviour:
     m_instaKill: 0
     m_effects:
     - {fileID: 11400000, guid: 5d69f742fbd0e3d41bbe7c779c209c17, type: 2}
+  - m_abilityID: charm_default
+    m_animationName: RaiseHands
+    m_charmCost:
+      m_omniCost: 0
+      m_healthCost: 0
+      m_attackCost: 0
+    m_cooldownSeconds: 5
+    m_uiImage: {fileID: 21300000, guid: 0206d47f447c53344990a3a460d33ad9, type: 3}
+    m_hasTelegraph: 1
+    m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
+      type: 3}
+    m_telegraphMaterial: {fileID: 2100000, guid: 7890ca99351e74a4a8b8ea32063947a9,
+      type: 2}
+    m_targetType: 2
+    m_targetLayer: 0
+    m_attackRange: 4
+    m_coneDegrees: 0
+    m_maxTargets: 10
+    m_healthDecrement: 0
+    m_instaKill: 1
+    m_effects:
+    - {fileID: 11400000, guid: 6a85d21cda721fe4faaa66507a4964d0, type: 2}
+    - {fileID: 11400000, guid: 83e68bc973129174a840981e0448ce94, type: 2}
+  - m_abilityID: heal_basic
+    m_animationName: RaiseHands
+    m_charmCost:
+      m_omniCost: 0
+      m_healthCost: 2
+      m_attackCost: 0
+    m_cooldownSeconds: 6
+    m_uiImage: {fileID: 21300000, guid: 1fb24ed9aa4f8a9449babda30bfb03cd, type: 3}
+    m_hasTelegraph: 0
+    m_telegraphPrefab: {fileID: 0}
+    m_telegraphMaterial: {fileID: 0}
+    m_targetType: 3
+    m_targetLayer: 1
+    m_attackRange: 1
+    m_coneDegrees: 0
+    m_maxTargets: 1
+    m_healthDecrement: -20
+    m_instaKill: 0
+    m_effects:
+    - {fileID: 11400000, guid: 8808b66e9b5287c46a67189e6c65bd8c, type: 2}
+  - m_abilityID: aoe_basic
+    m_animationName: Jab
+    m_charmCost:
+      m_omniCost: 0
+      m_healthCost: 0
+      m_attackCost: 1
+    m_cooldownSeconds: 3
+    m_uiImage: {fileID: 21300000, guid: bdf39b394ecdde2449592c5caf6523b8, type: 3}
+    m_hasTelegraph: 1
+    m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
+      type: 3}
+    m_telegraphMaterial: {fileID: 2100000, guid: 7890ca99351e74a4a8b8ea32063947a9,
+      type: 2}
+    m_targetType: 2
+    m_targetLayer: 0
+    m_attackRange: 4
+    m_coneDegrees: 45
+    m_maxTargets: 10
+    m_healthDecrement: 20
+    m_instaKill: 0
+    m_effects:
+    - {fileID: 11400000, guid: 9f4cfa505b064a34d8f4659faa4c31fa, type: 2}
   - m_abilityID: omni_ghost_ability
     m_animationName: Jab
     m_charmCost:
@@ -121,46 +186,3 @@ MonoBehaviour:
     m_instaKill: 0
     m_effects:
     - {fileID: 11400000, guid: 4b9bc831f19e83e42a967b87397c4eb8, type: 2}
-  - m_abilityID: charm_default
-    m_animationName: RaiseHands
-    m_charmCost:
-      m_omniCost: 0
-      m_healthCost: 0
-      m_attackCost: 0
-    m_cooldownSeconds: 5
-    m_uiImage: {fileID: 21300000, guid: 0206d47f447c53344990a3a460d33ad9, type: 3}
-    m_hasTelegraph: 1
-    m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
-      type: 3}
-    m_telegraphMaterial: {fileID: 2100000, guid: 7890ca99351e74a4a8b8ea32063947a9,
-      type: 2}
-    m_targetType: 2
-    m_targetLayer: 0
-    m_attackRange: 4
-    m_coneDegrees: 0
-    m_maxTargets: 10
-    m_healthDecrement: 0
-    m_instaKill: 1
-    m_effects:
-    - {fileID: 11400000, guid: 6a85d21cda721fe4faaa66507a4964d0, type: 2}
-    - {fileID: 11400000, guid: 83e68bc973129174a840981e0448ce94, type: 2}
-  - m_abilityID: heal_basic
-    m_animationName: RaiseHands
-    m_charmCost:
-      m_omniCost: 0
-      m_healthCost: 2
-      m_attackCost: 0
-    m_cooldownSeconds: 6
-    m_uiImage: {fileID: 21300000, guid: 1fb24ed9aa4f8a9449babda30bfb03cd, type: 3}
-    m_hasTelegraph: 0
-    m_telegraphPrefab: {fileID: 0}
-    m_telegraphMaterial: {fileID: 0}
-    m_targetType: 3
-    m_targetLayer: 1
-    m_attackRange: 1
-    m_coneDegrees: 0
-    m_maxTargets: 1
-    m_healthDecrement: -20
-    m_instaKill: 0
-    m_effects:
-    - {fileID: 11400000, guid: 8808b66e9b5287c46a67189e6c65bd8c, type: 2}
