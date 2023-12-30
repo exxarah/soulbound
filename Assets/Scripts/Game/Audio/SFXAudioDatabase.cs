@@ -12,7 +12,12 @@ namespace Game.Audio
         public enum SFXKey
         {
             None = 0,
+            
+            // Game FX 1 - 50
             Hurt = 1,
+            
+            // UI FX 51 - 70
+            ButtonClick = 51,
         }
         
         [Serializable]

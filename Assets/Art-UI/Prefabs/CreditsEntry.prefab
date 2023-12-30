@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 2041405282361483834}
   - component: {fileID: 1727111860061935034}
   - component: {fileID: 9204785513455291881}
+  - component: {fileID: 4461491842015183452}
   m_Layer: 0
   m_Name: Backing
   m_TagString: Untagged
@@ -629,3 +630,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4461491842015183452}
+        m_TargetAssemblyTypeName: Game.Audio.PlaySFXComponent, Assembly-CSharp
+        m_MethodName: _Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4461491842015183452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117085380199488525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a7c08d0a224cfa9d8467ac1da389ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_toPlay: 51
