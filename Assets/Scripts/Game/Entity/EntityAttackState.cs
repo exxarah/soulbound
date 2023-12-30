@@ -23,7 +23,7 @@ namespace Game.Entity
         public EntityAttackState(Entity stateMachine, FrameInputData.ActionType action) : base(stateMachine)
         {
             m_actionType = action;
-            m_ability = Database.Instance.AbilityDatabase.GetAbility(stateMachine.AbilitiesComponent.GetAbility(action));
+            m_ability = GameContext.Instance.Database.AbilityDatabase.GetAbility(stateMachine.AbilitiesComponent.GetAbility(action));
         }
 
         public override void Enter()

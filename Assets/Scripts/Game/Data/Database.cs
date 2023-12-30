@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Data
 {
-    public class Database : ScriptableObjectSingleton<Database>
+    public class Database : ScriptableObject
     {
         [SerializeField]
         private CreditsDatabase m_creditsDatabase;

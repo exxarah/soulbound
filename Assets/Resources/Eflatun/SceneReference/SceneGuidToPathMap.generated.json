@@ -1,0 +1,10 @@
+{
+  "7a243d15b26ac1941a6f52609b56cc7a": "Assets/Scenes/BootScene.unity",
+  "dae3f5594b243d74e9a61ba4035d7e6b": "Assets/Scenes/GameLostScene.unity",
+  "ffa9d30d63566b548bc4d223c938f0f0": "Assets/Scenes/GameWonScene.unity",
+  "17e82bd633acbf6448186b4bc4e6459d": "Assets/Scenes/LoadingScene.unity",
+  "ddd652ad71b6eb74b8a83e42eb2de5b5": "Assets/Scenes/MainMenuScene.unity",
+  "01b747dfb470bce43ac3496b545f58df": "Assets/Scenes/ToyScene.unity",
+  "e026d555eae824f65922633f37a14385": "Packages/com.unity.render-pipelines.universal/Editor/SceneTemplates/Basic.unity",
+  "5cae0d87369a2405eaa962b8d920b947": "Packages/com.unity.render-pipelines.universal/Editor/SceneTemplates/Standard.unity"
+}

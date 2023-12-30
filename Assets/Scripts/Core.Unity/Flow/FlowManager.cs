@@ -22,8 +22,8 @@ namespace Core.Unity.Flow
         [SerializeField]
         private FlowGraph m_graph;
 
-        private Dictionary<string, View> m_loadedViews;
-        private Stack<string> m_popups;
+        private Dictionary<string, View> m_loadedViews = new Dictionary<string, View>();
+        private Stack<string> m_popups = new Stack<string>();
         private string m_currentState;
 
         private UniTask m_transitionTask = UniTask.CompletedTask;
@@ -33,8 +33,6 @@ namespace Core.Unity.Flow
 
         private void OnEnable()
         {
-            DontDestroyOnLoad(this);
-
             m_loadedViews = new Dictionary<string, View>();
             m_popups = new Stack<string>();
 
@@ -77,7 +75,7 @@ namespace Core.Unity.Flow
             }
 
             FlowGraph.FlowState flowState = m_graph.GetState(flowTrigger.TargetState);
-            await SceneManager.LoadSceneAsync(flowState.Scene.sceneIndex, LoadSceneMode.Additive);
+            await SceneManager.LoadSceneAsync(flowState.Scene.BuildIndex, LoadSceneMode.Additive);
             await OnSceneLoaded(flowTrigger.TargetState, @params);
             
             // Now that the new screen is loaded, we can unload the previous one. Otherwise not having a loading screen causes a broken transition
@@ -104,7 +102,7 @@ namespace Core.Unity.Flow
                 {
                     m_loadedViews.Remove(state);
                 }
-                await SceneManager.UnloadSceneAsync(flowState.Scene.sceneIndex);
+                await SceneManager.UnloadSceneAsync(flowState.Scene.BuildIndex);
             }
         }
 
@@ -133,8 +131,21 @@ namespace Core.Unity.Flow
             }
 
             FlowGraph.FlowState flowState = m_graph.GetState(state);
-            Scene scene = SceneManager.GetSceneByBuildIndex(flowState.Scene.sceneIndex);
-            View view = scene.GetRootGameObjects()[0].GetComponent<View>();
+            Scene scene = SceneManager.GetSceneByBuildIndex(flowState.Scene.BuildIndex);
+            GameObject[] rootObjects = scene.GetRootGameObjects();
+            View view = null;
+            for (int i = 0; i < rootObjects.Length; i++)
+            {
+                view = rootObjects[i].GetComponent<View>();
+                if (view != null)
+                {
+                    break;
+                }
+            }
+            if (view == null)
+            {
+                Debug.Log("view");
+            }
             switch (view)
             {
                 case Popup _:
@@ -148,10 +159,18 @@ namespace Core.Unity.Flow
 
             m_loadedViews.TryAdd(state, view);
             m_currentState = state;
+            Debug.Log("here_03");
+            if (view == null)
+            {
+                Debug.Log("view");
+            }
 
             await view.OnViewPreEnter(@params);
+            
+            Debug.Log("here_04");
 
             view.OnViewEnter(@params);
+            Debug.Log("here_05");
             OnViewLoaded?.Invoke(view);
         }
 
@@ -171,8 +190,8 @@ namespace Core.Unity.Flow
             FlowGraph.LoadingScreenOption loadingScreen = m_graph.GetLoadingScreen(screenName);
             if (loadingScreen != null)
             {
-                await SceneManager.LoadSceneAsync(loadingScreen.Scene.sceneIndex, LoadSceneMode.Additive);
-                Scene scene = SceneManager.GetSceneByBuildIndex(loadingScreen.Scene.sceneIndex);
+                await SceneManager.LoadSceneAsync(loadingScreen.Scene.BuildIndex, LoadSceneMode.Additive);
+                Scene scene = SceneManager.GetSceneByBuildIndex(loadingScreen.Scene.BuildIndex);
                 LoadingScreen screen = scene.GetRootGameObjects()[0].GetComponent<LoadingScreen>();
                 await screen.OnLoadBegin();
             }
@@ -183,12 +202,12 @@ namespace Core.Unity.Flow
             FlowGraph.LoadingScreenOption loadingScreen = m_graph.GetLoadingScreen(screenName);
             if (loadingScreen != null)
             {
-                Scene scene = SceneManager.GetSceneByBuildIndex(loadingScreen.Scene.sceneIndex);
+                Scene scene = SceneManager.GetSceneByBuildIndex(loadingScreen.Scene.BuildIndex);
                 LoadingScreen screen = scene.GetRootGameObjects()[0].GetComponent<LoadingScreen>();
                 await screen.OnLoadEnd();
                 if (scene.isLoaded)
                 {
-                    await SceneManager.UnloadSceneAsync(loadingScreen.Scene.sceneIndex);
+                    await SceneManager.UnloadSceneAsync(loadingScreen.Scene.BuildIndex);
                 }
             }
         }

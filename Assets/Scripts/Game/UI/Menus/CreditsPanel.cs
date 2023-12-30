@@ -13,7 +13,7 @@ namespace Game.UI.Menus
 
         private void Start()
         {
-            foreach (CreditsDatabase.Credit credit in Database.Instance.CreditsDatabase.Credits)
+            foreach (CreditsDatabase.Credit credit in GameContext.Instance.Database.CreditsDatabase.Credits)
             {
                 CreditsEntry entry = Instantiate(m_creditsPrefab, m_creditsParent);
                 entry.Show(credit);

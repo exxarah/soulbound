@@ -41,7 +41,7 @@ namespace Game.UI.Player
             string abilityID = m_playerEntity.AbilitiesComponent.GetAbility(m_actionToDisplay);
             if (m_abilityDefinition == null || abilityID != m_abilityDefinition.AbilityID)
             {
-                m_abilityDefinition = Database.Instance.AbilityDatabase.GetAbility(abilityID);
+                m_abilityDefinition = GameContext.Instance.Database.AbilityDatabase.GetAbility(abilityID);
                 if (m_abilityDefinition == null) { return; }
 
                 m_abilityImage.sprite = m_abilityDefinition.UIImage;

@@ -35,7 +35,7 @@ namespace Game.AIBehaviour.Tasks
             if (inProgress == null || !(bool)inProgress)
             {
                 AbilityDatabase.AbilityDefinition abilityDef =
-                    Database.Instance.AbilityDatabase.GetAbility(Tree.ControlledEntity.AbilitiesComponent
+                    GameContext.Instance.Database.AbilityDatabase.GetAbility(Tree.ControlledEntity.AbilitiesComponent
                                                                      .GetAbility(m_action));
                 m_inputData.SetAction(m_action, true);
                 Tree.ControlledEntity.ApplyInput(m_inputData);

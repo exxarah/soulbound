@@ -16,7 +16,7 @@ namespace Game.Flow
         {
             await UniTask.Delay(100);
 
-            FlowManager.Instance.Trigger("GoToMenu", LoadingScreens.DEFAULT);
+            await FlowManager.Instance.Trigger("GoToMenu", LoadingScreens.DEFAULT);
         }
     }
 }

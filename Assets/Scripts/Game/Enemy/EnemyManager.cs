@@ -36,10 +36,10 @@ namespace Game.Enemy
         private void SpawnWave()
         {
             GameContext.Instance.GameState.WaveCount++;
-            EnemyWaveDatabase.WaveDefinition waveDef = Database.Instance.WaveDatabase.GetDefinitionForWave(GameContext.Instance.GameState.WaveCount);
+            EnemyWaveDatabase.WaveDefinition waveDef = GameContext.Instance.Database.WaveDatabase.GetDefinitionForWave(GameContext.Instance.GameState.WaveCount);
 
             EnemySpawnPoint waveSpawnPoint = m_availableSpawnPoints.RandomItem();
-            List<EnemyDatabase.EnemyDefinition> enemies = Database.Instance.EnemyDatabase.GetEnemiesForWave(GameContext.Instance.GameState.WaveCount, waveDef.EnemyCount);
+            List<EnemyDatabase.EnemyDefinition> enemies = GameContext.Instance.Database.EnemyDatabase.GetEnemiesForWave(GameContext.Instance.GameState.WaveCount, waveDef.EnemyCount);
             for (int i = 0; i < enemies.Count; i++)
             {
                 Entity.Entity enemy = Instantiate(enemies[i].EnemyObject, m_enemyParent);

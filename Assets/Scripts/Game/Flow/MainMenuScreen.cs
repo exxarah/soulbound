@@ -4,10 +4,13 @@ using Core.Unity.Utils;
 using Dev.ComradeVanti.WaitForAnim;
 using Game.Audio;
 using Game.Input;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Screen = Core.Unity.Flow.Screen;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Game.Flow
 {

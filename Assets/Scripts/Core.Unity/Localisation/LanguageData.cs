@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Unity.Utils;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor.Experimental.GraphView;
+#endif
 
 namespace Core.Unity.Localisation
 {

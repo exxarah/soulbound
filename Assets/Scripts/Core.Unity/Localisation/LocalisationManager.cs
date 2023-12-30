@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEditor;
+using Game;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceLocations;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Core.Unity.Localisation
 {
@@ -20,35 +21,20 @@ namespace Core.Unity.Localisation
 
         private LocalisationManager()
         {
-            LanguageData[] data;
+            LanguageData[] data = Array.Empty<LanguageData>();
             if (Application.isPlaying)
             {
-                List<LanguageData> languages = new List<LanguageData>();
-                foreach (SystemLanguage language in Enum.GetValues(typeof(SystemLanguage)))
-                {
-                    if (language == SystemLanguage.Unknown) { continue; }
-
-                    string locPath = $"{LanguageToString(language)}.loc";
-                    AsyncOperationHandle<IList<IResourceLocation>> location = Addressables.LoadResourceLocationsAsync(locPath, typeof(LanguageData));
-                    location.WaitForCompletion();
-                    if (location.Status != AsyncOperationStatus.Succeeded || location.Result.Count <= 0) { continue; }
-
-                    AsyncOperationHandle<LanguageData> langData = Addressables.LoadAssetAsync<LanguageData>(locPath);
-                    langData.WaitForCompletion();
-                    if (langData.Result != null)
-                    {
-                        languages.Add(langData.Result);
-                    }
-                }
-                data = languages.ToArray();
+                data = GameContext.Instance.Localisation;
             }
+#if UNITY_EDITOR
             else
             {
                 string[] guids = AssetDatabase.FindAssets("t:LanguageData");
                 data = new LanguageData[guids.Length];
                 for (int i = 0; i < guids.Length; i++)
                     data[i] = AssetDatabase.LoadAssetAtPath<LanguageData>(AssetDatabase.GUIDToAssetPath(guids[i]));
-            }
+            }      
+#endif
 
             m_stringData = new Dictionary<SystemLanguage, LanguageData>();
             foreach (LanguageData language in data) m_stringData[language.Language] = language;

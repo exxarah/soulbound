@@ -91,7 +91,7 @@ namespace Game.AIBehaviour.Conditionals
 
         public static Collider[] InAbilityRange(int layerMask, string abilityID, Transform source)
         {
-            AbilityDatabase.AbilityDefinition ability = Database.Instance.AbilityDatabase.GetAbility(abilityID);
+            AbilityDatabase.AbilityDefinition ability = GameContext.Instance.Database.AbilityDatabase.GetAbility(abilityID);
             if (ability == null) { return null; }
 
             return InSphereRange(layerMask, ability.AttackRange, source);
@@ -104,7 +104,7 @@ namespace Game.AIBehaviour.Conditionals
 
         public static float GetAbilityRange(string abilityID)
         {
-            AbilityDatabase.AbilityDefinition ability = Database.Instance.AbilityDatabase.GetAbility(abilityID);
+            AbilityDatabase.AbilityDefinition ability = GameContext.Instance.Database.AbilityDatabase.GetAbility(abilityID);
             if (ability == null) { return 0.0f; }
 
             return ability.AttackRange;
