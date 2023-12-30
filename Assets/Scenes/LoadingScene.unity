@@ -208,7 +208,6 @@ GameObject:
   m_Component:
   - component: {fileID: 124854826}
   - component: {fileID: 124854829}
-  - component: {fileID: 124854828}
   - component: {fileID: 124854827}
   m_Layer: 0
   m_Name: 3DCamera
@@ -276,14 +275,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &124854828
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124854825}
-  m_Enabled: 1
 --- !u!20 &124854829
 Camera:
   m_ObjectHideFlags: 0
@@ -465,7 +456,6 @@ GameObject:
   m_Component:
   - component: {fileID: 933895307}
   - component: {fileID: 933895304}
-  - component: {fileID: 933895306}
   - component: {fileID: 933895305}
   m_Layer: 0
   m_Name: UICamera
@@ -569,14 +559,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &933895306
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933895303}
-  m_Enabled: 1
 --- !u!4 &933895307
 Transform:
   m_ObjectHideFlags: 0

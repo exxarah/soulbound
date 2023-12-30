@@ -3,6 +3,7 @@ using Core;
 using Core.Unity.Utils;
 using Cysharp.Threading.Tasks;
 using Dev.ComradeVanti.WaitForAnim;
+using Game.Audio;
 using UnityEngine;
 
 namespace Game.Combat
@@ -29,6 +30,9 @@ namespace Game.Combat
 
         [SerializeField]
         private string m_hurtAnimTrigger = "";
+
+        [SerializeField]
+        private SFXAudioDatabase.SFXKey m_onHurtSFX = SFXAudioDatabase.SFXKey.Hurt;
 
         private bool m_isDead = false;
         public bool IsDead => m_isDead;
@@ -90,6 +94,7 @@ namespace Game.Combat
             if (!IsDead)
             {
                 m_animator.SetTrigger(m_hurtAnimTrigger);   
+                AudioManager.Instance.Play(m_onHurtSFX);
             }
         }
 

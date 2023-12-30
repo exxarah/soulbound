@@ -150,6 +150,7 @@ MonoBehaviour:
   m_deathAnimState: Dead
   m_secondsWaitAfterDeath: 2
   m_hurtAnimTrigger: onHurt
+  m_onHurtSFX: 1
 --- !u!114 &2391714330993873178
 MonoBehaviour:
   m_ObjectHideFlags: 0
