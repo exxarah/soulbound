@@ -80,6 +80,7 @@ MonoBehaviour:
     m_effects:
     - {fileID: 11400000, guid: 6a85d21cda721fe4faaa66507a4964d0, type: 2}
     - {fileID: 11400000, guid: 83e68bc973129174a840981e0448ce94, type: 2}
+    - {fileID: 11400000, guid: 2ce8dfdb2b08cd043a89ba2bbcd85c8b, type: 2}
   - m_abilityID: heal_basic
     m_animationName: RaiseHands
     m_charmCost:

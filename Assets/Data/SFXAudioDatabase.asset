@@ -38,4 +38,9 @@ MonoBehaviour:
       - m_audioClip: {fileID: 8300000, guid: 8174def6e23ae0c419a4af9a927be0df, type: 3}
       - m_audioClip: {fileID: 8300000, guid: b49e801259b024a479e9136c802bd34f, type: 3}
       - m_audioClip: {fileID: 8300000, guid: e3dcb7de4c5e8f64f88ea3a9b4d09e74, type: 3}
+    - Key: 71
+      Value:
+      - m_audioClip: {fileID: 8300000, guid: b529d54e98d76b547a3e3143ca66fe71, type: 3}
+      - m_audioClip: {fileID: 8300000, guid: c381933cc9b13b14db4f7255f8d5437f, type: 3}
+      - m_audioClip: {fileID: 8300000, guid: 4ae6bff70eeeb0046b3f51420814717d, type: 3}
     keyCollision: 0

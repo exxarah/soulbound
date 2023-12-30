@@ -20,6 +20,9 @@ namespace Game.Audio
             
             // UI FX 51 - 70
             ButtonClick = 51,
+            
+            // Ability FX = 71-100
+            Bubbles = 71,
         }
         
         [Serializable]
