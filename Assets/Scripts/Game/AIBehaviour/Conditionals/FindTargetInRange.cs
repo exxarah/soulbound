@@ -9,16 +9,23 @@ namespace Game.AIBehaviour.Conditionals
 {
     public class FindTargetInRange : Node
     {
-        private Func<Transform> m_findTargetFunc;
+        private Func<Collider[]> m_findTargetFunc;
         private Func<float> m_getRangeFunc;
+        private Func<Collider[], Collider> m_targetPriorityFunc;
 
-        public FindTargetInRange(ABehaviourTree tree, Func<Transform> findTargetFunc, Func<float> getRangeFunc) : base(tree)
+        public FindTargetInRange(ABehaviourTree tree, Func<Collider[]> findTargetFunc, Func<float> getRangeFunc, Func<Collider[], Collider> targetPriorityFunc = null) : base(tree)
         {
             m_findTargetFunc = findTargetFunc;
             m_getRangeFunc = getRangeFunc;
+
+            if (targetPriorityFunc == null)
+            {
+                targetPriorityFunc = GetFirstCollider;
+            }
+            m_targetPriorityFunc = targetPriorityFunc;
         }
 
-        public FindTargetInRange(ABehaviourTree tree, List<Node> children, Func<Transform> findTargetFunc, Func<float> getRangeFunc) :
+        public FindTargetInRange(ABehaviourTree tree, List<Node> children, Func<Collider[]> findTargetFunc, Func<float> getRangeFunc) :
             base(tree, children)
         {
             m_findTargetFunc = findTargetFunc;
@@ -31,7 +38,14 @@ namespace Game.AIBehaviour.Conditionals
             if (target == null)
             {
                 // Check if we can find a new target
-                Transform newTarget = m_findTargetFunc?.Invoke();
+                Collider[] targets = m_findTargetFunc?.Invoke();
+                if (targets == null || targets.Length <= 0)
+                {
+                    State = NodeState.Failure;
+                    return State;
+                }
+
+                Transform newTarget = m_targetPriorityFunc(targets).transform;
                 if (newTarget != null)
                 {
                     Tree.Root.SetData("target", newTarget);
@@ -66,17 +80,16 @@ namespace Game.AIBehaviour.Conditionals
             return State;
         }
 
-        public static Transform InSphereRange(int layerMask, float viewRange, Transform source)
+        public static Collider[] InSphereRange(int layerMask, float viewRange, Transform source)
         {
             Collider[] colliders = Physics.OverlapSphere(source.position, viewRange, layerMask);
-            if (colliders.Length <= 0)
-            {
-                return null;
-            }
-            return colliders.Length > 0 ? colliders[0].transform : null;
+            // Exclude self
+            colliders = Array.FindAll(colliders, collider => collider.transform != source);
+            
+            return colliders;
         }
 
-        public static Transform InAbilityRange(int layerMask, string abilityID, Transform source)
+        public static Collider[] InAbilityRange(int layerMask, string abilityID, Transform source)
         {
             AbilityDatabase.AbilityDefinition ability = Database.Instance.AbilityDatabase.GetAbility(abilityID);
             if (ability == null) { return null; }
@@ -84,7 +97,7 @@ namespace Game.AIBehaviour.Conditionals
             return InSphereRange(layerMask, ability.AttackRange, source);
         }
 
-        public static Transform InActionRange(int layerMask, Entity.Entity entity, FrameInputData.ActionType action, Transform source)
+        public static Collider[] InActionRange(int layerMask, Entity.Entity entity, FrameInputData.ActionType action, Transform source)
         {
             return InAbilityRange(layerMask, entity.AbilitiesComponent.GetAbility(action), source);
         }
@@ -100,6 +113,42 @@ namespace Game.AIBehaviour.Conditionals
         public static float GetActionRange(Entity.Entity entity, FrameInputData.ActionType action)
         {
             return GetAbilityRange(entity.AbilitiesComponent.GetAbility(action));
+        }
+
+        public static Collider GetFirstCollider(Collider[] colliders)
+        {
+            return colliders[0];
+        }
+
+        public static Collider GetLowestHealth(Collider[] colliders)
+        {
+            int highestMaxHealth = int.MinValue;
+            float lowestHealth = float.MaxValue;
+            Collider lowestCollider = null;
+            
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].TryGetComponent(out HealthComponent health))
+                {
+                    if (health.HealthPercentage < lowestHealth)
+                    {
+                        highestMaxHealth = health.MaxHealth;
+                        lowestHealth = health.HealthPercentage;
+                        lowestCollider = colliders[i];
+                        continue;
+                    }
+
+                    if (Math.Abs(health.HealthPercentage - lowestHealth) < float.Epsilon && health.MaxHealth > highestMaxHealth)
+                    {
+                        highestMaxHealth = health.MaxHealth;
+                        lowestHealth = health.HealthPercentage;
+                        lowestCollider = colliders[i];
+                        continue;
+                    }
+                }
+            }
+
+            return lowestCollider;
         }
     }
 }
