@@ -37,12 +37,15 @@ namespace Game.Flow
         public override void OnViewEnter(ViewEnterParams viewEnterParams = null)
         {
             base.OnViewEnter(viewEnterParams);
+            
+            AudioManager.Instance.Play(MusicAudioDatabase.MusicKey.MenuAmbient);
 
             m_buttonPanel.SetActiveSafe(true);
             m_settingsPanel.SetActiveSafe(false);
             m_creditsPanel.SetActiveSafe(false);
 
             m_sfxSlider.value = AudioManager.SFXVolume;
+            m_musicSlider.value = AudioManager.MusicVolume;
             
             m_panelAnimator.Play(SHOW_ANIM);
         }
@@ -50,6 +53,11 @@ namespace Game.Flow
         public void _UpdateSFXVolume(float newVolume)
         {
             AudioManager.SFXVolume = newVolume;
+        }
+        
+        public void _UpdateMusicVolume(float newVolume)
+        {
+            AudioManager.MusicVolume = newVolume;
         }
 
         public void _PlayGame()

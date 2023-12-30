@@ -3010,6 +3010,41 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3641587885227532774, guid: e6e57c386ef73874fab7462f810a4750,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641587885227532774, guid: e6e57c386ef73874fab7462f810a4750,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641587885227532774, guid: e6e57c386ef73874fab7462f810a4750,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1660390941}
+    - target: {fileID: 3641587885227532774, guid: e6e57c386ef73874fab7462f810a4750,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641587885227532774, guid: e6e57c386ef73874fab7462f810a4750,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: _UpdateMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641587885227532774, guid: e6e57c386ef73874fab7462f810a4750,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Game.Flow.MainMenuScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641587885227532774, guid: e6e57c386ef73874fab7462f810a4750,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6905579614638109926, guid: e6e57c386ef73874fab7462f810a4750,
         type: 3}
       propertyPath: m_AnchorMax.x

@@ -1,6 +1,7 @@
 ﻿using Core.Unity.Flow;
 using Core.Unity.Utils;
 using Cysharp.Threading.Tasks;
+using Game.Audio;
 using UnityEngine;
 using Screen = Core.Unity.Flow.Screen;
 
@@ -14,6 +15,8 @@ namespace Game.Flow
         public override async UniTask OnViewPreEnter(ViewEnterParams viewEnterParams = null)
         {
             await base.OnViewPreEnter(viewEnterParams);
+            
+            AudioManager.Instance.Play(MusicAudioDatabase.MusicKey.Toy);
         }
 
         public override void OnViewEnter(ViewEnterParams viewEnterParams = null)

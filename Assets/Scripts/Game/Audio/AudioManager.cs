@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Unity.Utils;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -12,6 +13,9 @@ namespace Game.Audio
         private SFXAudioDatabase m_sfxDatabase = null;
 
         [SerializeField]
+        private MusicAudioDatabase m_musicDatabase = null;
+
+        [SerializeField]
         private AudioPool m_audioPool = null;
 
         [SerializeField]
@@ -20,6 +24,8 @@ namespace Game.Audio
         [SerializeField]
         private AudioMixerGroup m_musicGroup = null;
 
+        private MusicAudioDatabase.MusicKey m_currentMusic = MusicAudioDatabase.MusicKey.None;
+        private AudioSource m_currentMusicSource = null;
         private List<AudioSource> m_activeEffects = new List<AudioSource>();
 
         private static float s_sfxVolume;
@@ -42,14 +48,17 @@ namespace Game.Audio
             {
                 s_musicVolume = value;
                 PlayerPrefs.SetFloat("music_volume", s_musicVolume);
-                Instance.m_sfxGroup.audioMixer.SetFloat("MusicVolume", s_musicVolume);
+                Instance.m_musicGroup.audioMixer.SetFloat("MusicVolume", s_musicVolume);
             }
         }
 
         private void OnEnable()
         {
-            SFXVolume = PlayerPrefs.GetFloat("sfx_volume", -10.0f);
-            MusicVolume = PlayerPrefs.GetFloat("music_volume", -10.0f);
+            m_sfxGroup.audioMixer.GetFloat("SFXVolume", out s_sfxVolume);
+            SFXVolume = PlayerPrefs.GetFloat("sfx_volume", s_sfxVolume);
+
+            m_musicGroup.audioMixer.GetFloat("MusicVolume", out s_musicVolume);
+            MusicVolume = PlayerPrefs.GetFloat("music_volume", s_musicVolume);
         }
 
         public void Play(SFXAudioDatabase.SFXKey sfx)
@@ -58,6 +67,46 @@ namespace Game.Audio
             if (effect != null)
             {
                 Play(effect);
+            }
+        }
+
+        public void Play(MusicAudioDatabase.MusicKey music)
+        {
+            if (music == m_currentMusic) { return; }
+
+            if (m_currentMusicSource != null)
+            {
+                Fade(m_currentMusicSource, 0.0f, 3.0f, true).Forget();
+            }
+
+            if (music != MusicAudioDatabase.MusicKey.None && m_musicDatabase.Entries.TryGetValue(music, out AudioClip musicClip))
+            {
+                m_currentMusicSource = m_audioPool.Get();
+                m_currentMusicSource.loop = true;
+                m_currentMusicSource.volume = 0.0f;
+                m_currentMusicSource.outputAudioMixerGroup = m_musicGroup;
+                m_currentMusicSource.clip = musicClip;
+                m_currentMusicSource.Play();
+                Fade(m_currentMusicSource, 1.0f, 3.0f).Forget();
+            }
+
+            m_currentMusic = music;
+        }
+
+        private async UniTask Fade(AudioSource source, float target, float time, bool releaseAtEnd = false)
+        {
+            float initialVolume = source.volume;
+            float timePassed = 0.0f;
+            while ((initialVolume < target && source.volume < target) || (initialVolume > target && source.volume > target))
+            {
+                await UniTask.DelayFrame(1);
+                timePassed += Time.deltaTime;
+                source.volume = Mathf.Lerp(initialVolume, target, timePassed / time);
+            }
+
+            if (releaseAtEnd)
+            {
+                m_audioPool.Return(source);
             }
         }
 

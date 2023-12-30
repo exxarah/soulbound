@@ -1,5 +1,6 @@
 ﻿using Core.Unity.Flow;
 using Cysharp.Threading.Tasks;
+using Game.Audio;
 
 namespace Game.Flow
 {
@@ -7,7 +8,9 @@ namespace Game.Flow
     {
         public override async UniTask OnLoadBegin()
         {
-            // Fake delay so they see the cute loading screen
+            AudioManager.Instance.Play(MusicAudioDatabase.MusicKey.Toy);
+            
+            // Fake delay so they see the cute loading screen and have time for the music to fade in
             await UniTask.Delay(1000);
         }
 
