@@ -97,6 +97,7 @@ MonoBehaviour:
     m_instaKill: 1
     m_effects:
     - {fileID: 11400000, guid: 6a85d21cda721fe4faaa66507a4964d0, type: 2}
+    - {fileID: 11400000, guid: 83e68bc973129174a840981e0448ce94, type: 2}
   - m_abilityID: heal_basic
     m_animationName: RaiseHands
     m_charmCost:
@@ -115,4 +116,5 @@ MonoBehaviour:
     m_maxTargets: 1
     m_healthDecrement: -20
     m_instaKill: 0
-    m_effects: []
+    m_effects:
+    - {fileID: 11400000, guid: 8808b66e9b5287c46a67189e6c65bd8c, type: 2}
