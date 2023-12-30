@@ -8,6 +8,7 @@ using Game.Combat.Effects;
 using Game.Data;
 using Game.Input;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Game.Entity
 {
@@ -16,6 +17,7 @@ namespace Game.Entity
         private bool m_attackInProgress = false;
         private FrameInputData.ActionType m_actionType;
         private AbilityDatabase.AbilityDefinition m_ability;
+        private Telegraph m_activeTelegraph = null;
 
         public EntityAttackState(Entity stateMachine, FrameInputData.ActionType action) : base(stateMachine)
         {
@@ -47,7 +49,12 @@ namespace Game.Entity
             }
             else
             {
-                // TODO: Spawn telegraph
+                // Spawn telegraph
+                if (m_ability.TelegraphPrefab != null)
+                {
+                    m_activeTelegraph = Object.Instantiate(m_ability.TelegraphPrefab, Entity.transform);
+                    m_activeTelegraph.Initialise(m_ability, Entity.Rigidbody.transform);
+                }
             }
         }
 
@@ -155,7 +162,11 @@ namespace Game.Entity
                 target.DoDamage(new DamageParams{DamageAmount = m_ability.HealthDecrement, ForceKill = m_ability.InstaKill});
             }
             
-            // TODO: Clean up telegraph
+            // Clean up telegraph
+            if (m_activeTelegraph != null)
+            {
+                Object.Destroy(m_activeTelegraph.gameObject);
+            }
             
             // Return to idle
             StateMachine.ChangeState(new EntityIdleState(Entity));

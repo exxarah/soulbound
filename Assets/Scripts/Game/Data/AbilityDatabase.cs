@@ -35,6 +35,14 @@ namespace Game.Data
             private bool m_hasTelegraph = false;
             public bool HasTelegraph => m_hasTelegraph;
 
+            [SerializeField]
+            private Telegraph m_telegraphPrefab = null;
+            public Telegraph TelegraphPrefab => m_telegraphPrefab;
+
+            [SerializeField]
+            private Material m_telegraphMaterial = null;
+            public Material TelegraphMaterial => m_telegraphMaterial;
+
             [Header("Targeting Information")]
             [SerializeField]
             private Enums.TargetType m_targetType;
