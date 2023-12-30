@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1820516777215607240}
   - component: {fileID: 3177263092951642731}
   m_Layer: 7
-  m_Name: BasicEnemy
+  m_Name: OmniGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -8,14 +8,13 @@ using UnityEngine;
 
 namespace Game.AIBehaviour
 {
-    public class BasicEnemyTree : ABehaviourTree
+    public class AttackerEnemyTree : ABehaviourTree
     {
         protected override Node SetupTree()
         {
             Node root = new SelectorNode(this, new List<Node>()
             {
-                // TODO: Add abilities, healing, etc here
-                // Do Basic Attack
+                // Do Attack
                 new SequenceNode(this, new List<Node>
                 {
                     new SelectorNode(this, new List<Node>()
