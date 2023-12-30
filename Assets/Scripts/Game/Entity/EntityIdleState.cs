@@ -50,6 +50,12 @@ namespace Game.Entity
                 StateMachine.ChangeState(new EntityAttackState(Entity, FrameInputData.ActionType.BasicAttack));
                 return;
             }
+
+            if (input.BasicMitigation)
+            {
+                StateMachine.ChangeState(new EntityAttackState(Entity, FrameInputData.ActionType.BasicMitigation));
+                return;
+            }
             
             if (input.MovementDirection != Vector2.zero)
             {

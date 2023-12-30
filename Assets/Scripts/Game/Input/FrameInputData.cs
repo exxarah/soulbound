@@ -7,7 +7,7 @@ namespace Game.Input
     {
         public Vector2 MovementDirection;
 
-        public bool Shield;
+        public bool BasicMitigation;
         public bool BasicAttack;
 
         public bool AbilityOne;
@@ -19,7 +19,7 @@ namespace Game.Input
 
         public enum ActionType
         {
-            Shield,
+            BasicMitigation,
             BasicAttack,
 
             AbilityOne,
@@ -34,8 +34,8 @@ namespace Game.Input
         {
             switch (action)
             {
-                case ActionType.Shield:
-                    Shield = enabled;
+                case ActionType.BasicMitigation:
+                    BasicMitigation = enabled;
                     break;
                 case ActionType.BasicAttack:
                     BasicAttack = enabled;
@@ -64,7 +64,7 @@ namespace Game.Input
         {
             return actionType switch
             {
-                ActionType.Shield => Shield,
+                ActionType.BasicMitigation => BasicMitigation,
                 ActionType.BasicAttack => BasicAttack,
                 ActionType.AbilityOne => AbilityOne,
                 ActionType.AbilityTwo => AbilityTwo,

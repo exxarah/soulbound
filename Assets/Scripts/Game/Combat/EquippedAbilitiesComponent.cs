@@ -31,7 +31,7 @@ namespace Game.Combat
         {
             return action switch
             {
-                FrameInputData.ActionType.Shield => m_shieldAbility,
+                FrameInputData.ActionType.BasicMitigation => m_shieldAbility,
                 FrameInputData.ActionType.BasicAttack => m_basicAbility,
                 FrameInputData.ActionType.AbilityOne => m_abilityOne,
                 FrameInputData.ActionType.AbilityTwo => m_abilityTwo,

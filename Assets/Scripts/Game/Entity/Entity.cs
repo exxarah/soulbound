@@ -23,8 +23,8 @@ namespace Game.Entity
 
         [Header("Entity Information")]
         [SerializeField]
-        private float m_speed = 30.0f;
-        public float Speed => m_speed;
+        private EntityStatsComponent m_entityStatsComponent = null;
+        public EntityStatsComponent Stats => m_entityStatsComponent;
 
         [SerializeField]
         private bool m_facesMovement = true;

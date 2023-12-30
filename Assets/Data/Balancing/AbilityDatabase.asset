@@ -19,7 +19,7 @@ MonoBehaviour:
       m_omniCost: 0
       m_healthCost: 0
       m_attackCost: 0
-    m_cooldownSeconds: 6
+    m_cooldownSeconds: 3
     m_uiImage: {fileID: 21300000, guid: 17f273df9a9a17740a44ce49fdd382a6, type: 3}
     m_hasTelegraph: 0
     m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
@@ -32,7 +32,9 @@ MonoBehaviour:
     m_maxTargets: 1
     m_healthDecrement: 0
     m_instaKill: 0
-    m_effects: []
+    m_effects:
+    - {fileID: 11400000, guid: ed3c90cc32cf1de4c8d5d72ee4bae08d, type: 2}
+    - {fileID: 11400000, guid: c8d8b1a9c0bbc4d46a910cdaed071704, type: 2}
   - m_abilityID: player_attack_basic
     m_animationName: Jab
     m_charmCost:

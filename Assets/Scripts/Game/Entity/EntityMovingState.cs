@@ -48,6 +48,12 @@ namespace Game.Entity
                 return;
             }
             
+            if (input.BasicMitigation)
+            {
+                StateMachine.ChangeState(new EntityAttackState(Entity, FrameInputData.ActionType.BasicMitigation));
+                return;
+            }
+            
             if (input.MovementDirection == Vector2.zero)
             {
                 StateMachine.ChangeState(new EntityIdleState(Entity));
@@ -62,7 +68,7 @@ namespace Game.Entity
             base.FixedUpdate();
             
             Vector3 direction = new Vector3(m_movementInput.x, 0.0f, m_movementInput.y).normalized;
-            Entity.Rigidbody.velocity = direction * Entity.Speed * Time.deltaTime;
+            Entity.Rigidbody.velocity = direction * Entity.Stats.GetStat(StatType.Speed) * Time.deltaTime;
 
             if (Entity.FacesMovementDirection && direction != Vector3.zero)
             {

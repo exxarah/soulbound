@@ -40,7 +40,7 @@ namespace Game.Input
             m_inputData.MovementDirection = new Vector2(movementInput.x, movementInput.z);
 
             m_inputData.BasicAttack = UnityEngine.Input.GetMouseButton(0);
-            m_inputData.Shield = UnityEngine.Input.GetMouseButton(1);
+            m_inputData.BasicMitigation = UnityEngine.Input.GetMouseButton(1);
 
             m_inputData.AbilityOne = UnityEngine.Input.GetKey(KeyCode.Alpha1);
             m_inputData.AbilityTwo = UnityEngine.Input.GetKey(KeyCode.Alpha2);

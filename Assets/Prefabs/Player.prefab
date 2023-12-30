@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4604987726606122925}
   - component: {fileID: 7436424670463285084}
+  - component: {fileID: 4937914405388844803}
   - component: {fileID: 8734582489155299967}
   - component: {fileID: 2195948319487253422}
   - component: {fileID: 2749350516011610173}
@@ -54,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigidbody: {fileID: 3039128149016360921}
   m_animator: {fileID: 659604807391150059}
-  m_speed: 250
+  m_entityStatsComponent: {fileID: 4937914405388844803}
   m_facesMovement: 0
   m_inventoryComponent: {fileID: 2195948319487253422}
   m_abilitiesComponent: {fileID: 2749350516011610173}
@@ -65,6 +66,19 @@ MonoBehaviour:
   m_alliesLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &4937914405388844803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976138224753339175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8299cb1ce61240fc8cd3bec36cb8db60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_baseSpeed: 200
 --- !u!114 &8734582489155299967
 MonoBehaviour:
   m_ObjectHideFlags: 0

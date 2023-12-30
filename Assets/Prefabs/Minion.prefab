@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 7160353481281767633}
   - component: {fileID: 8075603100598406582}
   - component: {fileID: 5678864679281723339}
+  - component: {fileID: 6123723717094684790}
   m_Layer: 12
   m_Name: Minion
   m_TagString: Untagged
@@ -287,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigidbody: {fileID: 5564998570335314159}
   m_animator: {fileID: 5787092253119215837}
-  m_speed: 80
+  m_entityStatsComponent: {fileID: 6123723717094684790}
   m_facesMovement: 1
   m_inventoryComponent: {fileID: 0}
   m_abilitiesComponent: {fileID: 7160353481281767633}
@@ -402,3 +403,16 @@ MonoBehaviour:
   m_deathAnimState: 
   m_secondsWaitAfterDeath: 0
   m_hurtAnimTrigger: 
+--- !u!114 &6123723717094684790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7914076748706522451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8299cb1ce61240fc8cd3bec36cb8db60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_baseSpeed: 100
