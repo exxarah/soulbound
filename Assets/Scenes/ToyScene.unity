@@ -161,8 +161,8 @@ RectTransform:
   - {fileID: 2016889009}
   - {fileID: 2058890810}
   - {fileID: 1038093911}
-  - {fileID: 254678159}
   - {fileID: 1095618222}
+  - {fileID: 254678159}
   m_Father: {fileID: 636840201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -233,10 +233,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 182132368}
     m_Modifications:
+    - target: {fileID: 83538846016751706, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 820499893, guid: b9445258d094ee5498bc7f4e3e62562a,
+        type: 3}
+    - target: {fileID: 1042787886475900111, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 837972654, guid: c1e63ed7069eaa8429e9eb75daa2c937,
+        type: 3}
     - target: {fileID: 1551376886773187311, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
       propertyPath: m_Name
       value: AbilitySlot - Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077218697559525171, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Name
+      value: RT
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077218697559525171, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374629243545269428, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3495883643018810879, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
@@ -356,6 +383,21 @@ PrefabInstance:
     - target: {fileID: 3621606693550381123, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990158812106339837, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101729770718062650, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536522737710375960, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8037278242364919244, guid: 3e7997310dd57b448a130994cd08a0fb,
@@ -557,10 +599,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 182132368}
     m_Modifications:
+    - target: {fileID: 83538846016751706, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1908776919, guid: b9445258d094ee5498bc7f4e3e62562a,
+        type: 3}
+    - target: {fileID: 1042787886475900111, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -390501890, guid: c1e63ed7069eaa8429e9eb75daa2c937,
+        type: 3}
     - target: {fileID: 1551376886773187311, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
       propertyPath: m_Name
       value: AbilitySlot - AbilityTwo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077218697559525171, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Name
+      value: B
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077218697559525171, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374629243545269428, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3495883643018810879, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
@@ -686,6 +755,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_actionToDisplay
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990158812106339837, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101729770718062650, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536522737710375960, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8037278242364919244, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
@@ -1843,10 +1927,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 182132368}
     m_Modifications:
+    - target: {fileID: 1042787886475900111, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -641220123, guid: c1e63ed7069eaa8429e9eb75daa2c937,
+        type: 3}
     - target: {fileID: 1551376886773187311, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
       propertyPath: m_Name
       value: AbilitySlot - AbilityOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077218697559525171, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374629243545269428, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3495883643018810879, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
@@ -1972,6 +2072,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_actionToDisplay
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990158812106339837, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101729770718062650, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536522737710375960, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8037278242364919244, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
@@ -2178,10 +2293,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 182132368}
     m_Modifications:
+    - target: {fileID: 83538846016751706, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1024905833, guid: b9445258d094ee5498bc7f4e3e62562a,
+        type: 3}
+    - target: {fileID: 1042787886475900111, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -392794209, guid: c1e63ed7069eaa8429e9eb75daa2c937,
+        type: 3}
     - target: {fileID: 1551376886773187311, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
       propertyPath: m_Name
       value: AbilitySlot - Basic Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077218697559525171, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Name
+      value: LT
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077218697559525171, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374629243545269428, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3495883643018810879, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
@@ -2307,6 +2449,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_actionToDisplay
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990158812106339837, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101729770718062650, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536522737710375960, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8037278242364919244, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
@@ -4062,10 +4219,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 182132368}
     m_Modifications:
+    - target: {fileID: 83538846016751706, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -693050011, guid: b9445258d094ee5498bc7f4e3e62562a,
+        type: 3}
+    - target: {fileID: 1042787886475900111, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -510520239, guid: c1e63ed7069eaa8429e9eb75daa2c937,
+        type: 3}
     - target: {fileID: 1551376886773187311, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
       propertyPath: m_Name
       value: AbilitySlot - AbilityThree
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077218697559525171, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Name
+      value: X
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077218697559525171, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374629243545269428, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3495883643018810879, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
@@ -4192,6 +4376,21 @@ PrefabInstance:
       propertyPath: m_actionToDisplay
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5990158812106339837, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101729770718062650, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536522737710375960, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8037278242364919244, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4257,10 +4456,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 182132368}
     m_Modifications:
+    - target: {fileID: 83538846016751706, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -373686600, guid: b9445258d094ee5498bc7f4e3e62562a,
+        type: 3}
+    - target: {fileID: 1042787886475900111, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2079664088, guid: c1e63ed7069eaa8429e9eb75daa2c937,
+        type: 3}
     - target: {fileID: 1551376886773187311, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
       propertyPath: m_Name
       value: AbilitySlot - AbilityFour
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077218697559525171, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Name
+      value: Y
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077218697559525171, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374629243545269428, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3495883643018810879, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
@@ -4386,6 +4612,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_actionToDisplay
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990158812106339837, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101729770718062650, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536522737710375960, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6992336091864355203, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
@@ -4867,6 +5108,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 182132368}
     m_Modifications:
+    - target: {fileID: 1042787886475900111, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1354747364, guid: c1e63ed7069eaa8429e9eb75daa2c937,
+        type: 3}
     - target: {fileID: 1551376886773187311, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
       propertyPath: m_Name
@@ -4997,6 +5244,11 @@ PrefabInstance:
       propertyPath: m_actionToDisplay
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5990158812106339837, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.799999
+      objectReference: {fileID: 0}
     - target: {fileID: 8037278242364919244, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5016,6 +5268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071821945763169555, guid: 3e7997310dd57b448a130994cd08a0fb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8366655700686770541, guid: 3e7997310dd57b448a130994cd08a0fb,
         type: 3}

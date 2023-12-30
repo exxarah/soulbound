@@ -17,7 +17,23 @@ namespace Game.Input
         private EventSystem m_eventSystem = null;
 
         public bool InputEnabled { get; private set; } = true;
-        public PreferredControls PreferredControl { get; private set; } = PreferredControls.KeyboardMouse;
+
+        private PreferredControls m_preferredControls = PreferredControls.KeyboardMouse;
+        public PreferredControls PreferredControl
+        {
+            get => m_preferredControls;
+            private set
+            {
+                m_preferredControls = value;
+                PlayerPrefs.SetString("pref_controls", m_preferredControls.ToString());
+            }
+        }
+
+        private void OnEnable()
+        {
+            string preferredControls = PlayerPrefs.GetString("pref_controls", m_preferredControls.ToString());
+            PreferredControl = Enum.Parse<PreferredControls>(preferredControls);
+        }
 
         public class InputDisabledScope : IDisposable
         {
@@ -36,7 +52,6 @@ namespace Game.Input
 
         public void SetPreferredControls(PreferredControls controls)
         {
-            // TODO: Save and load this value in Player Prefs
             PreferredControl = controls;
         }
     }
