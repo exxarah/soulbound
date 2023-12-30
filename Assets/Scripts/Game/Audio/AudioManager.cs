@@ -15,6 +15,22 @@ namespace Game.Audio
 
         private List<AudioSource> m_activeEffects = new List<AudioSource>();
 
+        private static float s_sfxVolume;
+        public static float SFXVolume
+        {
+            get => s_sfxVolume;
+            set
+            {
+                s_sfxVolume = value;
+                PlayerPrefs.SetFloat("sfx_volume", s_sfxVolume);
+            }
+        }
+
+        private void OnEnable()
+        {
+            s_sfxVolume = PlayerPrefs.GetFloat("sfx_volume", 0.5f);
+        }
+
         public void Play(SFXAudioDatabase.SFXKey sfx)
         {
             SFXAudioDatabase.SFX effect = m_sfxDatabase.GetRandom(sfx);
