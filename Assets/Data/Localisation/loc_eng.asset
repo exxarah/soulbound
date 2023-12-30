@@ -19,4 +19,6 @@ MonoBehaviour:
       Value: '{0}/{1}'
     - Key: core.stub
       Value: '{0}'
+    - Key: game.title
+      Value: Game Title
     keyCollision: 0
