@@ -33,6 +33,8 @@ namespace Game.Flow
             m_buttonPanel.SetActiveSafe(true);
             m_settingsPanel.SetActiveSafe(false);
             m_creditsPanel.SetActiveSafe(false);
+            
+            m_panelAnimator.Play(SHOW_ANIM);
         }
 
         public void _PlayGame()

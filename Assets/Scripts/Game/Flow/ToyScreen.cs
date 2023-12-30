@@ -48,6 +48,7 @@ namespace Game.Flow
         public void _GoToMenu()
         {
             FlowManager.Instance.Trigger("GoToMenu");
+            Time.timeScale = 1.0f;
         }
     }
 }
