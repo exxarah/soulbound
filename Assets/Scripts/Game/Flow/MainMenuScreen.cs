@@ -2,9 +2,11 @@
 using Core.Unity.Flow;
 using Core.Unity.Utils;
 using Dev.ComradeVanti.WaitForAnim;
+using Game.Audio;
 using Game.Input;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using Screen = Core.Unity.Flow.Screen;
 
 namespace Game.Flow
@@ -26,6 +28,12 @@ namespace Game.Flow
         [SerializeField]
         private GameObject m_creditsPanel = null;
 
+        [SerializeField]
+        private Slider m_sfxSlider = null;
+
+        [SerializeField]
+        private Slider m_musicSlider = null;
+
         public override void OnViewEnter(ViewEnterParams viewEnterParams = null)
         {
             base.OnViewEnter(viewEnterParams);
@@ -33,8 +41,15 @@ namespace Game.Flow
             m_buttonPanel.SetActiveSafe(true);
             m_settingsPanel.SetActiveSafe(false);
             m_creditsPanel.SetActiveSafe(false);
+
+            m_sfxSlider.value = AudioManager.SFXVolume;
             
             m_panelAnimator.Play(SHOW_ANIM);
+        }
+
+        public void _UpdateSFXVolume(float newVolume)
+        {
+            AudioManager.SFXVolume = newVolume;
         }
 
         public void _PlayGame()

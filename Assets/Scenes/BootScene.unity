@@ -172,6 +172,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_sfxDatabase: {fileID: 11400000, guid: 1cdca0e7bd1207146bcb6ab747ccceab, type: 2}
   m_audioPool: {fileID: 50064315}
+  m_sfxGroup: {fileID: 5927156485843100832, guid: 3dcddf84cafbec64aa8eab37b7f039d2,
+    type: 2}
+  m_musicGroup: {fileID: 8153008567400594720, guid: 3dcddf84cafbec64aa8eab37b7f039d2,
+    type: 2}
 --- !u!114 &50064315
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,10 @@ namespace Game.Audio
 
         public void _Play()
         {
-            AudioManager.Instance.Play(m_toPlay);
+            if (isActiveAndEnabled)
+            {
+                AudioManager.Instance.Play(m_toPlay);   
+            }
         }
     }
 }
