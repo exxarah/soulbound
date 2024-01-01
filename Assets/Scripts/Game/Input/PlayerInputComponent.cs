@@ -1,9 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.Input
 {
-    public class PlayerInputComponent : MonoBehaviour
+    public class PlayerInputComponent : MonoBehaviour, GameInputActions.IPlayerActions
     {
         [Serializable]
         private enum IsometricSkewPreference
@@ -25,29 +26,24 @@ namespace Game.Input
         private Matrix4x4 m_isometricSkew = Matrix4x4.identity;
         private FrameInputData m_inputData = new FrameInputData();
 
+        private GameInputActions.PlayerActions m_playerActions;
+
         private void OnEnable()
         {
             SetIsometricSkew();
+            GameContext.Instance.InputManager.InputActions.Player.AddCallbacks(this);
+            GameContext.Instance.InputManager.InputActions.Player.Enable();
+        }
+
+        private void OnDisable()
+        {
+            GameContext.Instance.InputManager.InputActions.Player.Disable();
+            GameContext.Instance.InputManager.InputActions.Player.RemoveCallbacks(this);
         }
 
         private void FixedUpdate()
         {
             if (m_controlledEntity.HealthComponent.IsDead) {return; }
-
-            // Transform the movement input to accommodate isometric perspective
-            Vector3 movementInput = new Vector3(UnityEngine.Input.GetAxis("Horizontal"), 0.0f, UnityEngine.Input.GetAxis("Vertical"));
-            movementInput = m_isometricSkew.MultiplyPoint3x4(movementInput);
-            m_inputData.MovementDirection = new Vector2(movementInput.x, movementInput.z);
-
-            m_inputData.BasicAttack = UnityEngine.Input.GetMouseButton(0);
-            m_inputData.BasicMitigation = UnityEngine.Input.GetMouseButton(1);
-
-            m_inputData.AbilityOne = UnityEngine.Input.GetKey(KeyCode.Alpha1);
-            m_inputData.AbilityTwo = UnityEngine.Input.GetKey(KeyCode.Alpha2);
-            m_inputData.AbilityThree = UnityEngine.Input.GetKey(KeyCode.Alpha3);
-            m_inputData.AbilityFour = UnityEngine.Input.GetKey(KeyCode.Alpha4);
-
-            m_inputData.CharmAbility = UnityEngine.Input.GetKey(KeyCode.Space);
             
             m_controlledEntity.ApplyInput(m_inputData);
 
@@ -77,5 +73,100 @@ namespace Game.Input
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            // Transform the movement input to accommodate isometric perspective
+            Vector2 input = context.ReadValue<Vector2>();
+            Vector3 movementInput = new Vector3(input.x, 0.0f, input.y);
+            movementInput = m_isometricSkew.MultiplyPoint3x4(movementInput);
+            m_inputData.MovementDirection = new Vector2(movementInput.x, movementInput.z);
+        }
+
+        public void OnBasicAttack(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                m_inputData.BasicAttack = false;
+            }
+            else if (context.started)
+            {
+                m_inputData.BasicAttack = true;
+            }
+        }
+
+        public void OnBasicMobility(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                m_inputData.BasicMitigation = false;
+            }
+            else if (context.started)
+            {
+                m_inputData.BasicMitigation = true;
+            }
+        }
+
+        public void OnCharmAbility(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                m_inputData.CharmAbility = false;
+            }
+            else if (context.started)
+            {
+                m_inputData.CharmAbility = true;
+            }
+        }
+
+        public void OnAbility1(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                m_inputData.AbilityOne = false;
+            }
+            else if (context.started)
+            {
+                m_inputData.AbilityOne = true;
+            }
+        }
+
+        public void OnAbility2(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                m_inputData.AbilityTwo = false;
+            }
+            else if (context.started)
+            {
+                m_inputData.AbilityTwo = true;
+            }
+        }
+
+        public void OnAbility3(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                m_inputData.AbilityThree = false;
+            }
+            else if (context.started)
+            {
+                m_inputData.AbilityThree = true;
+            }
+        }
+
+        public void OnAbility4(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                m_inputData.AbilityFour = false;
+            }
+            else if (context.started)
+            {
+                m_inputData.AbilityFour = true;
+            }
+        }
+
+        public void OnPause(InputAction.CallbackContext context) { }
     }
 }

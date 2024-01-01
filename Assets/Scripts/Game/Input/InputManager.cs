@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace Game.Input
 {
@@ -17,6 +18,9 @@ namespace Game.Input
         private EventSystem m_eventSystem = null;
         public EventSystem EventSystem => m_eventSystem;
 
+        private GameInputActions m_inputActions = null;
+        public GameInputActions InputActions => m_inputActions;
+
         public bool InputEnabled { get; private set; } = true;
 
         private PreferredControls m_preferredControls = PreferredControls.KeyboardMouse;
@@ -32,6 +36,7 @@ namespace Game.Input
 
         private void OnEnable()
         {
+            m_inputActions = new GameInputActions();
             string preferredControls = PlayerPrefs.GetString("pref_controls", m_preferredControls.ToString());
             PreferredControl = Enum.Parse<PreferredControls>(preferredControls);
         }
