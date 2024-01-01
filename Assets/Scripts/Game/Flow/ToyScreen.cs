@@ -3,6 +3,7 @@ using Core.Unity.Utils;
 using Cysharp.Threading.Tasks;
 using Game.Audio;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.Flow
 {
@@ -27,6 +28,20 @@ namespace Game.Flow
             GameContext.Instance.GameState.OnGameEnded += OnGameEnded;
             
             m_pausePopup.SetActiveSafe(false);
+
+            GameContext.Instance.InputManager.InputActions.Player.Pause.performed += OnPauseInput;
+        }
+
+        public override void OnViewExit()
+        {
+            base.OnViewExit();
+
+            GameContext.Instance.InputManager.InputActions.Player.Pause.performed -= OnPauseInput;
+        }
+
+        private void OnPauseInput(InputAction.CallbackContext obj)
+        {
+            _DoPause();
         }
 
         private void OnGameEnded()
