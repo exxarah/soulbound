@@ -828,6 +828,85 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 297212035}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &301040856
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 312788931810338275, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.1969337
+      objectReference: {fileID: 0}
+    - target: {fileID: 312788931810338275, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000019073486
+      objectReference: {fileID: 0}
+    - target: {fileID: 312788931810338275, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.8393574
+      objectReference: {fileID: 0}
+    - target: {fileID: 312788931810338275, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5382678
+      objectReference: {fileID: 0}
+    - target: {fileID: 312788931810338275, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 312788931810338275, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8427739
+      objectReference: {fileID: 0}
+    - target: {fileID: 312788931810338275, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 312788931810338275, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 312788931810338275, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -114.868
+      objectReference: {fileID: 0}
+    - target: {fileID: 312788931810338275, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811213782126758210, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_Name
+      value: BossReaper
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853116253189169397, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_animator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274298049040603976, guid: 1df1646a62715ae449c6475c8bd6deec,
+        type: 3}
+      propertyPath: m_animator
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 5111398239174080116, guid: 1df1646a62715ae449c6475c8bd6deec, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1df1646a62715ae449c6475c8bd6deec, type: 3}
 --- !u!1 &402267512
 GameObject:
   m_ObjectHideFlags: 0
@@ -5662,3 +5741,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1320916942}
+  - {fileID: 301040856}
