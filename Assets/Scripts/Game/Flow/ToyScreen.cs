@@ -3,11 +3,10 @@ using Core.Unity.Utils;
 using Cysharp.Threading.Tasks;
 using Game.Audio;
 using UnityEngine;
-using Screen = Core.Unity.Flow.Screen;
 
 namespace Game.Flow
 {
-    public class ToyScreen : Screen
+    public class ToyScreen : GameScreen
     {
         [SerializeField]
         private GameObject m_pausePopup = null;

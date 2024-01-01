@@ -15,6 +15,7 @@ namespace Game.Input
         
         [SerializeField]
         private EventSystem m_eventSystem = null;
+        public EventSystem EventSystem => m_eventSystem;
 
         public bool InputEnabled { get; private set; } = true;
 

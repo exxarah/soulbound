@@ -14,7 +14,7 @@ using UnityEditor;
 
 namespace Game.Flow
 {
-    public class MainMenuScreen : Screen
+    public class MainMenuScreen : GameScreen
     {
         private const string HIDE_ANIM = "MainMenu_Hide";
         private const string SHOW_ANIM = "MainMenu_Show";
