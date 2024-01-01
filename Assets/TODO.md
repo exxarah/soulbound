@@ -27,3 +27,8 @@
   - New endless mode, waves get more difficult over time procedurally, ends when player dies
   - New scoring for endless mode, more time = good
   - Leaderboard for endless mode
+
+- v0.4.0 - More Fun Together
+  - Co-op mode (local or online? maybe both?)
+  - Arena mode (same question as both)
+  - Bots for both modes, to account for when no one plays lmao
