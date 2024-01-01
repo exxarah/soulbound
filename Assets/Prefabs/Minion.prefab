@@ -288,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigidbody: {fileID: 5564998570335314159}
   m_animator: {fileID: 5787092253119215837}
+  m_isPlayer: 0
   m_entityStatsComponent: {fileID: 6123723717094684790}
   m_facesMovement: 1
   m_inventoryComponent: {fileID: 0}
@@ -324,7 +325,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &8884692815808442189
 BoxCollider:
@@ -398,11 +399,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxHealth: 1
   m_currentHealth: 0
-  m_gameLostOnDeath: 0
+  m_isPlayer: 0
   m_animator: {fileID: 5787092253119215837}
   m_deathAnimState: 
   m_secondsWaitAfterDeath: 0
   m_hurtAnimTrigger: 
+  m_onHurtSFX: 1
 --- !u!114 &6123723717094684790
 MonoBehaviour:
   m_ObjectHideFlags: 0

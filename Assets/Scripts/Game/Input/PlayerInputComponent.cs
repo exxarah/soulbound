@@ -1,4 +1,5 @@
 ﻿using System;
+using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -46,15 +47,6 @@ namespace Game.Input
             if (m_controlledEntity.HealthComponent.IsDead) {return; }
             
             m_controlledEntity.ApplyInput(m_inputData);
-
-            // Player looks towards the mouse, not movement direction
-            UpdateRotation();
-        }
-
-        private void UpdateRotation()
-        {
-            Physics.Raycast(m_viewCamera.ScreenPointToRay(UnityEngine.Input.mousePosition), out RaycastHit hit);
-            m_controlledEntity.Rigidbody.transform.LookAt(new Vector3(hit.point.x, 0.0f, hit.point.z), Vector3.up);
         }
         
         private void SetIsometricSkew()
@@ -81,6 +73,26 @@ namespace Game.Input
             Vector3 movementInput = new Vector3(input.x, 0.0f, input.y);
             movementInput = m_isometricSkew.MultiplyPoint3x4(movementInput);
             m_inputData.MovementDirection = new Vector2(movementInput.x, movementInput.z);
+        }
+
+        public void OnLook(InputAction.CallbackContext context)
+        {
+            Vector3 lookAt = Vector3.zero;
+            switch (context.control.device)
+            {
+                case Mouse:
+                    Physics.Raycast(m_viewCamera.ScreenPointToRay(context.ReadValue<Vector2>()), out RaycastHit hit);
+                    lookAt = new Vector3(hit.point.x, 0.0f, hit.point.z);
+                    break;
+                case Gamepad:
+                {
+                    Vector2 input = context.ReadValue<Vector2>().normalized;
+                    lookAt = m_controlledEntity.Rigidbody.transform.position + new Vector3(input.x * 10, 0.0f, input.y * 10);
+                    break;
+                }
+            }
+            Log.Info(context.control.device.GetType().ToString());
+            m_controlledEntity.Rigidbody.transform.LookAt(lookAt, Vector3.up);
         }
 
         public void OnBasicAttack(InputAction.CallbackContext context)
