@@ -1,11 +1,13 @@
 ﻿# SOULBOUND
 
-- v0.1.1 - Controller Support
+- [X] v0.1.1 - Controller Support
   - Partially done already
 - v0.1.2 - Boss Enemy
   - Spawns as part of the final wave, more difficult
+  - Grim Reaper
 - v0.1.3 - Tutorial
-  - Optional tutorial level/mode, simple waves with instructions guiding the player through
+  - Tutorial level/mode, simple waves with instructions guiding the player through
+  - On first boot, offer the player a popup to optionally skip the tutorial (which would otherwise launch on first boot), as well as modify their settings (particularly the controller display preference)
 - v0.1.4 - Small Improvements
   - Spawn animations
   - Balancing pass
