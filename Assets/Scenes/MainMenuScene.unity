@@ -1279,6 +1279,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a7c08d0a224cfa9d8467ac1da389ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &950445574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6850576700499996474, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 950445571}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &987252599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,6 +1935,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a7c08d0a224cfa9d8467ac1da389ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1080477595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6850576700499996474, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1080477592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1081841795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,6 +2282,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69a7c08d0a224cfa9d8467ac1da389ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1197370674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6850576700499996474, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1197370671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1305689257
@@ -2706,6 +2742,9 @@ MonoBehaviour:
   m_creditsPanel: {fileID: 1721803400}
   m_sfxSlider: {fileID: 632989234}
   m_musicSlider: {fileID: 5642521341124367443}
+  m_quitButton: {fileID: 1080477595}
+  m_creditsButton: {fileID: 950445574}
+  m_settingsButton: {fileID: 1197370674}
 --- !u!1 &1721803400
 GameObject:
   m_ObjectHideFlags: 0
