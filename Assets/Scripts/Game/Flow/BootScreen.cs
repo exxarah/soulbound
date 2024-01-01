@@ -1,11 +1,9 @@
 ﻿using Core.Unity.Flow;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
-using Screen = Core.Unity.Flow.Screen;
 
 namespace Game.Flow
 {
-    public class BootScreen : Screen
+    public class BootScreen : GameScreen
     {
         public override void OnViewEnter(ViewEnterParams viewEnterParams = null)
         {

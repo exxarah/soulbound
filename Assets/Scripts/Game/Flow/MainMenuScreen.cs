@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Core.Unity.Flow;
 using Core.Unity.Utils;
 using Dev.ComradeVanti.WaitForAnim;
@@ -14,7 +15,7 @@ using UnityEditor;
 
 namespace Game.Flow
 {
-    public class MainMenuScreen : Screen
+    public class MainMenuScreen : GameScreen
     {
         private const string HIDE_ANIM = "MainMenu_Hide";
         private const string SHOW_ANIM = "MainMenu_Show";
@@ -37,6 +38,15 @@ namespace Game.Flow
         [SerializeField]
         private Slider m_musicSlider = null;
 
+        [SerializeField]
+        private Selectable m_quitButton = null;
+
+        [SerializeField]
+        private Selectable m_creditsButton = null;
+
+        [SerializeField]
+        private Selectable m_settingsButton = null;
+
         public override void OnViewEnter(ViewEnterParams viewEnterParams = null)
         {
             base.OnViewEnter(viewEnterParams);
@@ -51,6 +61,24 @@ namespace Game.Flow
             m_musicSlider.value = AudioManager.MusicVolume;
             
             m_panelAnimator.Play(SHOW_ANIM);
+        }
+
+        private void Update()
+        {
+            // Check for back button
+            if (UnityEngine.Input.GetAxis("Cancel") != 0 || UnityEngine.Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (m_buttonPanel.activeSelf)
+                {
+                    // Select the quit button
+                    _OpenButtons(m_quitButton);
+                }
+                else
+                {
+                    // Go back to the button panel
+                    _OpenButtons();
+                }
+            }
         }
 
         public void _UpdateSFXVolume(float newVolume)
@@ -149,13 +177,39 @@ namespace Game.Flow
                 yield return new WaitForAnimationToFinish(m_panelAnimator, SHOW_ANIM);
             }
         }
+
+        // Separate function so unity-assigned buttons work
+        public void _OpenButtons() => _OpenButtons(null);
         
-        public void _OpenButtons()
+        public void _OpenButtons(Selectable buttonToSelect)
         {
-            StartCoroutine(IEnumerator_OpenButtons());
+            if (m_buttonPanel.activeSelf)
+            {
+                // Select the button
+                if (buttonToSelect != null)
+                {
+                    buttonToSelect.Select();
+                }
+                
+                return;
+            }
+
+            if (buttonToSelect == null)
+            {
+                // Go back to the button panel
+                if (m_creditsPanel.activeSelf)
+                {
+                    buttonToSelect = m_creditsButton;
+                }
+                else if (m_settingsPanel.activeSelf)
+                {
+                    buttonToSelect = m_settingsButton;
+                }
+            }
+            StartCoroutine(IEnumerator_OpenButtons(buttonToSelect));
         }
 
-        private IEnumerator IEnumerator_OpenButtons()
+        private IEnumerator IEnumerator_OpenButtons(Selectable buttonToSelect = null)
         {
             using (new InputManager.InputDisabledScope())
             {
@@ -169,6 +223,13 @@ namespace Game.Flow
                 
                 m_panelAnimator.Play(SHOW_ANIM);
                 yield return new WaitForAnimationToStart(m_panelAnimator, SHOW_ANIM);
+                
+                if (buttonToSelect != null)
+                {
+                    yield return null;
+                    GameContext.Instance.InputManager.EventSystem.SetSelectedGameObject(buttonToSelect.gameObject);
+                }
+                
                 yield return new WaitForAnimationToFinish(m_panelAnimator, SHOW_ANIM);
             }
         }

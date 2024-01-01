@@ -3,7 +3,7 @@ using Game.Audio;
 
 namespace Game.Flow
 {
-    public class GameLostScreen : Screen
+    public class GameLostScreen : GameScreen
     {
         public override void OnViewEnter(ViewEnterParams viewEnterParams = null)
         {

@@ -4,10 +4,11 @@ using Core.Unity.Utils;
 using Game.Input;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.UI.Menus
 {
-    public class ControlsSelector : MonoBehaviour
+    public class ControlsSelector : Selectable
     {
         [SerializeField]
         private Transform m_optionParent = null;
@@ -18,8 +19,14 @@ namespace Game.UI.Menus
         private List<TMP_Text> m_options = new List<TMP_Text>();
         private int m_currentIndex = 0;
 
-        private void Awake()
+        protected override void Start()
         {
+#if UNITY_EDITOR
+            if (!Application.isPlaying)
+            {
+                return;
+            }
+#endif
             int index = 0;
             foreach (string option in Enum.GetNames(typeof(InputManager.PreferredControls)))
             {
@@ -44,6 +51,24 @@ namespace Game.UI.Menus
             {
                 m_options[i].gameObject.SetActiveSafe(i == m_currentIndex);
             }
+        }
+
+        public override Selectable FindSelectableOnLeft()
+        {
+            if (Application.isPlaying)
+            {
+                Decrement();   
+            }
+            return null;
+        }
+
+        public override Selectable FindSelectableOnRight()
+        {
+            if (Application.isPlaying)
+            {
+                Increment();   
+            }
+            return null;
         }
 
         public void Increment()

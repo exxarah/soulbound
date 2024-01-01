@@ -14,6 +14,9 @@
   - Minion revamp
     - Give them an actual model/animations
     - Spawn in the place of the enemy they came from
+  - Localisation Ready
+    - Move all strings into loc
+    - Fix issue with loc in boot scene
 
 - v0.2.0 - Loadouts, more abilities
   - Add a bunch of new abilities
