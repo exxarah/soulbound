@@ -106,6 +106,12 @@ namespace Game.Entity
             
             // Start new cooldown
             Entity.StartCooldown(m_ability);
+
+            // Play and wait for animation
+            if (!string.IsNullOrEmpty(m_ability.AnimationName))
+            {
+                await Entity.Animator.PlayAndWait(m_ability.AnimationName);   
+            }
             
             // Snapshot the people to attack
             List<IDamageable> targets = CombatUtils.GetTargets(new CombatUtils.AttackParams
@@ -119,30 +125,6 @@ namespace Game.Entity
                 Layers = GetLayer(m_ability),
             });
 
-            // Apply OnCast effects
-            foreach (AAbilityEffect effect in m_ability.GetEffects((effect) => effect.Timing == Enums.EffectTiming.OnCast))
-            {
-                switch (effect.Target)
-                {
-                    case Enums.EffectTarget.Caster:
-                        effect.ApplyToTarget(Entity.Rigidbody.transform, Entity.gameObject);
-                        break;
-                    case Enums.EffectTarget.Target:
-                        foreach (IDamageable target in targets)
-                        {
-                            effect.ApplyToTarget(target.Transform, Entity.gameObject);
-                        }
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-            
-            // Play and wait for animation
-            if (!string.IsNullOrEmpty(m_ability.AnimationName))
-            {
-                await Entity.Animator.PlayAndWait(m_ability.AnimationName);   
-            }
             
             // Apply OnHit effects (before damage, incase the target dies and can't be referenced anymore)
             foreach (AAbilityEffect effect in m_ability.GetEffects((effect) => effect.Timing == Enums.EffectTiming.OnHit))

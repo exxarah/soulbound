@@ -17,6 +17,10 @@ namespace Game.Combat
         [SerializeField, ReadOnly]
         private int m_currentHealth;
 
+        [SerializeField]
+        private int m_maxDamagePerHit = -1;
+        public int MaxDamagePerHit => m_maxDamagePerHit;
+
         [FormerlySerializedAs("m_gameLostOnDeath")]
         [SerializeField]
         private bool m_isPlayer = false;
@@ -61,11 +65,15 @@ namespace Game.Combat
 
         public int DoDamage(DamageParams @params)
         {
-            if (@params.ForceKill)
+            if (@params.ForceKill && MaxDamagePerHit < 0)
             {
                 return ChangeHealth(-CurrentHealth);
             }
-            return ChangeHealth(-@params.DamageAmount);
+
+            int damage = MaxDamagePerHit >= 0
+                ? -Mathf.Min(@params.DamageAmount, MaxDamagePerHit)
+                : -@params.DamageAmount;
+            return ChangeHealth(damage);
         }
 
         private int ChangeHealth(int amount)

@@ -37,3 +37,11 @@ MonoBehaviour:
     m_weightToSpawn: 1
     m_minimumPercentToSpawn: 0
     m_maximumPercentToSpawn: 0.5
+  - m_enemyID: boss_reaper
+    m_enemyObject: {fileID: 7274298049040603976, guid: 1df1646a62715ae449c6475c8bd6deec,
+      type: 3}
+    m_minimumWaveToSpawn: 10
+    m_maximumWaveToSpawn: 10
+    m_weightToSpawn: 1
+    m_minimumPercentToSpawn: 0.1
+    m_maximumPercentToSpawn: 0.1

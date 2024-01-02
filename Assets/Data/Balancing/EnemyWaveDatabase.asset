@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_entries:
   - m_waveNumber: 1
-    m_enemyCount: 3
+    m_enemyCount: 2
   - m_waveNumber: 4
-    m_enemyCount: 5
+    m_enemyCount: 3
   - m_waveNumber: 8
-    m_enemyCount: 6
+    m_enemyCount: 4
   - m_waveNumber: 12
-    m_enemyCount: 7
+    m_enemyCount: 5
