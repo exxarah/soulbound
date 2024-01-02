@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb38db652cd244e69ca8a9d64e80f367, type: 3}
   m_Name: FlowGraph
   m_EditorClassIdentifier: 
-  m_globalTriggers: []
+  m_globalTriggers:
+  - m_trigger: OpenDebug
+    m_targetState: DebugPopup
   m_screens:
   - m_stateName: BootScene
     m_scene:
@@ -76,6 +78,13 @@ MonoBehaviour:
     m_triggers:
     - m_trigger: GoToMenu
       m_targetState: MainMenuScene
+  - m_stateName: DebugPopup
+    m_scene:
+      asset: {fileID: 102900000, guid: deefd0cbbaa870745b8bcd9f82862b3d, type: 3}
+      guid: deefd0cbbaa870745b8bcd9f82862b3d
+    m_unloadOnExit: 1
+    m_isPopup: 1
+    m_triggers: []
   m_loadingScreens:
   - m_name: Characters
     m_scene:

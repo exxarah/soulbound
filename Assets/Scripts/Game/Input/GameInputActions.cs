@@ -118,6 +118,15 @@ namespace Game.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenDebug"",
+                    ""type"": ""Button"",
+                    ""id"": ""880f0b74-145f-404c-a84c-dd029b91f1b1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -470,6 +479,17 @@ namespace Game.Input
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ce849ff-71e4-4ee7-a540-0da5423bacee"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OpenDebug"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1067,6 +1087,7 @@ namespace Game.Input
             m_Player_Ability3 = m_Player.FindAction("Ability3", throwIfNotFound: true);
             m_Player_Ability4 = m_Player.FindAction("Ability4", throwIfNotFound: true);
             m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+            m_Player_OpenDebug = m_Player.FindAction("OpenDebug", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1150,6 +1171,7 @@ namespace Game.Input
         private readonly InputAction m_Player_Ability3;
         private readonly InputAction m_Player_Ability4;
         private readonly InputAction m_Player_Pause;
+        private readonly InputAction m_Player_OpenDebug;
         public struct PlayerActions
         {
             private @GameInputActions m_Wrapper;
@@ -1164,6 +1186,7 @@ namespace Game.Input
             public InputAction @Ability3 => m_Wrapper.m_Player_Ability3;
             public InputAction @Ability4 => m_Wrapper.m_Player_Ability4;
             public InputAction @Pause => m_Wrapper.m_Player_Pause;
+            public InputAction @OpenDebug => m_Wrapper.m_Player_OpenDebug;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1203,6 +1226,9 @@ namespace Game.Input
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @OpenDebug.started += instance.OnOpenDebug;
+                @OpenDebug.performed += instance.OnOpenDebug;
+                @OpenDebug.canceled += instance.OnOpenDebug;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1237,6 +1263,9 @@ namespace Game.Input
                 @Pause.started -= instance.OnPause;
                 @Pause.performed -= instance.OnPause;
                 @Pause.canceled -= instance.OnPause;
+                @OpenDebug.started -= instance.OnOpenDebug;
+                @OpenDebug.performed -= instance.OnOpenDebug;
+                @OpenDebug.canceled -= instance.OnOpenDebug;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1429,6 +1458,7 @@ namespace Game.Input
             void OnAbility3(InputAction.CallbackContext context);
             void OnAbility4(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
+            void OnOpenDebug(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

@@ -10,7 +10,10 @@ namespace Game.UI.Menus
 
         private void OnEnable()
         {
-            GameContext.Instance.InputManager.EventSystem.SetSelectedGameObject(m_selectable.gameObject);
+            if (m_selectable != null)
+            {
+                GameContext.Instance.InputManager.EventSystem.SetSelectedGameObject(m_selectable.gameObject);   
+            }
         }
     }
 }

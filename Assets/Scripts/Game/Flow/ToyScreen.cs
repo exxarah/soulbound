@@ -53,7 +53,14 @@ namespace Game.Flow
 
         public void _DoPause()
         {
-            FlowManager.Instance.Trigger("Pause");
+            if (FlowManager.Instance.CurrentView is PausePopup)
+            {
+                FlowManager.Instance.ClosePopup();
+            }
+            else
+            {
+                FlowManager.Instance.Trigger("Pause");   
+            }
         }
     }
 }

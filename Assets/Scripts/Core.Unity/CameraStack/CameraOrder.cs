@@ -11,6 +11,7 @@ namespace Core.Unity.CameraStack
         
         UI = 20,
         
+        Debug = 29,
         LoadingScreen = 30,
     }
 }

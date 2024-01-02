@@ -105,10 +105,12 @@ namespace Core.Unity.Flow
             if (m_popups.TryPeek(out string topPopup))
             {
                 m_loadedViews[topPopup].OnFocusRegained();
+                m_currentView = m_loadedViews[topPopup];
             }
             else
             {
                 m_loadedViews[m_currentState].OnFocusRegained();
+                m_currentView = m_loadedViews[m_currentState];
             }
         }
 
@@ -165,13 +167,13 @@ namespace Core.Unity.Flow
                     break;
                 }
             }
+            m_currentView = view;
             switch (view)
             {
                 case Popup _:
                     m_popups.Push(state);
                     break;
                 case Screen _:
-                    m_currentView = view;
                     if (scene.isLoaded) SceneManager.SetActiveScene(scene);
                     break;
             }
