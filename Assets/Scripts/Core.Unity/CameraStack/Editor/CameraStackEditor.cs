@@ -10,7 +10,7 @@ namespace Core.Unity.CameraStack.Editor
         private ReorderableList m_list;
         private CameraStack m_stack;
 
-        private void OnEnable()
+        private void Initialise()
         {
             m_stack ??= (CameraStack)target;
             SerializedProperty cameraList = serializedObject.FindProperty("m_cameras");
@@ -45,6 +45,10 @@ namespace Core.Unity.CameraStack.Editor
 
         public override void OnInspectorGUI()
         {
+            if (m_list == null || m_stack == null)
+            {
+                Initialise();
+            }
             serializedObject.Update();
             m_list.DoLayoutList();
             serializedObject.ApplyModifiedProperties();
