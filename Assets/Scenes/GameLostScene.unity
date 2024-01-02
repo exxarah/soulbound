@@ -752,6 +752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1660390940}
   - component: {fileID: 1660390941}
+  - component: {fileID: 1660390942}
   m_Layer: 0
   m_Name: GameLostScene
   m_TagString: Untagged
@@ -789,7 +790,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_overrideText: 0
+  m_cameraStack: {fileID: 1660390942}
   m_defaultSelected: {fileID: 1823730422971516535}
+--- !u!114 &1660390942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660390938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8846cd15ef44d9787f006925a58c0ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_cameras:
+  - Camera: {fileID: 1447912470}
+    CameraOrder: 20
+    StackOrder: 0
 --- !u!224 &1824485943 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7150295806915538907, guid: b2d4c8e18fbc40141a4c9858d42f20c7,

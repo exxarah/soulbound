@@ -24,6 +24,10 @@ namespace Core.Unity.Flow
             public bool UnloadOnExit => m_unloadOnExit;
 
             [SerializeField]
+            private bool m_isPopup = false;
+            public bool IsPopup => m_isPopup;
+
+            [SerializeField]
             private List<FlowTrigger> m_triggers = new();
 
             public bool TryGetTrigger(string trigger, out FlowTrigger flowTrigger)

@@ -17,6 +17,10 @@ namespace Core.Unity.Flow
         [SerializeField]
         private bool m_overrideText = true;
         
+        [SerializeField]
+        private CameraStack.CameraStack m_cameraStack;
+        public CameraStack.CameraStack CameraStack => m_cameraStack;
+        
         public virtual bool SetActive { get; } = false;
 
 
@@ -29,6 +33,8 @@ namespace Core.Unity.Flow
         public abstract void OnViewEnter(ViewEnterParams viewEnterParams = null);
         public abstract UniTask OnViewPreExit();
         public abstract void OnViewExit();
+        public abstract void OnFocusRegained();
+        public abstract void OnFocusLost();
         public abstract void Back();
 
         private void OverrideText()
@@ -68,9 +74,11 @@ namespace Core.Unity.Flow
             return UniTask.CompletedTask;
         }
 
-        public override void OnViewExit()
-        {
-        }
+        public override void OnViewExit() { }
+
+        public override void OnFocusRegained() { }
+
+        public override void OnFocusLost() { }
 
         public override void Back()
         {
@@ -89,18 +97,18 @@ namespace Core.Unity.Flow
             return UniTask.CompletedTask;
         }
 
-        public override void OnViewEnter(ViewEnterParams viewEnterParams = null)
-        {
-        }
+        public override void OnViewEnter(ViewEnterParams viewEnterParams = null) { }
 
         public override UniTask OnViewPreExit()
         {
             return UniTask.CompletedTask;
         }
 
-        public override void OnViewExit()
-        {
-        }
+        public override void OnViewExit() { }
+        
+        public override void OnFocusRegained() { }
+
+        public override void OnFocusLost() { }
 
         public override void Back()
         {

@@ -34,6 +34,7 @@ namespace Game
         private void Start()
         {
             Log.RegisterSink<UnitySink>();
+            DontDestroyOnLoad(this);
         }
     }
 }
