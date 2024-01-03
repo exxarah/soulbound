@@ -19,8 +19,6 @@ namespace Game.AIBehaviour.Tasks
             m_action = action;
             m_inputData = new FrameInputData();
             m_inputData.SetAction(action, true);
-
-            m_telegraphSeconds = Random.Range(tree.TelegraphMinSeconds, tree.TelegraphMaxSeconds);
         }
 
         public override NodeState Evaluate()
@@ -43,6 +41,8 @@ namespace Game.AIBehaviour.Tasks
                 AbilityDatabase.AbilityDefinition abilityDef =
                     GameContext.Instance.Database.AbilityDatabase.GetAbility(Tree.ControlledEntity.AbilitiesComponent
                                                                      .GetAbility(m_action));
+                
+                m_telegraphSeconds = Random.Range(abilityDef.TelegraphMinimumSeconds, abilityDef.TelegraphMaximumSeconds);
                 m_inputData.SetAction(m_action, true);
                 Tree.ControlledEntity.ApplyInput(m_inputData);
                 m_secondsSinceStart = 0.0f;
@@ -69,6 +69,7 @@ namespace Game.AIBehaviour.Tasks
                     m_inputData.SetAction(m_action, false);
                     Tree.ControlledEntity.ApplyInput(m_inputData);
                     Tree.Root.ClearData("action_in_progress");
+                    State = NodeState.Success;
                 }
                 else
                 {
