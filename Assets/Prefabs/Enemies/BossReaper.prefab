@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_controlledEntity: {fileID: 7274298049040603976}
   m_fovRange: 100
-  m_telegraphMinSeconds: 2
+  m_telegraphMinSeconds: 3
   m_telegraphMaxSeconds: 3.5
 --- !u!114 &7274298049040603976
 MonoBehaviour:
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8299cb1ce61240fc8cd3bec36cb8db60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_baseSpeed: 200
+  m_baseSpeed: 150
 --- !u!114 &5720829682165200741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,8 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shieldAbility: 
-  m_basicAbility: attack_ghost_ability
-  m_abilityOne: 
+  m_basicAbility: reaper_boss_attack
+  m_abilityOne: reaper_boss_ability
   m_abilityTwo: 
   m_abilityThree: 
   m_abilityFour: 
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e4b99475394e8cabb68ff006ca955d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHealth: 30
+  m_maxHealth: 60
   m_currentHealth: 0
   m_maxDamagePerHit: 100
   m_isPlayer: 0

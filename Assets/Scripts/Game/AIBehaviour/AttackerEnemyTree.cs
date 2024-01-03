@@ -3,8 +3,6 @@ using Game.AIBehaviour.Conditionals;
 using Game.AIBehaviour.Nodes;
 using Game.AIBehaviour.Tasks;
 using Game.Input;
-using Game.Toy;
-using UnityEngine;
 
 namespace Game.AIBehaviour
 {
@@ -17,21 +15,18 @@ namespace Game.AIBehaviour
                 // Do Attack
                 new SequenceNode(this, new List<Node>
                 {
-                    new SelectorNode(this, new List<Node>()
-                    {
-                        new IsTrue(this, () => IsDataSet("basic_attack_in_progress")),
-                        new FindTargetInRange(this,
-                                              () => FindTargetInRange.InActionRange(ControlledEntity.EnemiesLayer, ControlledEntity,
-                                                  FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform),
-                                              () => FindTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack)),
-                    }),
+                    new IsNotOnCooldown(this, FrameInputData.ActionType.BasicAttack),
+                    new IsTargetInRange(this,
+                                          () => IsTargetInRange.InActionRange(ControlledEntity.EnemiesLayer, ControlledEntity,
+                                              FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform),
+                                          () => IsTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack)),
                     new TaskDoAction(this, FrameInputData.ActionType.BasicAttack),
                 }),
                 // Try to find an enemy to attack
                 new SequenceNode(this, new List<Node>
                 {
-                    new FindTargetInRange(this,
-                                          () => FindTargetInRange.InSphereRange(ControlledEntity.EnemiesLayer,
+                    new IsTargetInRange(this,
+                                          () => IsTargetInRange.InSphereRange(ControlledEntity.EnemiesLayer,
                                                                                     FOVRange, ControlledEntity.Rigidbody.transform),
                                           () => FOVRange),
                     new TaskGoToTarget(this),
@@ -42,12 +37,6 @@ namespace Game.AIBehaviour
 
 
             return root;
-        }
-
-        private bool IsDataSet(string attackKey)
-        {
-            object data = Root.GetData(attackKey);
-            return data != null && (bool)Root.GetData(attackKey);
         }
     }
 }

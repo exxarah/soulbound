@@ -20,22 +20,22 @@ namespace Game.AIBehaviour
                     new SelectorNode(this, new List<Node>()
                     {
                         new IsTrue(this, () => IsDataSet("basic_ability_in_progress")),
-                        new FindTargetInRange(this,
-                                              () => FindTargetInRange.InActionRange(ControlledEntity.AlliesLayer, ControlledEntity,
+                        new IsTargetInRange(this,
+                                              () => IsTargetInRange.InActionRange(ControlledEntity.AlliesLayer, ControlledEntity,
                                                   FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform),
-                                              () => FindTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack),
-                                              FindTargetInRange.GetLowestHealth),
+                                              () => IsTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack),
+                                              IsTargetInRange.GetLowestHealth),
                     }),
                     new TaskDoAction(this, FrameInputData.ActionType.BasicAttack),
                 }),
                 // Try to find an ally to heal
                 new SequenceNode(this, new List<Node>
                 {
-                    new FindTargetInRange(this,
-                                          () => FindTargetInRange.InSphereRange(ControlledEntity.AlliesLayer,
+                    new IsTargetInRange(this,
+                                          () => IsTargetInRange.InSphereRange(ControlledEntity.AlliesLayer,
                                                                                     FOVRange, ControlledEntity.Rigidbody.transform),
                                           () => FOVRange,
-                                          FindTargetInRange.GetLowestHealth),
+                                          IsTargetInRange.GetLowestHealth),
                     new TaskGoToTarget(this),
                 }),
                 // Else idle

@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace Game.AIBehaviour.Conditionals
 {
-    public class FindTargetInRange : Node
+    public class IsTargetInRange : Node
     {
         private Func<Collider[]> m_findTargetFunc;
         private Func<float> m_getRangeFunc;
         private Func<Collider[], Collider> m_targetPriorityFunc;
 
-        public FindTargetInRange(ABehaviourTree tree, Func<Collider[]> findTargetFunc, Func<float> getRangeFunc, Func<Collider[], Collider> targetPriorityFunc = null) : base(tree)
+        public IsTargetInRange(ABehaviourTree tree, Func<Collider[]> findTargetFunc, Func<float> getRangeFunc, Func<Collider[], Collider> targetPriorityFunc = null) : base(tree)
         {
             m_findTargetFunc = findTargetFunc;
             m_getRangeFunc = getRangeFunc;
@@ -25,7 +25,7 @@ namespace Game.AIBehaviour.Conditionals
             m_targetPriorityFunc = targetPriorityFunc;
         }
 
-        public FindTargetInRange(ABehaviourTree tree, List<Node> children, Func<Collider[]> findTargetFunc, Func<float> getRangeFunc) :
+        public IsTargetInRange(ABehaviourTree tree, List<Node> children, Func<Collider[]> findTargetFunc, Func<float> getRangeFunc) :
             base(tree, children)
         {
             m_findTargetFunc = findTargetFunc;

@@ -152,7 +152,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RaiseHands
+  m_Name: Magic
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -315,7 +315,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Jab
+  m_Name: Sweep
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

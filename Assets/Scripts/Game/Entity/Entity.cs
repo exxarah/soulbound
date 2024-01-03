@@ -130,6 +130,20 @@ namespace Game.Entity
             return false;
         }
 
+        public bool IsOnCooldown(FrameInputData.ActionType action)
+        {
+            string ability = m_abilitiesComponent.GetAbility(action);
+            for (int i = 0; i < m_cooldownIDs.Count; i++)
+            {
+                if (m_cooldownIDs[i].AbilityID == ability)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void StartCooldown(AbilityDatabase.AbilityDefinition ability)
         {
             m_cooldownIDs.Add(ability);

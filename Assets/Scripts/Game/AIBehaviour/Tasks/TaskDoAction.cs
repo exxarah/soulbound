@@ -25,14 +25,20 @@ namespace Game.AIBehaviour.Tasks
 
         public override NodeState Evaluate()
         {
-            if (Tree.ControlledEntity.IsOnCooldown(Tree.ControlledEntity.AbilitiesComponent.GetAbility(m_action)))
+            if (Tree.ControlledEntity.IsOnCooldown(m_action))
             {
                 State = NodeState.Failure;
                 return State;
             }
 
-            object inProgress = Tree.Root.GetData("basic_ability_in_progress");
-            if (inProgress == null || !(bool)inProgress)
+            object inProgress = Tree.Root.GetData("action_in_progress");
+            // A different action is in progress, fail
+            if (inProgress != null && (FrameInputData.ActionType)inProgress != m_action)
+            {
+                return NodeState.Failure;
+            }
+            // No action is in progress, start this one
+            if (inProgress == null)
             {
                 AbilityDatabase.AbilityDefinition abilityDef =
                     GameContext.Instance.Database.AbilityDatabase.GetAbility(Tree.ControlledEntity.AbilitiesComponent
@@ -44,12 +50,12 @@ namespace Game.AIBehaviour.Tasks
                 if (abilityDef.HasTelegraph)
                 {
                     // Lock them into this
-                    Tree.Root.SetData("basic_ability_in_progress", true);
+                    Tree.Root.SetData("action_in_progress", m_action);
                     State = NodeState.Running;   
                 }
                 else
                 {
-                    Tree.Root.ClearData("basic_ability_in_progress");
+                    Tree.Root.ClearData("action_in_progress");
                     State = NodeState.Success;
                 }
             }
@@ -62,7 +68,11 @@ namespace Game.AIBehaviour.Tasks
                     // Finished telegraphing. Execute!
                     m_inputData.SetAction(m_action, false);
                     Tree.ControlledEntity.ApplyInput(m_inputData);
-                    Tree.Root.ClearData("basic_ability_in_progress");
+                    Tree.Root.ClearData("action_in_progress");
+                }
+                else
+                {
+                    State = NodeState.Running;
                 }
             }
             return State;
