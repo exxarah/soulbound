@@ -29,7 +29,7 @@ namespace Game.Enemy
         {
             if (!GameContext.Instance.GameState.GameInProgress) { return; }
 
-            if (m_activeEnemyCount <= 1)
+            if (m_activeEnemyCount <= 0 || (GameContext.Instance.GameState.WaveCount < GameContext.Instance.GameState.GameWaves && m_activeEnemyCount <= 1))
             {
                 SpawnWave();
             }
