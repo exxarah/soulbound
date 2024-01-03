@@ -59,6 +59,17 @@ namespace Game.Entity
             }
         }
 
+        public override void Exit()
+        {
+            base.Exit();
+
+            // Eg, dead or interrupted, telegraph should disappear immediately
+            if (m_activeTelegraph != null)
+            {
+                Object.Destroy(m_activeTelegraph);
+            }
+        }
+
         public override void ApplyInput(FrameInputData input)
         {
             if (m_attackInProgress) { return; }
