@@ -55,8 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_controlledEntity: {fileID: 7274298049040603976}
   m_fovRange: 100
-  m_telegraphMinSeconds: 1
-  m_telegraphMaxSeconds: 1.5
+  m_minAbilityRangeTarget: 0.5
+  m_maxAbilityRangeTarget: 0.3
 --- !u!114 &7274298049040603976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxHealth: 20
   m_currentHealth: 0
+  m_maxDamagePerHit: -1
   m_isPlayer: 0
   m_animator: {fileID: 4854056448483654018}
   m_deathAnimState: Dead

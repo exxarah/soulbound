@@ -33,6 +33,7 @@ namespace Game.AIBehaviour.Tasks
             // A different action is in progress, fail
             if (inProgress != null && (FrameInputData.ActionType)inProgress != m_action)
             {
+                State = NodeState.Failure;
                 return NodeState.Failure;
             }
             // No action is in progress, start this one
@@ -41,6 +42,16 @@ namespace Game.AIBehaviour.Tasks
                 AbilityDatabase.AbilityDefinition abilityDef =
                     GameContext.Instance.Database.AbilityDatabase.GetAbility(Tree.ControlledEntity.AbilitiesComponent
                                                                      .GetAbility(m_action));
+                
+                // Pick a random bounds within the ability range that we're targeting, and cut off anyone outside that
+                float shrunkRange = abilityDef.AttackRange * Random.Range(Tree.MinAbilityRangeTarget, Tree.MaxAbilityRangeTarget);
+                Transform target = (Transform)GetData("target");
+                if (Vector3.Distance(Tree.ControlledEntity.Rigidbody.transform.position, target.position) > shrunkRange)
+                {
+                    // Fall through to getting closer to them
+                    State = NodeState.Failure;
+                    return State;
+                }
                 
                 m_telegraphSeconds = Random.Range(abilityDef.TelegraphMinimumSeconds, abilityDef.TelegraphMaximumSeconds);
                 m_inputData.SetAction(m_action, true);

@@ -45,7 +45,7 @@ namespace Game.AIBehaviour.Conditionals
                     return State;
                 }
 
-                Transform newTarget = m_targetPriorityFunc(targets).transform;
+                Transform newTarget = m_targetPriorityFunc(targets)?.transform;
                 if (newTarget != null)
                 {
                     Tree.Root.SetData("target", newTarget);
@@ -69,6 +69,7 @@ namespace Game.AIBehaviour.Conditionals
             float targetDistance =
                 Vector3.Distance(Tree.ControlledEntity.Rigidbody.transform.position, target.position);
             float maxDistance = m_getRangeFunc.Invoke();
+            
             if (targetDistance > maxDistance)
             {
                 ClearData("target");
@@ -125,7 +126,14 @@ namespace Game.AIBehaviour.Conditionals
 
         public static Collider GetFirstCollider(Collider[] colliders)
         {
-            return colliders[0];
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i] != null)
+                {
+                    return colliders[i];
+                }
+            }
+            return null;
         }
 
         public static Collider GetLowestHealth(Collider[] colliders)
@@ -136,6 +144,7 @@ namespace Game.AIBehaviour.Conditionals
             
             for (int i = 0; i < colliders.Length; i++)
             {
+                if (colliders[i] == null) { continue; }
                 if (colliders[i].TryGetComponent(out HealthComponent health))
                 {
                     if (health.HealthPercentage < lowestHealth)

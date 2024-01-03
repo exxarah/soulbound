@@ -198,7 +198,7 @@ MonoBehaviour:
     m_telegraphMaximumSeconds: 1.5
     m_targetType: 1
     m_targetLayer: 0
-    m_attackRange: 2
+    m_attackRange: 3.5
     m_coneDegrees: 90
     m_maxTargets: 1
     m_healthDecrement: 10
@@ -290,8 +290,8 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: 7890ca99351e74a4a8b8ea32063947a9,
       type: 2}
-    m_telegraphMinimumSeconds: 2.5
-    m_telegraphMaximumSeconds: 4
+    m_telegraphMinimumSeconds: 2
+    m_telegraphMaximumSeconds: 3
     m_targetType: 2
     m_targetLayer: 0
     m_attackRange: 8
