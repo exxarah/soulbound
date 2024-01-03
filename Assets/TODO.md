@@ -5,13 +5,15 @@
 - [ ] v0.1.2 - Boss Enemy
   - Spawns as part of the final wave, more difficult
   - Grim Reaper
-  - [ ] Fix boss animations being too fast
+  - [X] Fix boss animations being too fast
   - [ ] Balance Pass
     - Note that this update aims to present a full example of arcade mode (functionality-wise), therefore this balancing pass should be super thorough and long ;_; We need to set the stage now, so that it's clearer and easier to expand in future
     - [ ] Enemies
     - [ ] Player Abilities
     - [ ] Enemy waves
   - [ ] Display health bar (over enemy's heads) if health is down
+  - [ ] Improve enemy player seeking (avoid trees, allies, etc)
+    - https://www.youtube.com/watch?v=6BrZryMz-ac
 - [ ] v0.1.3 - Tutorial
   - Tutorial level/mode, simple waves with instructions guiding the player through
   - On first boot, offer the player a popup to optionally skip the tutorial (which would otherwise launch on first boot), as well as modify their settings (particularly the controller display preference)
