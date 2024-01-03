@@ -11,7 +11,9 @@ namespace Game.Enemy
         private Transform m_enemyParent = null;
 
         private List<EnemySpawnPoint> m_availableSpawnPoints = new List<EnemySpawnPoint>();
+
         private int m_activeEnemyCount = 0;
+        public int EnemyCount => m_activeEnemyCount;
 
         private void Awake()
         {
