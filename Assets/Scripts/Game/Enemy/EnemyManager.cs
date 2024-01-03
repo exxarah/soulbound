@@ -10,6 +10,9 @@ namespace Game.Enemy
         [SerializeField]
         private Transform m_enemyParent = null;
 
+        [SerializeField]
+        private EnemyHealthBarPool m_healthBarPool = null;
+
         private List<EnemySpawnPoint> m_availableSpawnPoints = new List<EnemySpawnPoint>();
 
         private int m_activeEnemyCount = 0;
@@ -47,6 +50,7 @@ namespace Game.Enemy
                 Entity.Entity enemy = Instantiate(enemies[i].EnemyObject, m_enemyParent);
                 enemy.Rigidbody.transform.position = waveSpawnPoint.GetPoint();
                 enemy.HealthComponent.OnDead += (() => m_activeEnemyCount--);
+                m_healthBarPool.OnNewEnemy(enemy);
             }
 
             m_activeEnemyCount += enemies.Count;

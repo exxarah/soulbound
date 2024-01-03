@@ -25,6 +25,10 @@ namespace Game.Entity
         private bool m_isPlayer = false;
         public bool IsPlayer => m_isPlayer;
 
+        [SerializeField, Tooltip("The position that any relevant UI should be spawned (normally above the entity's head)")]
+        private Transform m_uiPosition = null;
+        public Transform UIPosition => m_uiPosition;
+
         [Header("Entity Information")]
         [SerializeField]
         private EntityStatsComponent m_entityStatsComponent = null;

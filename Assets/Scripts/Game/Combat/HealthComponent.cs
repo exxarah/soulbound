@@ -61,10 +61,9 @@ namespace Game.Combat
         {
             // No damage if dead
             if (m_isDead) { return false; }
-
-            int minHealth = Mathf.RoundToInt(m_maxHealth * attackParams.TargetMinHealth);
-            int maxHealth = Mathf.RoundToInt(m_maxHealth * attackParams.TargetMaxHealth);
-            if (m_currentHealth < minHealth || m_currentHealth > maxHealth) { return false; }
+            
+            // Out of health range for ability
+            if (HealthPercentage < attackParams.TargetMinHealth || HealthPercentage > attackParams.TargetMaxHealth) { return false; }
 
             return true;
         }
