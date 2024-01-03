@@ -45,12 +45,12 @@ namespace Game.Data
             public Material TelegraphMaterial => m_telegraphMaterial;
 
             [SerializeField]
-            private int m_telegraphMinimumSeconds;
-            public int TelegraphMinimumSeconds => m_telegraphMinimumSeconds;
+            private float m_telegraphMinimumSeconds;
+            public float TelegraphMinimumSeconds => m_telegraphMinimumSeconds;
 
             [SerializeField]
-            private int m_telegraphMaximumSeconds;
-            public int TelegraphMaximumSeconds => m_telegraphMaximumSeconds;
+            private float m_telegraphMaximumSeconds;
+            public float TelegraphMaximumSeconds => m_telegraphMaximumSeconds;
 
             [Header("Targeting Information")]
             [SerializeField]

@@ -194,8 +194,8 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: a9fabcc99ab58de459c105729a6ab4e9,
       type: 2}
-    m_telegraphMinimumSeconds: 2
-    m_telegraphMaximumSeconds: 3
+    m_telegraphMinimumSeconds: 1
+    m_telegraphMaximumSeconds: 1.5
     m_targetType: 1
     m_targetLayer: 0
     m_attackRange: 2
@@ -242,8 +242,8 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: 3ae36a0e38fd5ed4681a4436b06347d5,
       type: 2}
-    m_telegraphMinimumSeconds: 2
-    m_telegraphMaximumSeconds: 3
+    m_telegraphMinimumSeconds: 1
+    m_telegraphMaximumSeconds: 2
     m_targetType: 1
     m_targetLayer: 0
     m_attackRange: 7
@@ -266,11 +266,11 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: a9fabcc99ab58de459c105729a6ab4e9,
       type: 2}
-    m_telegraphMinimumSeconds: 3
-    m_telegraphMaximumSeconds: 5
+    m_telegraphMinimumSeconds: 1
+    m_telegraphMaximumSeconds: 2
     m_targetType: 1
     m_targetLayer: 0
-    m_attackRange: 4
+    m_attackRange: 6
     m_coneDegrees: 90
     m_maxTargets: 10
     m_healthDecrement: 20
@@ -290,8 +290,8 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: 7890ca99351e74a4a8b8ea32063947a9,
       type: 2}
-    m_telegraphMinimumSeconds: 5
-    m_telegraphMaximumSeconds: 7
+    m_telegraphMinimumSeconds: 2.5
+    m_telegraphMaximumSeconds: 4
     m_targetType: 2
     m_targetLayer: 0
     m_attackRange: 8

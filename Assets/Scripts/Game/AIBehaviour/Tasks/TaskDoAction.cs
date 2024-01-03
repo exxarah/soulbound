@@ -63,6 +63,11 @@ namespace Game.AIBehaviour.Tasks
             {
                 // Currently in progress
                 m_secondsSinceStart += Time.deltaTime;
+                
+                // Turn to face player
+                Transform target = (Transform)GetData("target");
+                Tree.ControlledEntity.Rigidbody.transform.LookAt(target, Vector3.up);
+                
                 if (m_secondsSinceStart >= m_telegraphSeconds)
                 {
                     // Finished telegraphing. Execute!
