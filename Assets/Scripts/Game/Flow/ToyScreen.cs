@@ -9,9 +9,6 @@ namespace Game.Flow
 {
     public class ToyScreen : GameScreen
     {
-        [SerializeField]
-        private GameObject m_pausePopup = null;
-
         public override async UniTask OnViewPreEnter(ViewEnterParams viewEnterParams = null)
         {
             await base.OnViewPreEnter(viewEnterParams);
@@ -26,8 +23,6 @@ namespace Game.Flow
             // TODO: Initialise with map-driven values. Spawn map, etc
             GameContext.Instance.GameState.Initialise();
             GameContext.Instance.GameState.OnGameEnded += OnGameEnded;
-            
-            m_pausePopup.SetActiveSafe(false);
 
             GameContext.Instance.InputManager.InputActions.Player.Pause.performed += OnPauseInput;
         }
@@ -58,20 +53,14 @@ namespace Game.Flow
 
         public void _DoPause()
         {
-            Time.timeScale = 0.0f;
-            m_pausePopup.SetActiveSafe(true);
-        }
-
-        public void _Resume()
-        {
-            Time.timeScale = 1.0f;
-            m_pausePopup.SetActiveSafe(false);
-        }
-
-        public void _GoToMenu()
-        {
-            FlowManager.Instance.Trigger("GoToMenu", LoadingScreens.DEFAULT);
-            Time.timeScale = 1.0f;
+            if (FlowManager.Instance.CurrentView is PausePopup)
+            {
+                FlowManager.Instance.ClosePopup();
+            }
+            else
+            {
+                FlowManager.Instance.Trigger("Pause");   
+            }
         }
     }
 }

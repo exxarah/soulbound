@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace Core.Unity.Flow
 {
+    [DefaultExecutionOrder(ExecutionOrder.FlowManager)]
     public class FlowManager : SceneSingleton<FlowManager>
     {
         [SerializeField]
@@ -51,7 +52,13 @@ namespace Core.Unity.Flow
 
         private async UniTask _Trigger(string trigger, string loadingScreenToUse = "", ViewEnterParams @params = null)
         {
-            if (!m_graph.TryGetTrigger(trigger, m_currentState, out FlowGraph.FlowTrigger flowTrigger))
+            string currentState;
+            if (!m_popups.TryPeek(out currentState))
+            {
+                currentState = m_currentState;
+            }
+
+            if (!m_graph.TryGetTrigger(trigger, currentState, out FlowGraph.FlowTrigger flowTrigger))
             {
                 Log.Warning($"[FlowManager] Invalid Trigger[{trigger}]");
                 return;
@@ -79,7 +86,14 @@ namespace Core.Unity.Flow
             await OnSceneLoaded(flowTrigger.TargetState, @params);
             
             // Now that the new screen is loaded, we can unload the previous one. Otherwise not having a loading screen causes a broken transition
-            await CloseAsync(previousState);
+            if (!flowState.IsPopup)
+            {
+                while (m_popups.TryPop(out string popup))
+                {
+                    await CloseAsync(popup);
+                }
+                await CloseAsync(previousState);
+            }
             await DisableLoadingScreen(loadingScreenToUse);
         }
 
@@ -87,6 +101,17 @@ namespace Core.Unity.Flow
         {
             // No need for any checks here, we can just assume it's fine to close a view
             CloseAsync(state).Forget();
+
+            if (m_popups.TryPeek(out string topPopup))
+            {
+                m_loadedViews[topPopup].OnFocusRegained();
+                m_currentView = m_loadedViews[topPopup];
+            }
+            else
+            {
+                m_loadedViews[m_currentState].OnFocusRegained();
+                m_currentView = m_loadedViews[m_currentState];
+            }
         }
 
         private async UniTask CloseAsync(string state)
@@ -142,19 +167,22 @@ namespace Core.Unity.Flow
                     break;
                 }
             }
+            m_currentView = view;
             switch (view)
             {
                 case Popup _:
                     m_popups.Push(state);
                     break;
                 case Screen _:
-                    m_currentView = view;
                     if (scene.isLoaded) SceneManager.SetActiveScene(scene);
                     break;
             }
 
             m_loadedViews.TryAdd(state, view);
-            m_currentState = state;
+            if (!flowState.IsPopup)
+            {
+                m_currentState = state;   
+            }
 
             await view.OnViewPreEnter(@params);
             view.OnViewEnter(@params);

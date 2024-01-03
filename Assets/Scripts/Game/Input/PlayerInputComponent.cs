@@ -180,5 +180,6 @@ namespace Game.Input
         }
 
         public void OnPause(InputAction.CallbackContext context) { }
+        public void OnOpenDebug(InputAction.CallbackContext context) { }
     }
 }

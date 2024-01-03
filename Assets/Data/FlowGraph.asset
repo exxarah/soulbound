@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb38db652cd244e69ca8a9d64e80f367, type: 3}
   m_Name: FlowGraph
   m_EditorClassIdentifier: 
-  m_globalTriggers: []
+  m_globalTriggers:
+  - m_trigger: OpenDebug
+    m_targetState: DebugPopup
   m_screens:
   - m_stateName: BootScene
     m_scene:
       asset: {fileID: 102900000, guid: 7a243d15b26ac1941a6f52609b56cc7a, type: 3}
       guid: 7a243d15b26ac1941a6f52609b56cc7a
     m_unloadOnExit: 0
+    m_isPopup: 0
     m_triggers:
     - m_trigger: GoToMenu
       m_targetState: MainMenuScene
@@ -27,6 +30,7 @@ MonoBehaviour:
       asset: {fileID: 102900000, guid: ddd652ad71b6eb74b8a83e42eb2de5b5, type: 3}
       guid: ddd652ad71b6eb74b8a83e42eb2de5b5
     m_unloadOnExit: 1
+    m_isPopup: 0
     m_triggers:
     - m_trigger: BeginGame
       m_targetState: ToyScene
@@ -35,18 +39,20 @@ MonoBehaviour:
       asset: {fileID: 102900000, guid: 01b747dfb470bce43ac3496b545f58df, type: 3}
       guid: 01b747dfb470bce43ac3496b545f58df
     m_unloadOnExit: 1
+    m_isPopup: 0
     m_triggers:
     - m_trigger: GameWon
       m_targetState: GameWonScene
     - m_trigger: GameLost
       m_targetState: GameLostScene
-    - m_trigger: GoToMenu
-      m_targetState: MainMenuScene
+    - m_trigger: Pause
+      m_targetState: PausePopup
   - m_stateName: GameWonScene
     m_scene:
       asset: {fileID: 102900000, guid: ffa9d30d63566b548bc4d223c938f0f0, type: 3}
       guid: ffa9d30d63566b548bc4d223c938f0f0
     m_unloadOnExit: 1
+    m_isPopup: 0
     m_triggers:
     - m_trigger: GoToMenu
       m_targetState: MainMenuScene
@@ -57,11 +63,28 @@ MonoBehaviour:
       asset: {fileID: 102900000, guid: dae3f5594b243d74e9a61ba4035d7e6b, type: 3}
       guid: dae3f5594b243d74e9a61ba4035d7e6b
     m_unloadOnExit: 1
+    m_isPopup: 0
     m_triggers:
     - m_trigger: GoToMenu
       m_targetState: MainMenuScene
     - m_trigger: BeginGame
       m_targetState: ToyScene
+  - m_stateName: PausePopup
+    m_scene:
+      asset: {fileID: 102900000, guid: 6b3df72749b1d404998bc6e11b426cf5, type: 3}
+      guid: 6b3df72749b1d404998bc6e11b426cf5
+    m_unloadOnExit: 1
+    m_isPopup: 1
+    m_triggers:
+    - m_trigger: GoToMenu
+      m_targetState: MainMenuScene
+  - m_stateName: DebugPopup
+    m_scene:
+      asset: {fileID: 102900000, guid: deefd0cbbaa870745b8bcd9f82862b3d, type: 3}
+      guid: deefd0cbbaa870745b8bcd9f82862b3d
+    m_unloadOnExit: 1
+    m_isPopup: 1
+    m_triggers: []
   m_loadingScreens:
   - m_name: Characters
     m_scene:

@@ -9,6 +9,7 @@ namespace Game.Toy
         public float SecondsPassed { get; private set; } = 0.0f;
         public bool GameInProgress { get; private set; } = false;
         public bool IsWon { get; private set; } = false;
+        public bool IsPaused { get; set; } = false;
 
         public int WaveCount;
         public int MinionsEarned;

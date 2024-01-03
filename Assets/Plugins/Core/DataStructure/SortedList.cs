@@ -8,7 +8,7 @@ namespace Core.DataStructure
     [Serializable]
     public class SortedList<T> : IList<T>
     {
-        private List<T> m_internalList;
+        private List<T> m_internalList = new List<T>();
 
         private IComparer<T> m_sorter;
 
@@ -99,6 +99,18 @@ namespace Core.DataStructure
         public void AddRange(IEnumerable<T> list)
         {
             foreach (T elem in list) Add(elem);
+        }
+
+        public void FindAndRemove(Func<T, bool> func)
+        {
+            for (int i = m_internalList.Count - 1; i >= 0; i--)
+            {
+                if (func.Invoke(m_internalList[i]))
+                {
+                    m_internalList.RemoveAt(i);
+                    return;
+                }
+            }
         }
     }
 }

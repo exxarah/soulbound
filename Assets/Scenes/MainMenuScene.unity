@@ -2455,7 +2455,7 @@ MonoBehaviour:
   m_RenderShadows: 1
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
+  m_CameraType: 1
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
@@ -2698,6 +2698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1660390940}
   - component: {fileID: 1660390941}
+  - component: {fileID: 1660390942}
   m_Layer: 0
   m_Name: MainMenuScene
   m_TagString: Untagged
@@ -2735,6 +2736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_overrideText: 0
+  m_cameraStack: {fileID: 1660390942}
   m_defaultSelected: {fileID: 0}
   m_panelAnimator: {fileID: 1007160904}
   m_buttonPanel: {fileID: 625644839}
@@ -2745,6 +2747,22 @@ MonoBehaviour:
   m_quitButton: {fileID: 1080477595}
   m_creditsButton: {fileID: 950445574}
   m_settingsButton: {fileID: 1197370674}
+--- !u!114 &1660390942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660390938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8846cd15ef44d9787f006925a58c0ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_cameras:
+  - Camera: {fileID: 1447912470}
+    CameraOrder: 20
+    StackOrder: 0
 --- !u!1 &1721803400
 GameObject:
   m_ObjectHideFlags: 0

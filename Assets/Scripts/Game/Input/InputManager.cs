@@ -1,4 +1,6 @@
 ﻿using System;
+using Core.Unity.Flow;
+using Game.Debug;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -37,9 +39,33 @@ namespace Game.Input
         private void OnEnable()
         {
             m_inputActions = new GameInputActions();
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            m_inputActions.Player.OpenDebug.started += ToggleDebug;
+#endif
+            
             string preferredControls = PlayerPrefs.GetString("pref_controls", m_preferredControls.ToString());
             PreferredControl = Enum.Parse<PreferredControls>(preferredControls);
         }
+
+        private void OnDisable()
+        {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            m_inputActions.Player.OpenDebug.started -= ToggleDebug;
+#endif
+        }
+        
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        private void ToggleDebug(InputAction.CallbackContext callbackContext)
+        {
+            if (FlowManager.Instance.CurrentView is DebugPopup)
+            {
+                FlowManager.Instance.ClosePopup();
+                return;
+            }
+
+            FlowManager.Instance.Trigger("OpenDebug");
+        }
+#endif
 
         public class InputDisabledScope : IDisposable
         {
