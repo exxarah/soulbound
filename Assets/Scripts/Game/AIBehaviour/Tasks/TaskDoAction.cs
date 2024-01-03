@@ -51,7 +51,7 @@ namespace Game.AIBehaviour.Tasks
                 {
                     // Lock them into this
                     Tree.Root.SetData("action_in_progress", m_action);
-                    State = NodeState.Running;   
+                    State = NodeState.Running;
                 }
                 else
                 {

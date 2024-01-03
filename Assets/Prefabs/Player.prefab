@@ -110,11 +110,11 @@ MonoBehaviour:
   m_charmsOwned:
     list:
     - Key: 0
-      Value: 0
+      Value: -1
     - Key: 1
-      Value: 0
+      Value: -1
     - Key: 2
-      Value: 0
+      Value: -1
     keyCollision: 0
 --- !u!114 &2749350516011610173
 MonoBehaviour:
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxHealth: 50
   m_currentHealth: 0
+  m_maxDamagePerHit: -1
   m_isPlayer: 1
   m_animator: {fileID: 659604807391150059}
   m_deathAnimState: Dead

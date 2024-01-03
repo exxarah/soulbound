@@ -17,14 +17,20 @@ namespace Game.AIBehaviour
                 // Do Attack
                 new SequenceNode(this, new List<Node>
                 {
+                    // Selector/OR node, conditions to process an attack
                     new SelectorNode(this, new List<Node>()
                     {
-                        new IsTrue(this, () => IsDataSet("basic_ability_in_progress")),
-                        new IsTargetInRange(this,
-                                              () => IsTargetInRange.InActionRange(ControlledEntity.AlliesLayer, ControlledEntity,
-                                                  FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform),
-                                              () => IsTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack),
-                                              IsTargetInRange.GetLowestHealth),
+                        //  If they're already doing an attack, they must continue
+                        new IsTrue(this, () => Root.IsDataSet("action_in_progress", FrameInputData.ActionType.BasicAttack)),
+                        new SequenceNode(this, new List<Node>()
+                        {
+                            // Must not be on cooldown
+                            new IsNotOnCooldown(this, FrameInputData.ActionType.BasicAttack),
+                            // Must have a target in range
+                            new IsTargetInRange(this,
+                                                () => IsTargetInRange.InActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform),
+                                                () => IsTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack)),
+                        }),
                     }),
                     new TaskDoAction(this, FrameInputData.ActionType.BasicAttack),
                 }),

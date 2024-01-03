@@ -89,17 +89,25 @@ namespace Game.AIBehaviour.Conditionals
             return colliders;
         }
 
-        public static Collider[] InAbilityRange(int layerMask, string abilityID, Transform source)
+        public static Collider[] InAbilityRange(Entity.Entity entity, string abilityID, Transform source)
         {
             AbilityDatabase.AbilityDefinition ability = GameContext.Instance.Database.AbilityDatabase.GetAbility(abilityID);
             if (ability == null) { return null; }
 
+            int layerMask = ability.TargetLayer switch
+            {
+                Enums.TargetLayer.Enemies => entity.EnemiesLayer,
+                Enums.TargetLayer.Allies => entity.AlliesLayer,
+                Enums.TargetLayer.Both => entity.EnemiesLayer & entity.AlliesLayer,
+                _ => throw new ArgumentOutOfRangeException(),
+            };
+
             return InSphereRange(layerMask, ability.AttackRange, source);
         }
 
-        public static Collider[] InActionRange(int layerMask, Entity.Entity entity, FrameInputData.ActionType action, Transform source)
+        public static Collider[] InActionRange(Entity.Entity entity, FrameInputData.ActionType action, Transform source)
         {
-            return InAbilityRange(layerMask, entity.AbilitiesComponent.GetAbility(action), source);
+            return InAbilityRange(entity, entity.AbilitiesComponent.GetAbility(action), source);
         }
 
         public static float GetAbilityRange(string abilityID)
