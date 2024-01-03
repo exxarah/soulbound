@@ -73,6 +73,14 @@ namespace Game.Data
             private int m_maxTargets = 1;
             public int MaxTargets => m_maxTargets;
 
+            [SerializeField, Range(0.0f, 1.0f)]
+            private float m_targetMinHealth = 0.0f;
+            public float TargetMinHealth => m_targetMinHealth;
+
+            [SerializeField, Range(0.0f, 1.0f)]
+            private float m_targetMaxHealth = 1.0f;
+            public float TargetMaxHealth => m_targetMaxHealth;
+
             [Header("Result Information")]
             [SerializeField]
             private int m_healthDecrement = 0;

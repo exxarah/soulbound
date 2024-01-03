@@ -56,7 +56,7 @@ namespace Game.Combat
             List<IDamageable> targets = new(attackParams.TargetMaximumCount);
             for (int i = coneHits.Length - 1; i >= 0; i--)
             {
-                if (coneHits[i].gameObject.TryGetComponent(out IDamageable damage) && damage.CanBeDamaged())
+                if (coneHits[i].gameObject.TryGetComponent(out IDamageable damage) && damage.CanBeDamaged(attackParams))
                 {
                     targets.Add(damage);
                 }
@@ -72,7 +72,7 @@ namespace Game.Combat
 
             for (int i = 0; i < hitColliders.Length; i++)
             {
-                if (hitColliders[i].TryGetComponent(out IDamageable damage) && damage.CanBeDamaged())
+                if (hitColliders[i].TryGetComponent(out IDamageable damage) && damage.CanBeDamaged(attackParams))
                 {
                     targets.Add(damage);
                 }
@@ -90,6 +90,8 @@ namespace Game.Combat
             public float ConeAngleDegrees;
             public int Layers;
             public int TargetMaximumCount;
+            public float TargetMinHealth;
+            public float TargetMaxHealth;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Game.Combat
         public int MaxDamagePerHit { get; }
         
         public int DoDamage(DamageParams @params);
-        public bool CanBeDamaged();
+        public bool CanBeDamaged(CombatUtils.AttackParams attack);
     }
 
     public struct DamageParams

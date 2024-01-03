@@ -134,6 +134,8 @@ namespace Game.Entity
                 ConeAngleDegrees = m_ability.ConeDegrees,
                 TargetMaximumCount = m_ability.MaxTargets,
                 Layers = GetLayer(m_ability),
+                TargetMinHealth = m_ability.TargetMinHealth,
+                TargetMaxHealth = m_ability.TargetMaxHealth,
             });
 
             
