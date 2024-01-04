@@ -17,6 +17,14 @@
   - On first boot, offer the player a popup to optionally skip the tutorial (which would otherwise launch on first boot), as well as modify their settings (particularly the controller display preference)
 - [ ] v0.1.4 - Small Improvements
   - Spawn animations
+  - Balancing structure rework
+    - Entities currently have some data (eg, health) defined in prefabs? Seems like a hacky solution from the game jam. pls fix
+    - Reconsider how enemy definitions work
+      - The data is not enemy specific, but wave specific. Can we change that database to be generic entity information, and move the wave information into the waves database
+    - Reconsider how abilities work
+      - Reify conditions, so there's less hacky workarounds
+      - Change damage, etc,  to be an effect?
+    - Note that part of v0.2 includes a huge ability expansion, consider whether some of the balancing rework can go into that, or into this, depending on the vibes
   - Balancing pass
   - Win/Lose graphics
   - Pause menu revamp / improvements
