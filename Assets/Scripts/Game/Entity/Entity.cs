@@ -68,6 +68,11 @@ namespace Game.Entity
             {
                 m_healthComponent.OnDead += OnEntityDied;   
             }
+
+            if (m_isPlayer)
+            {
+                GameContext.Instance.PlayerEntity = this;
+            }
         }
 
         private void OnDestroy()
@@ -75,6 +80,11 @@ namespace Game.Entity
             if (m_healthComponent != null)
             {
                 m_healthComponent.OnDead -= OnEntityDied;   
+            }
+
+            if (m_isPlayer)
+            {
+                GameContext.Instance.PlayerEntity = null;
             }
         }
 

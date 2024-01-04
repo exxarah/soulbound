@@ -1,5 +1,7 @@
 ﻿using System;
 using Core.Unity.Utils;
+using Game.Data;
+using Game.Input;
 using UnityEngine;
 
 namespace Game.Enemy
@@ -17,6 +19,9 @@ namespace Game.Enemy
 
         [SerializeField]
         private SlicedFilledImage m_healthFill = null;
+
+        [SerializeField]
+        private GameObject m_charmableEffect = null;
 
         private Entity.Entity m_entity;
         private Vector3? m_lastCameraPosition = null;
@@ -52,6 +57,9 @@ namespace Game.Enemy
             
             m_canvasGroup.alpha = 1.0f;
             m_healthFill.fillAmount = m_entity.HealthComponent.HealthPercentage;
+            
+            AbilityDatabase.AbilityDefinition playerCharm = GameContext.Instance.Database.AbilityDatabase.GetAbility(GameContext.Instance.PlayerEntity.AbilitiesComponent.GetAbility(FrameInputData.ActionType.CharmAbility));
+            m_charmableEffect.SetActiveSafe(m_entity.HealthComponent.HealthPercentage <= playerCharm.TargetMaxHealth);
         }
 
         private void Update()
