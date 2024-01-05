@@ -86,7 +86,7 @@ MonoBehaviour:
     m_coneDegrees: 0
     m_maxTargets: 10
     m_targetMinHealth: 0
-    m_targetMaxHealth: 0.4
+    m_targetMaxHealth: 0.6
     m_healthDecrement: 0
     m_instaKill: 1
     m_effects:

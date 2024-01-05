@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.Unity.Utils;
+using Game.Combat;
 using Game.Data;
 using Game.Input;
 using UnityEngine;
@@ -24,6 +25,8 @@ namespace Game.Enemy
         private GameObject m_charmableEffect = null;
 
         private Entity.Entity m_entity;
+        private bool m_canBeCharmed = false;
+        
         private Vector3? m_lastCameraPosition = null;
         private Vector3? m_lastObjectPosition = null;
         private float? m_lastCameraSize = null;
@@ -35,6 +38,7 @@ namespace Game.Enemy
                 m_entity.HealthComponent.OnHealthChanged -= OnHealthChanged;
             }
             m_entity = entity;
+            m_canBeCharmed = m_entity.TryGetComponent(out CharmableComponent _);
             m_entity.HealthComponent.OnHealthChanged += OnHealthChanged;
             OnHealthChanged();
         }
@@ -59,7 +63,7 @@ namespace Game.Enemy
             m_healthFill.fillAmount = m_entity.HealthComponent.HealthPercentage;
             
             AbilityDatabase.AbilityDefinition playerCharm = GameContext.Instance.Database.AbilityDatabase.GetAbility(GameContext.Instance.PlayerEntity.AbilitiesComponent.GetAbility(FrameInputData.ActionType.CharmAbility));
-            m_charmableEffect.SetActiveSafe(m_entity.HealthComponent.HealthPercentage <= playerCharm.TargetMaxHealth);
+            m_charmableEffect.SetActiveSafe(m_canBeCharmed && m_entity.HealthComponent.HealthPercentage <= playerCharm.TargetMaxHealth);
         }
 
         private void Update()

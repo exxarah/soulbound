@@ -6,8 +6,8 @@
   - Spawns as part of the final wave, more difficult
   - Grim Reaper
   - [X] Fix boss animations being too fast
-  - [ ] Display health bar (over enemy's heads) if health is down
-  - [ ] Test out charm requiring enemy to have low health
+  - [X] Display health bar (over enemy's heads) if health is down
+  - [X] Test out charm requiring enemy to have low health
   - [ ] Balance Pass
     - Note that this update aims to present a full example of arcade mode (functionality-wise), therefore this balancing pass should be super thorough and long ;_; We need to set the stage now, so that it's clearer and easier to expand in future
     - [ ] Enemies
