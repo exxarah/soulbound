@@ -15,10 +15,7 @@
     - [ ] Enemy waves
   - [ ] Improve enemy player seeking (avoid trees, allies, etc)
     - https://www.youtube.com/watch?v=6BrZryMz-ac
-- [ ] v0.1.3 - Tutorial
-  - Tutorial level/mode, simple waves with instructions guiding the player through
-  - On first boot, offer the player a popup to optionally skip the tutorial (which would otherwise launch on first boot), as well as modify their settings (particularly the controller display preference)
-- [ ] v0.1.4 - Small Improvements
+- [ ] v0.1.3 - Small Improvements
   - Spawn animations
   - Balancing pass
   - Win/Lose graphics
@@ -29,6 +26,10 @@
   - Localisation Ready
     - Move all strings into loc
     - Fix issue with loc in boot scene
+  - Fullscreen option in settings
+- [ ] v0.1.4 - Tutorial
+  - Tutorial level/mode, simple waves with instructions guiding the player through
+  - On first boot, offer the player a popup to optionally skip the tutorial (which would otherwise launch on first boot), as well as modify their settings (particularly the controller display preference)
 
 - [ ] v0.2.0 - Loadouts, more abilities
   - Add a bunch of new abilities

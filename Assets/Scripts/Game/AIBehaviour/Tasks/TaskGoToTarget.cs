@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.AIBehaviour.Utils;
 using Game.Input;
 using UnityEngine;
 
@@ -42,8 +43,8 @@ namespace Game.AIBehaviour.Tasks
             else if (distanceToTarget > 1.0f)
             {
                 // Currently navigating to target
-                Vector3 direction = (target.position - Tree.ControlledEntity.transform.position).normalized;
-                m_inputData.MovementDirection = new Vector2(direction.x, direction.z);
+                Vector3 targetDirection = (target.position - Tree.ControlledEntity.transform.position).normalized;
+                m_inputData.MovementDirection = GetSteeredDirection(new Vector2(targetDirection.x, targetDirection.z));
                 Tree.ControlledEntity.ApplyInput(m_inputData);
 
                 State = NodeState.Running;
@@ -56,6 +57,25 @@ namespace Game.AIBehaviour.Tasks
 
             State = NodeState.Success;
             return State;
+        }
+
+        /// <summary>
+        /// Contextually weight directions based on target, collision, preferred distance to player, etc
+        /// </summary>
+        /// <returns>The heighest weighted direction</returns>
+        private Vector2 GetSteeredDirection(Vector2 directionToTarget)
+        {
+            const int steeringCastCount = 8;
+            const float steeringCastLength = 3.0f;
+
+            var map = new ContextMap(steeringCastCount);
+            map.Influence(directionToTarget);
+            
+            // TODO: Do collision checks and apply influence based on it
+            
+            // TODO: Smoothing between this and last direction
+
+            return map.GetDirection();
         }
     }
 }
