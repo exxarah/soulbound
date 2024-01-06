@@ -17,25 +17,31 @@ namespace Game.AIBehaviour
                 // Do Attack
                 new SequenceNode(this, new List<Node>
                 {
+                    // Selector/OR node, conditions to process an attack
                     new SelectorNode(this, new List<Node>()
                     {
-                        new IsTrue(this, () => IsDataSet("basic_ability_in_progress")),
-                        new FindTargetInRange(this,
-                                              () => FindTargetInRange.InActionRange(ControlledEntity.AlliesLayer, ControlledEntity,
-                                                  FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform),
-                                              () => FindTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack),
-                                              FindTargetInRange.GetLowestHealth),
+                        //  If they're already doing an attack, they must continue
+                        new IsTrue(this, () => Root.IsDataSet("action_in_progress", FrameInputData.ActionType.BasicAttack)),
+                        new SequenceNode(this, new List<Node>()
+                        {
+                            // Must not be on cooldown
+                            new IsNotOnCooldown(this, FrameInputData.ActionType.BasicAttack),
+                            // Must have a target in range
+                            new IsTargetInRange(this,
+                                                () => IsTargetInRange.InActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack, ControlledEntity.Rigidbody.transform),
+                                                () => IsTargetInRange.GetActionRange(ControlledEntity, FrameInputData.ActionType.BasicAttack)),
+                        }),
                     }),
                     new TaskDoAction(this, FrameInputData.ActionType.BasicAttack),
                 }),
                 // Try to find an ally to heal
                 new SequenceNode(this, new List<Node>
                 {
-                    new FindTargetInRange(this,
-                                          () => FindTargetInRange.InSphereRange(ControlledEntity.AlliesLayer,
+                    new IsTargetInRange(this,
+                                          () => IsTargetInRange.InSphereRange(ControlledEntity.AlliesLayer,
                                                                                     FOVRange, ControlledEntity.Rigidbody.transform),
                                           () => FOVRange,
-                                          FindTargetInRange.GetLowestHealth),
+                                          IsTargetInRange.GetLowestHealth),
                     new TaskGoToTarget(this),
                 }),
                 // Else idle

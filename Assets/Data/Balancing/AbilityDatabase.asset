@@ -25,11 +25,15 @@ MonoBehaviour:
     m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
       type: 3}
     m_telegraphMaterial: {fileID: 0}
+    m_telegraphMinimumSeconds: 0
+    m_telegraphMaximumSeconds: 0
     m_targetType: 3
     m_targetLayer: 1
     m_attackRange: 0
     m_coneDegrees: 0
     m_maxTargets: 1
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 1
     m_healthDecrement: 0
     m_instaKill: 0
     m_effects:
@@ -48,11 +52,15 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: a9fabcc99ab58de459c105729a6ab4e9,
       type: 2}
+    m_telegraphMinimumSeconds: 0
+    m_telegraphMaximumSeconds: 0
     m_targetType: 1
     m_targetLayer: 0
     m_attackRange: 3
     m_coneDegrees: 90
     m_maxTargets: 1
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 1
     m_healthDecrement: 10
     m_instaKill: 0
     m_effects:
@@ -70,11 +78,15 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: 7890ca99351e74a4a8b8ea32063947a9,
       type: 2}
+    m_telegraphMinimumSeconds: 0
+    m_telegraphMaximumSeconds: 0
     m_targetType: 2
     m_targetLayer: 0
     m_attackRange: 3
     m_coneDegrees: 0
     m_maxTargets: 10
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 0.6
     m_healthDecrement: 0
     m_instaKill: 1
     m_effects:
@@ -92,11 +104,15 @@ MonoBehaviour:
     m_hasTelegraph: 0
     m_telegraphPrefab: {fileID: 0}
     m_telegraphMaterial: {fileID: 0}
+    m_telegraphMinimumSeconds: 0
+    m_telegraphMaximumSeconds: 0
     m_targetType: 3
     m_targetLayer: 1
     m_attackRange: 1
     m_coneDegrees: 0
     m_maxTargets: 1
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 1
     m_healthDecrement: -20
     m_instaKill: 0
     m_effects:
@@ -114,11 +130,15 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: 7890ca99351e74a4a8b8ea32063947a9,
       type: 2}
+    m_telegraphMinimumSeconds: 0
+    m_telegraphMaximumSeconds: 0
     m_targetType: 2
     m_targetLayer: 0
     m_attackRange: 4
     m_coneDegrees: 45
     m_maxTargets: 10
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 1
     m_healthDecrement: 20
     m_instaKill: 0
     m_effects:
@@ -136,11 +156,15 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: 7890ca99351e74a4a8b8ea32063947a9,
       type: 2}
+    m_telegraphMinimumSeconds: 0
+    m_telegraphMaximumSeconds: 0
     m_targetType: 2
     m_targetLayer: 0
     m_attackRange: 9
     m_coneDegrees: 45
     m_maxTargets: 20
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 1
     m_healthDecrement: 30
     m_instaKill: 0
     m_effects:
@@ -158,11 +182,15 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: 3ae36a0e38fd5ed4681a4436b06347d5,
       type: 2}
+    m_telegraphMinimumSeconds: 0
+    m_telegraphMaximumSeconds: 0
     m_targetType: 1
     m_targetLayer: 0
     m_attackRange: 7
     m_coneDegrees: 45
     m_maxTargets: 1
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 1
     m_healthDecrement: 20
     m_instaKill: 0
     m_effects:
@@ -180,11 +208,15 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: a9fabcc99ab58de459c105729a6ab4e9,
       type: 2}
+    m_telegraphMinimumSeconds: 1
+    m_telegraphMaximumSeconds: 1.5
     m_targetType: 1
     m_targetLayer: 0
-    m_attackRange: 2
+    m_attackRange: 3.5
     m_coneDegrees: 90
     m_maxTargets: 1
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 1
     m_healthDecrement: 10
     m_instaKill: 0
     m_effects:
@@ -202,11 +234,15 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: 34f8c522adea2194fb5c4cbbec26c122,
       type: 2}
+    m_telegraphMinimumSeconds: 1
+    m_telegraphMaximumSeconds: 2
     m_targetType: 2
     m_targetLayer: 1
     m_attackRange: 3
     m_coneDegrees: 90
     m_maxTargets: 10
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 1
     m_healthDecrement: -15
     m_instaKill: 0
     m_effects:
@@ -224,12 +260,68 @@ MonoBehaviour:
       type: 3}
     m_telegraphMaterial: {fileID: 2100000, guid: 3ae36a0e38fd5ed4681a4436b06347d5,
       type: 2}
+    m_telegraphMinimumSeconds: 1
+    m_telegraphMaximumSeconds: 2
     m_targetType: 1
     m_targetLayer: 0
     m_attackRange: 7
     m_coneDegrees: 45
     m_maxTargets: 10
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 1
     m_healthDecrement: 20
     m_instaKill: 0
     m_effects:
     - {fileID: 11400000, guid: 4b9bc831f19e83e42a967b87397c4eb8, type: 2}
+  - m_abilityID: reaper_boss_attack
+    m_animationName: Sweep
+    m_charmCost:
+      m_omniCost: 0
+      m_healthCost: 0
+      m_attackCost: 0
+    m_cooldownSeconds: 4
+    m_uiImage: {fileID: 21300000, guid: 06fbd96713a363f479359747ea419d04, type: 3}
+    m_hasTelegraph: 1
+    m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
+      type: 3}
+    m_telegraphMaterial: {fileID: 2100000, guid: a9fabcc99ab58de459c105729a6ab4e9,
+      type: 2}
+    m_telegraphMinimumSeconds: 1
+    m_telegraphMaximumSeconds: 2
+    m_targetType: 1
+    m_targetLayer: 0
+    m_attackRange: 6
+    m_coneDegrees: 90
+    m_maxTargets: 10
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 1
+    m_healthDecrement: 20
+    m_instaKill: 0
+    m_effects:
+    - {fileID: 11400000, guid: 78fa9186e8ed04746b30ab8052cb4d0d, type: 2}
+  - m_abilityID: reaper_boss_ability
+    m_animationName: Magic
+    m_charmCost:
+      m_omniCost: 0
+      m_healthCost: 0
+      m_attackCost: 0
+    m_cooldownSeconds: 20
+    m_uiImage: {fileID: 21300000, guid: 06fbd96713a363f479359747ea419d04, type: 3}
+    m_hasTelegraph: 1
+    m_telegraphPrefab: {fileID: 5877167589386472741, guid: 25c4c07e3c52b6b4aafbf8182768d6af,
+      type: 3}
+    m_telegraphMaterial: {fileID: 2100000, guid: 7890ca99351e74a4a8b8ea32063947a9,
+      type: 2}
+    m_telegraphMinimumSeconds: 2
+    m_telegraphMaximumSeconds: 3
+    m_targetType: 2
+    m_targetLayer: 0
+    m_attackRange: 8
+    m_coneDegrees: 90
+    m_maxTargets: 10
+    m_targetMinHealth: 0
+    m_targetMaxHealth: 1
+    m_healthDecrement: 40
+    m_instaKill: 0
+    m_effects:
+    - {fileID: 11400000, guid: 78fa9186e8ed04746b30ab8052cb4d0d, type: 2}

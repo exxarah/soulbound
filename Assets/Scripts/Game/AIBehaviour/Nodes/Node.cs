@@ -89,5 +89,11 @@ namespace Game.AIBehaviour
 
             return false;
         }
+        
+        public bool IsDataSet<T>(string dataKey, T desiredValue)
+        {
+            object data = GetData(dataKey);
+            return data != null && ((T)GetData(dataKey)).Equals(desiredValue);
+        }
     }
 }

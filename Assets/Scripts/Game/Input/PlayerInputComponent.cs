@@ -26,11 +26,14 @@ namespace Game.Input
 
         private Matrix4x4 m_isometricSkew = Matrix4x4.identity;
         private FrameInputData m_inputData = new FrameInputData();
+        private Vector3 m_lookAt;
 
         private GameInputActions.PlayerActions m_playerActions;
 
         private void OnEnable()
         {
+            m_lookAt = m_controlledEntity.Rigidbody.transform.position +
+                       (m_controlledEntity.Rigidbody.transform.forward * 5);
             SetIsometricSkew();
             GameContext.Instance.InputManager.InputActions.Player.AddCallbacks(this);
             GameContext.Instance.InputManager.InputActions.Player.Enable();
@@ -46,6 +49,7 @@ namespace Game.Input
         {
             if (m_controlledEntity.HealthComponent.IsDead) {return; }
             
+            m_controlledEntity.Rigidbody.transform.LookAt(m_lookAt, Vector3.up);
             m_controlledEntity.ApplyInput(m_inputData);
         }
         
@@ -77,22 +81,19 @@ namespace Game.Input
 
         public void OnLook(InputAction.CallbackContext context)
         {
-            Vector3 lookAt = Vector3.zero;
             switch (context.control.device)
             {
                 case Mouse:
                     Physics.Raycast(m_viewCamera.ScreenPointToRay(context.ReadValue<Vector2>()), out RaycastHit hit);
-                    lookAt = new Vector3(hit.point.x, 0.0f, hit.point.z);
+                    m_lookAt = new Vector3(hit.point.x, 0.0f, hit.point.z);
                     break;
                 case Gamepad:
                 {
                     Vector2 input = context.ReadValue<Vector2>().normalized;
-                    lookAt = m_controlledEntity.Rigidbody.transform.position + new Vector3(input.x * 10, 0.0f, input.y * 10);
+                    m_lookAt = m_controlledEntity.Rigidbody.transform.position + new Vector3(input.x * 10, 0.0f, input.y * 10);
                     break;
                 }
             }
-            Log.Info(context.control.device.GetType().ToString());
-            m_controlledEntity.Rigidbody.transform.LookAt(lookAt, Vector3.up);
         }
 
         public void OnBasicAttack(InputAction.CallbackContext context)

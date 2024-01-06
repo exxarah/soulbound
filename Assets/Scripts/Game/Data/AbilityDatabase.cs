@@ -31,6 +31,7 @@ namespace Game.Data
             private Sprite m_uiImage = null;
             public Sprite UIImage => m_uiImage;
 
+            [Header("Telegraphing Information")]
             [SerializeField]
             private bool m_hasTelegraph = false;
             public bool HasTelegraph => m_hasTelegraph;
@@ -42,6 +43,14 @@ namespace Game.Data
             [SerializeField]
             private Material m_telegraphMaterial = null;
             public Material TelegraphMaterial => m_telegraphMaterial;
+
+            [SerializeField]
+            private float m_telegraphMinimumSeconds;
+            public float TelegraphMinimumSeconds => m_telegraphMinimumSeconds;
+
+            [SerializeField]
+            private float m_telegraphMaximumSeconds;
+            public float TelegraphMaximumSeconds => m_telegraphMaximumSeconds;
 
             [Header("Targeting Information")]
             [SerializeField]
@@ -63,6 +72,14 @@ namespace Game.Data
             [SerializeField]
             private int m_maxTargets = 1;
             public int MaxTargets => m_maxTargets;
+
+            [SerializeField, Range(0.0f, 1.0f)]
+            private float m_targetMinHealth = 0.0f;
+            public float TargetMinHealth => m_targetMinHealth;
+
+            [SerializeField, Range(0.0f, 1.0f)]
+            private float m_targetMaxHealth = 1.0f;
+            public float TargetMaxHealth => m_targetMaxHealth;
 
             [Header("Result Information")]
             [SerializeField]

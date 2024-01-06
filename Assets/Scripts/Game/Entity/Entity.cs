@@ -25,6 +25,10 @@ namespace Game.Entity
         private bool m_isPlayer = false;
         public bool IsPlayer => m_isPlayer;
 
+        [SerializeField, Tooltip("The position that any relevant UI should be spawned (normally above the entity's head)")]
+        private Transform m_uiPosition = null;
+        public Transform UIPosition => m_uiPosition;
+
         [Header("Entity Information")]
         [SerializeField]
         private EntityStatsComponent m_entityStatsComponent = null;
@@ -64,6 +68,11 @@ namespace Game.Entity
             {
                 m_healthComponent.OnDead += OnEntityDied;   
             }
+
+            if (m_isPlayer)
+            {
+                GameContext.Instance.PlayerEntity = this;
+            }
         }
 
         private void OnDestroy()
@@ -71,6 +80,11 @@ namespace Game.Entity
             if (m_healthComponent != null)
             {
                 m_healthComponent.OnDead -= OnEntityDied;   
+            }
+
+            if (m_isPlayer)
+            {
+                GameContext.Instance.PlayerEntity = null;
             }
         }
 
@@ -122,6 +136,20 @@ namespace Game.Entity
             for (int i = 0; i < m_cooldownIDs.Count; i++)
             {
                 if (m_cooldownIDs[i].AbilityID == ability.AbilityID)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool IsOnCooldown(FrameInputData.ActionType action)
+        {
+            string ability = m_abilitiesComponent.GetAbility(action);
+            for (int i = 0; i < m_cooldownIDs.Count; i++)
+            {
+                if (m_cooldownIDs[i].AbilityID == ability)
                 {
                     return true;
                 }

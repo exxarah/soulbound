@@ -30,6 +30,7 @@ namespace Game
         public MinionManager MinionManager = null;
         public EnemyManager EnemyManager = null;
         public GameState GameState;
+        public Entity.Entity PlayerEntity;
 
         private void Start()
         {
