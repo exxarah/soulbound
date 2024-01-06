@@ -16,7 +16,12 @@
     - [X] Player Abilities
     - [X] Enemy waves
 - [ ] v0.1.3 - Small Improvements
-  - Spawn animations
+  - Minions spawn in the place of the enemy they came from
+  - Localisation Ready
+    - Move all strings into loc
+    - Fix issue with loc in boot scene
+  - Fullscreen option in settings
+  - UI Scaling
   - Balancing structure rework
     - Entities currently have some data (eg, health) defined in prefabs? Seems like a hacky solution from the game jam. pls fix
     - Reconsider how enemy definitions work
@@ -26,16 +31,6 @@
       - Change damage, etc,  to be an effect?
     - Note that part of v0.2 includes a huge ability expansion, consider whether some of the balancing rework can go into that, or into this, depending on the vibes
   - Balancing pass
-  - Win/Lose graphics
-  - Pause menu revamp / improvements
-  - Minion revamp
-    - Give them an actual model/animations
-    - Spawn in the place of the enemy they came from
-  - Localisation Ready
-    - Move all strings into loc
-    - Fix issue with loc in boot scene
-  - Fullscreen option in settings
-  - UI Scaling
 - [ ] v0.1.4 - Tutorial
   - Tutorial level/mode, simple waves with instructions guiding the player through
   - On first boot, offer the player a popup to optionally skip the tutorial (which would otherwise launch on first boot), as well as modify their settings (particularly the controller display preference)
@@ -58,8 +53,14 @@
   - Shaders
   - Post processing
   - Model and animation fixes / reworks
+  - Minion revamp
+    - Give them an actual model/animations
+  - Spawn animations
   - Audio rework
+  - Win/Lose graphics
+  - Pause menu revamp / improvements
   - Includes character customisation, in preparation for multiplayer
+  - Itch.io page design/upgrade :grimace:
 
 - [ ] v0.5.0 - More Fun Together
   - Co-op mode (local or online? maybe both?)
