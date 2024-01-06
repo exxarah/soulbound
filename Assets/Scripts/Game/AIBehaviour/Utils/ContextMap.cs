@@ -15,12 +15,12 @@ namespace Game.AIBehaviour.Utils
             m_directionWeights.Fill(0.5f);
         }
 
-        public void Influence(Vector2 direction, float influenceAngleSize = 180.0f)
+        public void Influence(Vector2 direction, float influenceAngleSize = 180.0f, float influenceMin = 0.0f, float influenceMax = 1.0f)
         {
-            Influence(direction, AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f), influenceAngleSize);
+            Influence(direction, AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f), influenceAngleSize, influenceMin, influenceMax);
         }
 
-        public void Influence(Vector2 direction, AnimationCurve curveFunction, float influenceAngleSize = 180.0f)
+        public void Influence(Vector2 direction, AnimationCurve curveFunction, float influenceAngleSize = 180.0f, float influenceMin = 0.0f, float influenceMax = 1.0f)
         {
             // Combine the weights with the current weights, based on the curve and the angle size
             for (int i = 0; i < m_segments; i++)
@@ -32,12 +32,12 @@ namespace Game.AIBehaviour.Utils
                 float angle = Vector2.Angle(direction, segmentDirection);
 
                 // Calculate the influencing weight for this segment
-                float weight = 0.0f;
+                float weight = influenceMin;
                 if (angle <= influenceAngleSize / 2.0f)
                 {
                     // inverted because smaller angle = better
                     float curvePosition = 1.0f - (angle / (influenceAngleSize / 2.0f));
-                    weight = curveFunction.Evaluate(curvePosition);
+                    weight = influenceMin + curveFunction.Evaluate(curvePosition) * (influenceMax - influenceMin);
                 }
 
                 // Average the influencing weight and the stored weight
@@ -45,7 +45,7 @@ namespace Game.AIBehaviour.Utils
             }
         }
 
-        private Vector2 GetDirection(int idx)
+        public Vector2 GetDirection(int idx)
         {
             float angle = (360.0f / m_segments) * idx;
             Vector3 rotation = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward;

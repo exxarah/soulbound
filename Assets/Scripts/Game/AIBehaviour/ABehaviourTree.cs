@@ -29,7 +29,7 @@ namespace Game.AIBehaviour
             m_root = SetupTree();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (m_root == null) { return; }
             if (m_controlledEntity.HealthComponent != null && m_controlledEntity.HealthComponent.IsDead) { return; }

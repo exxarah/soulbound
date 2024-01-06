@@ -11,6 +11,8 @@ namespace Game.AIBehaviour.Tasks
         private FrameInputData m_inputData;
         private Func<Transform> m_targetFunc;
 
+        private Vector2 m_lastDirection;
+
         public TaskGoToTarget(ABehaviourTree tree, Func<Transform> targetFunc = null) : base(tree)
         {
             m_inputData = new FrameInputData();
@@ -66,16 +68,39 @@ namespace Game.AIBehaviour.Tasks
         private Vector2 GetSteeredDirection(Vector2 directionToTarget)
         {
             const int steeringCastCount = 8;
-            const float steeringCastLength = 3.0f;
+            const float steeringCastLength = 1.0f;
 
-            var map = new ContextMap(steeringCastCount);
+            ContextMap map = new ContextMap(steeringCastCount);
             map.Influence(directionToTarget);
             
-            // TODO: Do collision checks and apply influence based on it
+            // Do collision checks and apply influence based on it
+            RaycastHit[] results = new RaycastHit[2];
+            for (int i = 0; i < steeringCastCount; i++)
+            {
+                Vector2 segmentDir = map.GetDirection(i);
+                if (Physics.RaycastNonAlloc(Tree.ControlledEntity.Rigidbody.position, new Vector3(segmentDir.x, 0.0f, segmentDir.y), results, steeringCastLength) > 0)
+                {
+                    // A collision detected. Weight against it
+                    map.Influence(segmentDir, AnimationCurve.EaseInOut(0.0f, 0.0f, 1.0f, 1.0f), 360.0f, 1.0f, -1.0f);
+                }
+            }
             
-            // TODO: Smoothing between this and last direction
+            // Smoothing between this and last direction
+            Vector2 direction = map.GetDirection();
+            if (direction != m_lastDirection)
+            {
+                if (m_lastDirection != Vector2.zero && Vector2.Angle(direction, m_lastDirection) <= 1.0f)
+                {
+                    direction = m_lastDirection;
+                }
+                else
+                {
+                    direction = Vector2.Lerp(m_lastDirection, direction, 0.1f);   
+                }
+                m_lastDirection = direction;
+            }
 
-            return map.GetDirection();
+            return direction;
         }
     }
 }
