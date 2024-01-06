@@ -82,11 +82,6 @@ namespace Game.AIBehaviour.Tasks
                                               (target.position - Tree.ControlledEntity.Rigidbody.transform.position)
                                              .normalized, Tree.LookSpeed * Time.deltaTime);
                 Tree.ControlledEntity.Rigidbody.transform.LookAt(Tree.ControlledEntity.Rigidbody.position + lookAt, Vector3.up);
-                // Quaternion targetLookRotation =
-                //     Quaternion.FromToRotation(Tree.ControlledEntity.Rigidbody.transform.forward,
-                //                               (target.position - Tree.ControlledEntity.Rigidbody.transform.position)
-                //                              .normalized);
-                // Tree.ControlledEntity.Rigidbody.rotation = Quaternion.Lerp(Tree.ControlledEntity.Rigidbody.rotation, targetLookRotation, 10.0f * Time.deltaTime);
                 
                 if (m_secondsSinceStart >= m_telegraphSeconds)
                 {
