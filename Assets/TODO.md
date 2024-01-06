@@ -35,6 +35,7 @@
     - Move all strings into loc
     - Fix issue with loc in boot scene
   - Fullscreen option in settings
+  - UI Scaling
 - [ ] v0.1.4 - Tutorial
   - Tutorial level/mode, simple waves with instructions guiding the player through
   - On first boot, offer the player a popup to optionally skip the tutorial (which would otherwise launch on first boot), as well as modify their settings (particularly the controller display preference)
