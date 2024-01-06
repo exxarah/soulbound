@@ -10,6 +10,10 @@ namespace Game.AIBehaviour
         public Entity.Entity ControlledEntity => m_controlledEntity;
 
         [SerializeField]
+        private float m_lookSpeed = 4.0f;
+        public float LookSpeed => m_lookSpeed;
+
+        [SerializeField]
         private float m_fovRange = 10.0f;
         public float FOVRange => m_fovRange;
 

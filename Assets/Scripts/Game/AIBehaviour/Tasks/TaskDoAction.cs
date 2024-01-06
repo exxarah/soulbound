@@ -77,7 +77,16 @@ namespace Game.AIBehaviour.Tasks
                 
                 // Turn to face player
                 Transform target = (Transform)GetData("target");
-                Tree.ControlledEntity.Rigidbody.transform.LookAt(target, Vector3.up);
+
+                Vector3 lookAt = Vector3.Lerp(Tree.ControlledEntity.Rigidbody.transform.forward,
+                                              (target.position - Tree.ControlledEntity.Rigidbody.transform.position)
+                                             .normalized, Tree.LookSpeed * Time.deltaTime);
+                Tree.ControlledEntity.Rigidbody.transform.LookAt(Tree.ControlledEntity.Rigidbody.position + lookAt, Vector3.up);
+                // Quaternion targetLookRotation =
+                //     Quaternion.FromToRotation(Tree.ControlledEntity.Rigidbody.transform.forward,
+                //                               (target.position - Tree.ControlledEntity.Rigidbody.transform.position)
+                //                              .normalized);
+                // Tree.ControlledEntity.Rigidbody.rotation = Quaternion.Lerp(Tree.ControlledEntity.Rigidbody.rotation, targetLookRotation, 10.0f * Time.deltaTime);
                 
                 if (m_secondsSinceStart >= m_telegraphSeconds)
                 {

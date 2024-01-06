@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_controlledEntity: {fileID: 7274298049040603976}
+  m_lookSpeed: 2
   m_fovRange: 100
   m_minAbilityRangeTarget: 0.7
   m_maxAbilityRangeTarget: 0.4
