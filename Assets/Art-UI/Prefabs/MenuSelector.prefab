@@ -144,7 +144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7314832704618655376}
-  - component: {fileID: 3142293906871193006}
+  - component: {fileID: 7813895890102235500}
   m_Layer: 0
   m_Name: MenuSelector
   m_TagString: Untagged
@@ -175,7 +175,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3142293906871193006
+--- !u!114 &7813895890102235500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,11 +184,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1260328343652786042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80e15d8e561c4110b520f76ad79aa908, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e0ac0cf7447402ba2e3e2242d535769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -216,8 +216,10 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 7884022988840966854}
-  m_optionParent: {fileID: 4148156930722868768}
-  m_optionTemplate: {fileID: 3801428646860411857}
+  m_optionText: {fileID: 3801428646860411857}
+  OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1952362480284832329
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,7 +740,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3142293906871193006}
+      objectReference: {fileID: 7813895890102235500}
     - target: {fileID: 6850576700499996474, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -767,7 +769,7 @@ PrefabInstance:
     - target: {fileID: 6850576700499996474, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Game.UI.Menus.ControlsSelector, Assembly-CSharp
+      value: Core.Unity.UI.Selector, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6850576700499996474, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
         type: 3}
@@ -970,7 +972,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3142293906871193006}
+      objectReference: {fileID: 7813895890102235500}
     - target: {fileID: 6850576700499996474, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -999,7 +1001,7 @@ PrefabInstance:
     - target: {fileID: 6850576700499996474, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Game.UI.Menus.ControlsSelector, Assembly-CSharp
+      value: Core.Unity.UI.Selector, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6850576700499996474, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
         type: 3}

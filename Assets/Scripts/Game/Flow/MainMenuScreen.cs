@@ -7,7 +7,7 @@ using Game.Audio;
 using Game.Input;
 using UnityEngine;
 using UnityEngine.UI;
-using Screen = Core.Unity.Flow.Screen;
+using Screen = UnityEngine.Screen;
 
 #if UNITY_EDITOR
 using UnityEditor;
