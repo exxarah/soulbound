@@ -12,6 +12,6 @@ namespace Game.Combat.Effects
         private Enums.EffectTarget m_target = Enums.EffectTarget.Target;
         public Enums.EffectTarget Target => m_target;
         
-        public abstract void ApplyToTarget(Transform target, GameObject caster);
+        public abstract void ApplyToTarget(Transform targetTransform, GameObject caster);
     }
 }

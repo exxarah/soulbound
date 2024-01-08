@@ -13,11 +13,11 @@ namespace Game.Combat.Effects
         [SerializeField]
         private float m_secondsTillDeath = 1.0f;
 
-        public override void ApplyToTarget(Transform target, GameObject caster)
+        public override void ApplyToTarget(Transform targetTransform, GameObject caster)
         {
-            GameObject effect = Instantiate(m_effectPrefab, target);
+            GameObject effect = Instantiate(m_effectPrefab, targetTransform);
             effect.layer = LayerMask.NameToLayer(Layers.EFFECTS);
-            effect.transform.position = target.position;
+            effect.transform.position = targetTransform.position;
             
             // Add effect killer component
             TimedDestroyComponent component = effect.AddComponent<TimedDestroyComponent>();

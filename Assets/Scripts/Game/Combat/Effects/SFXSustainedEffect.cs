@@ -19,7 +19,7 @@ namespace Game.Combat.Effects
         [SerializeField]
         private float m_maxTimeBetweenTriggers = 0.5f;
         
-        public override void ApplyToTarget(Transform target, GameObject caster)
+        public override void ApplyToTarget(Transform targetTransform, GameObject caster)
         {
             TriggerSFX().Forget();
         }

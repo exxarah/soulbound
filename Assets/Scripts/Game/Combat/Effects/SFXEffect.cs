@@ -12,7 +12,7 @@ namespace Game.Combat.Effects
         [SerializeField]
         private AudioClip m_audioClip = null;
         
-        public override void ApplyToTarget(Transform transform, GameObject caster)
+        public override void ApplyToTarget(Transform targetTransform, GameObject caster)
         {
             if (m_sfxKey != SFXAudioDatabase.SFXKey.None)
             {

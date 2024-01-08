@@ -17,9 +17,9 @@ namespace Game.Combat.Effects
         [SerializeField]
         private float m_effectTime = 0.4f;
 
-        public override void ApplyToTarget(Transform target, GameObject caster)
+        public override void ApplyToTarget(Transform targetTransform, GameObject caster)
         {
-            if (target.TryGetComponent(out Entity.Entity entity))
+            if (targetTransform.TryGetComponent(out Entity.Entity entity))
             {
                 entity.Stats.ApplyStatEffect(m_stat, m_effectTime, m_percentageChange);
             }

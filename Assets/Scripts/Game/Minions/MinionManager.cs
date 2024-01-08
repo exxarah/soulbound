@@ -53,12 +53,13 @@ namespace Game.Minions
 
 #endregion
 
-        public void CreateMinion(Enums.CharmType charmType, int amountOfCharms, Transform creator)
+        public void CreateMinion(Enums.CharmType charmType, int amountOfCharms, Transform source, Transform creator)
         {
             GameContext.Instance.GameState.MinionsEarned += amountOfCharms;
             for (int i = 0; i < amountOfCharms; i++)
             {
                 Pool.Get(out Minion minion);
+                minion.transform.position = source.position;
                 minion.Initialise(charmType, creator);
 
                 if (!m_activeMinions.ContainsKey(charmType))
