@@ -18,7 +18,6 @@
 - [ ] v0.1.3 - Small Improvements
   - [X] Minions spawn in the place of the enemy they came from
   - [X] Fullscreen option in settings
-  - [ ] UI Scaling
   - [ ] Localisation Ready
     - Move all strings into loc
     - Fix issue with loc in boot scene

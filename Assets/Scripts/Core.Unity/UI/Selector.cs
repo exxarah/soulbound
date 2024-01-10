@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Core.Unity.Localisation;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,7 +10,7 @@ namespace Core.Unity.UI
     public class Selector : Selectable
     {
         [SerializeField]
-        private TMP_Text m_optionText = null;
+        private LocaliseText m_optionText = null;
 
         private List<string> m_options = new List<string>();
         private int m_currentIndex = 0;
@@ -27,7 +28,7 @@ namespace Core.Unity.UI
         {
             if (m_currentIndex < m_options.Count)
             {
-                m_optionText.text = m_options[m_currentIndex];
+                m_optionText.SetKey(m_options[m_currentIndex]);
             }
         }
 

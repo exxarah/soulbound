@@ -16,7 +16,12 @@ namespace Core.Unity.Localisation.Editor
             if (GUILayout.Button(new GUIContent("Find String"), EditorStyles.popup))
                 SearchWindow.Open(new SearchWindowContext(GUIUtility.GUIToScreenPoint(Event.current.mousePosition)),
                                   LocalisationManager.Instance.GetLanguageData()
-                                                     .GetSearchProvider(x => text.SetKey(x)));
+                                                     .GetSearchProvider(x =>
+                                                      {
+                                                          text.SetKey(x);
+                                                          EditorUtility.SetDirty(target);
+                                                          serializedObject.ApplyModifiedProperties();
+                                                      }));
 
             serializedObject.ApplyModifiedProperties();
         }

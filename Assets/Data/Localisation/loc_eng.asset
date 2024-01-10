@@ -19,6 +19,34 @@ MonoBehaviour:
       Value: '{0}/{1}'
     - Key: core.stub
       Value: '{0}'
+    - Key: core.back
+      Value: Back
     - Key: game.title
       Value: Soulbound
+    - Key: settings.music_volume
+      Value: Music Volume
+    - Key: settings.sfx_volume
+      Value: SFX Volume
+    - Key: settings.controls_display
+      Value: Controls Display
+    - Key: settings.window_mode
+      Value: Window Mode
+    - Key: settings.controls.kbm
+      Value: KB / Mouse
+    - Key: settings.controls.xbox
+      Value: Xbox
+    - Key: settings.window.windowed
+      Value: Windowed
+    - Key: settings.window.borderless
+      Value: Borderless
+    - Key: settings.window.fullscreen
+      Value: Fullscreen
+    - Key: button.play
+      Value: Play
+    - Key: button.settings
+      Value: Settings
+    - Key: button.credits
+      Value: Credits
+    - Key: button.quit
+      Value: Quit
     keyCollision: 0
