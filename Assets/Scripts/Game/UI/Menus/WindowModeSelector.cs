@@ -59,9 +59,36 @@ namespace Game.UI.Menus
 
         public void OnSelectedChanged(int selectedIndex)
         {
-            if (Enum.TryParse(m_options[selectedIndex], out FullScreenMode value))
+            Enum.TryParse(m_options[selectedIndex], out FullScreenMode value);
+            Resolution currentResolution = Screen.currentResolution;
+            switch (value)
             {
-                Screen.fullScreenMode = value;
+                case FullScreenMode.Windowed:
+                {
+                    DisplayInfo windowInfo = Screen.mainWindowDisplayInfo;
+                    const int windowWidth = 1280;
+                    const int windowHeight = 720;
+                    Screen.SetResolution(windowWidth, windowHeight, FullScreenMode.Windowed);
+                    Screen.MoveMainWindowTo(in windowInfo, new Vector2Int(windowInfo.width / 2 - windowWidth / 2, windowInfo.height / 2 - windowHeight / 2));
+                    break;
+                }
+                case FullScreenMode.ExclusiveFullScreen:
+                {
+                    Screen.SetResolution(currentResolution.width, currentResolution.height, FullScreenMode.ExclusiveFullScreen);
+                    break;
+                }
+                case FullScreenMode.FullScreenWindow:
+                {
+                    Screen.SetResolution(currentResolution.width, currentResolution.height, FullScreenMode.FullScreenWindow);
+                    break;
+                }
+                case FullScreenMode.MaximizedWindow:
+                {
+                    Screen.SetResolution(currentResolution.width, currentResolution.height, FullScreenMode.MaximizedWindow);
+                    break;
+                }
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
