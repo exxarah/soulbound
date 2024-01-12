@@ -33,7 +33,7 @@ namespace Core.Unity.Localisation
                 return true;
             }
 
-            translatedString = String.Empty;
+            translatedString = key;
             return false;
         }
     }
@@ -43,6 +43,11 @@ namespace Core.Unity.Localisation
     public partial class LanguageData
     {
         private Action<string> onSetIndexCallback;
+
+        public void SetString(string key, string translated)
+        {
+            m_strings[key] = translated;
+        }
 
         public LocalisationSearchProvider GetSearchProvider(Action<string> onSelected)
         {
