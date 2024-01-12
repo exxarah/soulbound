@@ -19,6 +19,8 @@ namespace Core.Unity.Localisation
 
         public Action<SystemLanguage> OnLanguageChanged;
 
+        public bool DebugTextEnabled = true;
+
         private LocalisationManager()
         {
             LanguageData[] data = Array.Empty<LanguageData>();
@@ -42,6 +44,13 @@ namespace Core.Unity.Localisation
 
         public string LocaliseString(string key)
         {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            if (DebugTextEnabled)
+            {
+                return "######";
+            }      
+#endif
+            
             LanguageData data;
             if (!m_stringData.TryGetValue(m_currentLanguage, out data))
                 if (!m_stringData.TryGetValue(m_defaultLanguage, out data))

@@ -21,8 +21,8 @@ MonoBehaviour:
       Value: '{0}'
     - Key: core.back
       Value: Back
-    - Key: game.title
-      Value: Soulbound
+    - Key: core.loading
+      Value: Loading...
     - Key: settings.music_volume
       Value: Music Volume
     - Key: settings.sfx_volume
@@ -49,4 +49,8 @@ MonoBehaviour:
       Value: Credits
     - Key: button.quit
       Value: Quit
+    - Key: game.title
+      Value: Soulbound
+    - Key: game.paused
+      Value: Paused
     keyCollision: 0

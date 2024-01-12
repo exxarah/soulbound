@@ -13,6 +13,18 @@ namespace Core.Unity.Localisation
         private void OnEnable()
         {
             Refresh();
+
+            LocalisationManager.Instance.OnLanguageChanged += OnLanguageChanged;
+        }
+
+        private void OnDisable()
+        {
+            LocalisationManager.Instance.OnLanguageChanged -= OnLanguageChanged;
+        }
+
+        private void OnLanguageChanged(SystemLanguage newLanguage)
+        {
+            Refresh();
         }
 
         public void SetKey(string newKey)
