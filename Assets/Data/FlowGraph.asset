@@ -41,24 +41,11 @@ MonoBehaviour:
     m_unloadOnExit: 1
     m_isPopup: 0
     m_triggers:
-    - m_trigger: GameWon
-      m_targetState: GameWonScene
-    - m_trigger: GameLost
-      m_targetState: GameLostScene
+    - m_trigger: GameEnded
+      m_targetState: GameEndedScene
     - m_trigger: Pause
       m_targetState: PausePopup
-  - m_stateName: GameWonScene
-    m_scene:
-      asset: {fileID: 102900000, guid: ffa9d30d63566b548bc4d223c938f0f0, type: 3}
-      guid: ffa9d30d63566b548bc4d223c938f0f0
-    m_unloadOnExit: 1
-    m_isPopup: 0
-    m_triggers:
-    - m_trigger: GoToMenu
-      m_targetState: MainMenuScene
-    - m_trigger: BeginGame
-      m_targetState: ToyScene
-  - m_stateName: GameLostScene
+  - m_stateName: GameEndedScene
     m_scene:
       asset: {fileID: 102900000, guid: dae3f5594b243d74e9a61ba4035d7e6b, type: 3}
       guid: dae3f5594b243d74e9a61ba4035d7e6b

@@ -1,8 +1,7 @@
 {
   "7a243d15b26ac1941a6f52609b56cc7a": "Assets/Scenes/BootScene.unity",
   "deefd0cbbaa870745b8bcd9f82862b3d": "Assets/Scenes/DebugPopup.unity",
-  "dae3f5594b243d74e9a61ba4035d7e6b": "Assets/Scenes/GameLostScene.unity",
-  "ffa9d30d63566b548bc4d223c938f0f0": "Assets/Scenes/GameWonScene.unity",
+  "dae3f5594b243d74e9a61ba4035d7e6b": "Assets/Scenes/GameEndedScene.unity",
   "17e82bd633acbf6448186b4bc4e6459d": "Assets/Scenes/LoadingScene.unity",
   "ddd652ad71b6eb74b8a83e42eb2de5b5": "Assets/Scenes/MainMenuScene.unity",
   "6b3df72749b1d404998bc6e11b426cf5": "Assets/Scenes/PausePopup.unity",

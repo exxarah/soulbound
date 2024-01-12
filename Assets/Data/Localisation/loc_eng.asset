@@ -49,8 +49,28 @@ MonoBehaviour:
       Value: Credits
     - Key: button.quit
       Value: Quit
+    - Key: button.menu
+      Value: Menu
+    - Key: button.replay
+      Value: Replay
     - Key: game.title
       Value: Soulbound
     - Key: game.paused
       Value: Paused
+    - Key: results.damage
+      Value: 'Damage Taken:'
+    - Key: results.charmed
+      Value: 'Enemies Charmed:'
+    - Key: results.attack
+      Value: 'Damage Given:'
+    - Key: results.charms_used
+      Value: 'Charms Spent:'
+    - Key: results.score
+      Value: 'Final Score:'
+    - Key: results.time
+      Value: 'Final Time:'
+    - Key: results.lose
+      Value: You Died :(
+    - Key: results.win
+      Value: You Win! :)
     keyCollision: 0

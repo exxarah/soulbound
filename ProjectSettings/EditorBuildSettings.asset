@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: 17e82bd633acbf6448186b4bc4e6459d
   - enabled: 1
-    path: Assets/Scenes/GameLostScene.unity
+    path: Assets/Scenes/GameEndedScene.unity
     guid: dae3f5594b243d74e9a61ba4035d7e6b
   - enabled: 1
     path: Assets/Scenes/GameWonScene.unity

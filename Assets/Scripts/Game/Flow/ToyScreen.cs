@@ -43,11 +43,11 @@ namespace Game.Flow
         {
             if (GameContext.Instance.GameState.IsWon)
             {
-                FlowManager.Instance.Trigger("GameWon", LoadingScreens.DEFAULT);
+                FlowManager.Instance.Trigger("GameEnded", LoadingScreens.DEFAULT, new GameEndedScreen.GameEndedParams{Won = true});
             }
             else
             {
-                FlowManager.Instance.Trigger("GameLost", LoadingScreens.DEFAULT);
+                FlowManager.Instance.Trigger("GameLost", LoadingScreens.DEFAULT, new GameEndedScreen.GameEndedParams{Won = false});
             }
         }
 
