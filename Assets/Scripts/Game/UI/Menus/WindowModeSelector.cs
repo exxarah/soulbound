@@ -11,57 +11,61 @@ namespace Game.UI.Menus
     {
         [SerializeField]
         private Selector m_selector = null;
-        
-        private List<string> m_options = new List<string>();
+
+        private List<FullScreenMode> m_optionModes = new List<FullScreenMode>();
 
         private void Start()
         {
+            List<string> strings = new List<string>();
             int selectedIndex = 0;
 
-            m_options.Add(FullScreenMode.FullScreenWindow.ToString());
+            m_optionModes.Add(FullScreenMode.FullScreenWindow);
+            strings.Add("settings.window.borderless");
             if (Screen.fullScreenMode == FullScreenMode.FullScreenWindow)
             {
-                selectedIndex = m_options.Count - 1;
+                selectedIndex = m_optionModes.Count - 1;
             }
 
 #if UNITY_STANDALONE_WIN
-            m_options.Add(FullScreenMode.ExclusiveFullScreen.ToString());
+            m_optionModes.Add(FullScreenMode.ExclusiveFullScreen);
+            strings.Add("settings.window.fullscreen");
             if (Screen.fullScreenMode == FullScreenMode.ExclusiveFullScreen)
             {
-                selectedIndex = m_options.Count - 1;
+                selectedIndex = m_optionModes.Count - 1;
             }
 #endif
 
 #if UNITY_STANDALONE_OSX
-            m_options.Add(FullScreenMode.MaximizedWindow.ToString());
+            m_optionModes.Add(FullScreenMode.MaximizedWindow);
+            m_options.Add("settings.window.borderless");
             if (Screen.fullScreenMode == FullScreenMode.MaximizedWindow)
             {
-                selectedIndex = m_options.Count - 1;
+                selectedIndex = m_optionModes.Count - 1;
             }
 #endif
 
 #if UNITY_STANDALONE
-            m_options.Add(FullScreenMode.Windowed.ToString());
+            m_optionModes.Add(FullScreenMode.Windowed);
+            strings.Add("settings.window.windowed");
             if (Screen.fullScreenMode == FullScreenMode.Windowed)
             {
-                selectedIndex = m_options.Count - 1;
+                selectedIndex = m_optionModes.Count - 1;
             }
 #endif
 
-            if (m_options.Count <= 1)
+            if (strings.Count <= 1)
             {
                 gameObject.SetActiveSafe(false);
                 return;
             }
-            m_selector.Populate(m_options);
+            m_selector.Populate(strings);
             m_selector.SetIndex(selectedIndex);
         }
 
         public void OnSelectedChanged(int selectedIndex)
         {
-            Enum.TryParse(m_options[selectedIndex], out FullScreenMode value);
             Resolution currentResolution = Screen.currentResolution;
-            switch (value)
+            switch (m_optionModes[selectedIndex])
             {
                 case FullScreenMode.Windowed:
                 {

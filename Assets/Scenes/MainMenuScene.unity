@@ -1096,6 +1096,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuSelector - Language
       objectReference: {fileID: 0}
+    - target: {fileID: 1260328343652786042, guid: 3543771faa4529346a7e36541dcd1c92,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2554393406244605970, guid: 3543771faa4529346a7e36541dcd1c92,
         type: 3}
       propertyPath: m_text
@@ -1154,7 +1159,7 @@ PrefabInstance:
     - target: {fileID: 7314832704618655376, guid: 3543771faa4529346a7e36541dcd1c92,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7314832704618655376, guid: 3543771faa4529346a7e36541dcd1c92,
         type: 3}
@@ -1164,7 +1169,7 @@ PrefabInstance:
     - target: {fileID: 7314832704618655376, guid: 3543771faa4529346a7e36541dcd1c92,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7314832704618655376, guid: 3543771faa4529346a7e36541dcd1c92,
         type: 3}
@@ -1214,12 +1219,12 @@ PrefabInstance:
     - target: {fileID: 7314832704618655376, guid: 3543771faa4529346a7e36541dcd1c92,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 7314832704618655376, guid: 3543771faa4529346a7e36541dcd1c92,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -642.5
       objectReference: {fileID: 0}
     - target: {fileID: 7314832704618655376, guid: 3543771faa4529346a7e36541dcd1c92,
         type: 3}
@@ -1636,7 +1641,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Soulbound
+  m_text: "Soulbound\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 55d88cf934de9d74489beb9bda6c36b3, type: 2}
   m_sharedMaterial: {fileID: -7162869187553519555, guid: 55d88cf934de9d74489beb9bda6c36b3,
