@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Core.Extensions;
 using Core.Unity.Utils;
 using UnityEngine;
 
@@ -46,7 +47,7 @@ namespace Core.Unity.Localisation
 
         public void SetString(string key, string translated)
         {
-            m_strings[key] = translated;
+            m_strings[key.ToLowerInvariant().Strip()] = translated.Strip();
         }
 
         public LocalisationSearchProvider GetSearchProvider(Action<string> onSelected)

@@ -63,7 +63,7 @@ namespace Core.Unity.Localisation.Editor
 
                 string[] currentRow = rows[idx].Split(',');
                 int rowLength = Math.Min(currentRow.Length, columns.Length);
-                for (int i = 0; i < rowLength; i++)
+                for (int i = 1; i < rowLength; i++)
                 {
                     if (languages.TryGetValue(columns[i], out LanguageData language))
                     {
@@ -77,11 +77,17 @@ namespace Core.Unity.Localisation.Editor
                                              $"Validating strings from GoogleSheets",
                                              progress: 0.85f);
             bool valid = IsDataValid();
+            foreach (KeyValuePair<string,LanguageData> language in languages)
+            {
+                EditorUtility.SetDirty(language.Value);
+            }
+            
             EditorUtility.ClearProgressBar();
 
             EditorUtility.DisplayDialog("Importing Database",
                                         $"Importing strings finished with result: {(valid ? "SUCCESS" : "FAIL")}",
                                         "ok");
+            
         }
 
         private static bool IsDataValid()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Core.Extensions;
 using Game;
 using UnityEngine;
 
@@ -65,8 +66,16 @@ namespace Core.Unity.Localisation
 
         public LanguageData GetLanguageData(string language)
         {
-            language = language.ToLowerInvariant();
-            return GetLanguageData(StringToLanguage(language));
+            language = language.ToLowerInvariant().Strip();
+            try
+            {
+                return GetLanguageData(StringToLanguage(language));
+            }
+            // Not a valid language
+            catch (ArgumentOutOfRangeException e)
+            {
+                return null;
+            }
         }
 
         public LanguageData GetLanguageData(SystemLanguage language)

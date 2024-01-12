@@ -73,4 +73,8 @@ MonoBehaviour:
       Value: You Died :(
     - Key: results.win
       Value: You Win! :)
+    - Key: settings.language
+      Value: Language
+    - Key: settings.language.eng
+      Value: English
     keyCollision: 0
