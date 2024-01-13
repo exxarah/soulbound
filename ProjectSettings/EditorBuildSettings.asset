@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/GameEndedScene.unity
     guid: dae3f5594b243d74e9a61ba4035d7e6b
   - enabled: 1
-    path: Assets/Scenes/GameWonScene.unity
-    guid: ffa9d30d63566b548bc4d223c938f0f0
-  - enabled: 1
     path: Assets/Scenes/PausePopup.unity
     guid: 6b3df72749b1d404998bc6e11b426cf5
   - enabled: 1

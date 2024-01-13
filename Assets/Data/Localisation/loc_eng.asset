@@ -77,4 +77,6 @@ MonoBehaviour:
       Value: Language
     - Key: settings.language.eng
       Value: English
+    - Key: button.resume
+      Value: Resume
     keyCollision: 0

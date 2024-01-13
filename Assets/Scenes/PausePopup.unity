@@ -131,6 +131,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 199262643}
     m_Modifications:
+    - target: {fileID: 591648618900893311, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
+        type: 3}
+      propertyPath: m_localisationKey
+      value: button.quit
+      objectReference: {fileID: 0}
     - target: {fileID: 967391383056098549, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
         type: 3}
       propertyPath: m_text
@@ -471,7 +476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '######'
+  m_text: Paused
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 55d88cf934de9d74489beb9bda6c36b3, type: 2}
   m_sharedMaterial: {fileID: -7162869187553519555, guid: 55d88cf934de9d74489beb9bda6c36b3,
@@ -571,6 +576,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 199262643}
     m_Modifications:
+    - target: {fileID: 591648618900893311, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
+        type: 3}
+      propertyPath: m_localisationKey
+      value: button.resume
+      objectReference: {fileID: 0}
     - target: {fileID: 967391383056098549, guid: b2d4c8e18fbc40141a4c9858d42f20c7,
         type: 3}
       propertyPath: m_text
