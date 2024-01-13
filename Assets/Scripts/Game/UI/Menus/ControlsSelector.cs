@@ -11,7 +11,7 @@ namespace Game.UI.Menus
         [SerializeField]
         private Selector m_selector = null;
 
-        private List<string> m_options = new List<string>();
+        private List<InputManager.PreferredControls> m_options = new();
 
         private void Start()
         {
@@ -21,26 +21,30 @@ namespace Game.UI.Menus
                 return;
             }
 #endif
-            int index = 0;
+            List<string> strings = new List<string>();
             int selectedIndex = 0;
-            foreach (string option in Enum.GetNames(typeof(InputManager.PreferredControls)))
+
+            m_options.Add(InputManager.PreferredControls.KeyboardMouse);
+            strings.Add("settings.controls.kbm");
+            if (InputManager.PreferredControls.KeyboardMouse == GameContext.Instance.InputManager.PreferredControl)
             {
-                if (option == GameContext.Instance.InputManager.PreferredControl.ToString())
-                {
-                    selectedIndex = index;
-                }
-                m_options.Add(option);
-                index++;
+                selectedIndex = m_options.Count - 1;
             }
             
-            m_selector.Populate(m_options);
+            m_options.Add(InputManager.PreferredControls.ControllerXbox);
+            strings.Add("settings.controls.xbox");
+            if (InputManager.PreferredControls.ControllerXbox == GameContext.Instance.InputManager.PreferredControl)
+            {
+                selectedIndex = m_options.Count - 1;
+            }
+            
+            m_selector.Populate(strings);
             m_selector.SetIndex(selectedIndex);
         }
 
         public void OnSelectedChanged(int selectedIndex)
         {
-            GameContext.Instance.InputManager
-                       .SetPreferredControls(Enum.Parse<InputManager.PreferredControls>(m_options[selectedIndex]));
+            GameContext.Instance.InputManager.SetPreferredControls(m_options[selectedIndex]);
         }
     }
 }

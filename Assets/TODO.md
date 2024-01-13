@@ -18,10 +18,9 @@
 - [ ] v0.1.3 - Small Improvements
   - [X] Minions spawn in the place of the enemy they came from
   - [X] Fullscreen option in settings
-  - [ ] Localisation Ready
+  - [X] Localisation Ready
     - Move all strings into loc
     - Fix issue with loc in boot scene
-    - Some translations??
   - [ ] Balancing structure rework
     - Entities currently have some data (eg, health) defined in prefabs? Seems like a hacky solution from the game jam. pls fix
     - Reconsider how enemy definitions work

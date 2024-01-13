@@ -12,8 +12,8 @@ namespace Game.Input
         [Serializable]
         public enum PreferredControls
         {
-            KeyboardMouse,
-            Controller,
+            KeyboardMouse = 0,
+            ControllerXbox = 1,
         }
         
         [SerializeField]
@@ -44,7 +44,7 @@ namespace Game.Input
 #endif
             
             string preferredControls = PlayerPrefs.GetString("pref_controls", m_preferredControls.ToString());
-            PreferredControl = Enum.Parse<PreferredControls>(preferredControls);
+            PreferredControl = Enum.TryParse(preferredControls, out PreferredControls preferredControl) ? preferredControl : PreferredControls.KeyboardMouse;
         }
 
         private void OnDisable()

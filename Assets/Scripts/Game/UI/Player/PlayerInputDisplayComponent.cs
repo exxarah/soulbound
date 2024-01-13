@@ -23,7 +23,7 @@ namespace Game.UI.Player
                 case InputManager.PreferredControls.KeyboardMouse:
                     m_keyboardMouseControl.SetActiveSafe(true);
                     break;
-                case InputManager.PreferredControls.Controller:
+                case InputManager.PreferredControls.ControllerXbox:
                     m_controllerControl.SetActiveSafe(true);
                     break;
                 default:
